@@ -11,9 +11,9 @@ const nodeWidthInPixels = 50;
 const nodeHeightInPixels = 50;
 
 const nodeColor = computed((): string => {
-  if (props.node.ownedByPlayerId === 1) {
+  if (props.node.currentlyOwnedByPlayerId === 1) {
     return "green";
-  } else if (props.node.ownedByPlayerId != null) {
+  } else if (props.node.currentlyOwnedByPlayerId != null) {
     return "red";
   }
 
@@ -37,7 +37,8 @@ const edgeStyle = computed((): StyleValue => {
 <template>
   <div :style="edgeStyle">
     <p>
-      {{ props.node.type }}
+      {{ props.node.type }} <br />
+      ({{ props.node.capacityUsed }})
     </p>
   </div>
 </template>
@@ -47,6 +48,7 @@ div {
   user-select: none;
   font-size: 8pt;
   display: flex;
+  text-align: center;
   justify-content: center;
   align-items: center;
   border-radius: 4px;

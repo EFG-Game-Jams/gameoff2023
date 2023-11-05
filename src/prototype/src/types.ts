@@ -20,9 +20,11 @@ export interface IGridNode {
   type: GridNodeType;
   id: number;
   position: IPosition;
-  ownedByPlayerId: null | number;
-  capacity: number;
-  production: number;
+  spawnOwnedByPlayerId: null | number;
+  currentlyOwnedByPlayerId: null | number;
+  capacityLimit: number;
+  capacityUsed: number;
+  packetProductionPerTick: number;
   appliedUpgrades: string[];
 }
 
@@ -47,11 +49,26 @@ export interface IEdge {
 
 export interface IEdgeDirectionProperties {
   enabled: boolean;
-  bandwidthInPacketsPerSecond: number;
-  latencyInSeconds: number;
-  inTransit: { packetCount: number; secondsRemaining: number }[];
+  bandwidthInPacketsPerTick: number;
+  transferLatencyInTicks: number;
+  payloads: IPacketsInTransit[];
 }
+
+export interface IPacketsInTransit {
+  playerId: number;
+  packetCount: number;
+  elapsedTicks: number;
+}
+
+export const DefaultFlowModes = [
+  "frontline",
+  "outward",
+  "overflow",
+  "none",
+] as const;
+export type DefaultFlowMode = (typeof DefaultFlowModes)[number];
 
 export interface IPlayer {
   id: number;
+  defaultFlowMode: DefaultFlowMode;
 }

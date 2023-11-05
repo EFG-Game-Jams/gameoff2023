@@ -231,14 +231,12 @@ const onCreateEdge = () => {
     gridStore.edges.some(
       (e) =>
         e.originNodeId === candidateEdge.originNodeId &&
-        e.destinationNodeId === candidateEdge.destinationNodeId &&
-        e.originToDestinationProperties.enabled
+        e.destinationNodeId === candidateEdge.destinationNodeId
     ) ||
     gridStore.edges.some(
       (e) =>
         e.originNodeId === candidateEdge.destinationNodeId &&
-        e.destinationNodeId === candidateEdge.originNodeId &&
-        e.destinationToOriginProperties.enabled
+        e.destinationNodeId === candidateEdge.originNodeId
     )
   ) {
     console.error("Edge already exists, ignoring");
@@ -259,20 +257,29 @@ const errors = computed<string[]>(() => {
   const messages = [];
 
   const servers = gridStore.nodes.filter((n) => n.type === "server");
-  if (servers.some((s) => s.ownedByPlayerId == null)) {
+  if (servers.some((s) => s.currentlyOwnedByPlayerId == null)) {
     messages.push("Server(s) lack(s) owner(s)");
+  } else if (
+    servers.some(
+      (s) => !gridStore.players.some((p) => p.id === s.currentlyOwnedByPlayerId)
+    )
+  ) {
+    messages.push("Some servers are owned by nonexisting player");
   }
-  if (servers.length < 2) {
-    messages.push("Two servers are required");
+
+  if (gridStore.players.length < 1) {
+    messages.push("One or more players are required");
   } else if (
     new Set(
       servers
-        .filter((s) => s.ownedByPlayerId != null)
-        .map((s) => s.ownedByPlayerId)
+        .filter((s) => s.currentlyOwnedByPlayerId != null)
+        .map((s) => s.currentlyOwnedByPlayerId)
     ).size < 2
   ) {
     messages.push("Two or more players are required");
   }
+
+  // TODO basic reachability graph analysis (server to nexus)
 
   return messages;
 });
@@ -362,9 +369,9 @@ const errors = computed<string[]>(() => {
         <label>
           Player ID
           <select v-model="playerIdToUse">
-            <option v-for="id in [null, 1, 2, 3, 4]" :value="id">
-              <span v-if="id == null">None</span>
-              <span v-else>{{ id }}</span>
+            <option value="null">None</option>
+            <option v-for="player in gridStore.players" :value="player.id">
+              {{ player.id }}
             </option>
           </select>
         </label>
@@ -382,7 +389,8 @@ const errors = computed<string[]>(() => {
         >
           Run
         </button>
-        <button @click="gridStore.reset()">Clear</button>
+        <button @click="gridStore.resetPlayerProgression()">Reset</button>
+        <button @click="gridStore.clear()">Clear</button>
       </template>
 
       <template v-else>

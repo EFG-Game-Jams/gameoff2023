@@ -46,6 +46,17 @@ const edgeStyle = computed((): StyleValue => {
     borderWidth: props.selected ? "1px" : "0px",
   };
 });
+
+const payloadDescriptions = computed<string[]>(() => {
+  return [
+    ...props.edge.originToDestinationProperties.payloads.map(
+      (p) => `${p.packetCount} >`
+    ),
+    ...props.edge.destinationToOriginProperties.payloads.map(
+      (p) => `< ${p.packetCount}`
+    ),
+  ];
+});
 </script>
 
 <template>
@@ -54,11 +65,16 @@ const edgeStyle = computed((): StyleValue => {
       v-if="!edge.destinationToOriginProperties.enabled"
       class="chevron right"
     ></span>
+
+    <span v-for="description in payloadDescriptions">
+      {{ description }}
+    </span>
   </div>
 </template>
 
 <style scoped>
 div.edge {
+  color: white;
   position: absolute;
   display: flex;
   justify-content: center;

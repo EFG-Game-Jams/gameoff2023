@@ -1,8 +1,16 @@
-import { EdgeType, GridNodeType, IEdge, IGridNode } from "@/types";
+import {
+  DefaultFlowMode,
+  EdgeType,
+  GridNodeType,
+  IEdge,
+  IGridNode,
+  IPlayer,
+} from "@/types";
 
-const defaultNodePacketCapacity = 100;
-const defaultEdgeBandwidthInPacketsPerSecond = 10;
-const defaultEdgeTransferLatencyInSeconds = 0.5;
+const defaultNodePacketCapacity = 1000;
+const defaultEdgeBandwidthInPacketsPerTick = 2;
+const defaultEdgeTransferLatencyInTicks = 1;
+const defaultServerPacketProductionPerTick = 10;
 
 export function createNode(
   type: GridNodeType,
@@ -11,13 +19,17 @@ export function createNode(
   y: number,
   playerId: number | null
 ): IGridNode {
+  const packetProductionPerTick =
+    type === "server" ? defaultServerPacketProductionPerTick : 0;
   return {
     type: type,
     id,
     position: { x, y },
-    ownedByPlayerId: playerId,
-    capacity: defaultNodePacketCapacity,
-    production: 0,
+    spawnOwnedByPlayerId: playerId,
+    currentlyOwnedByPlayerId: playerId,
+    capacityLimit: defaultNodePacketCapacity,
+    capacityUsed: 0,
+    packetProductionPerTick,
     appliedUpgrades: [],
   };
 }
@@ -35,15 +47,25 @@ export function createEdge(
     destinationNodeId,
     originToDestinationProperties: {
       enabled: true,
-      bandwidthInPacketsPerSecond: defaultEdgeBandwidthInPacketsPerSecond,
-      latencyInSeconds: defaultEdgeTransferLatencyInSeconds,
-      inTransit: [],
+      bandwidthInPacketsPerTick: defaultEdgeBandwidthInPacketsPerTick,
+      transferLatencyInTicks: defaultEdgeTransferLatencyInTicks,
+      payloads: [],
     },
     destinationToOriginProperties: {
       enabled: true,
-      bandwidthInPacketsPerSecond: defaultEdgeBandwidthInPacketsPerSecond,
-      latencyInSeconds: defaultEdgeTransferLatencyInSeconds,
-      inTransit: [],
+      bandwidthInPacketsPerTick: defaultEdgeBandwidthInPacketsPerTick,
+      transferLatencyInTicks: defaultEdgeTransferLatencyInTicks,
+      payloads: [],
     },
+  };
+}
+
+export function createPlayer(
+  id: number,
+  defaultFlowMode: DefaultFlowMode
+): IPlayer {
+  return {
+    id,
+    defaultFlowMode,
   };
 }
