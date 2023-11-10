@@ -18,10 +18,13 @@ public class Edge : Script
         Vector3 nodeAPosition = NodeA.Parent.Position;
         Vector3 nodeBPosition = NodeB.Parent.Position;
 
-        Parent.Scale = new Float3(1, 1, Vector3.Distance(nodeBPosition, nodeAPosition) / 100f);
+        Parent.Scale = new Float3(
+            Math.Abs(Vector3.Distance(nodeBPosition, nodeAPosition) / 100f) - 1f,
+            Parent.Scale.Y,
+            Parent.Scale.Z);
 
         Parent.Position = (nodeAPosition + nodeBPosition) / 2;
-        var angle = Mathf.RadiansToDegrees * Mathf.Atan2(nodeBPosition.X - nodeAPosition.X, nodeBPosition.Z - nodeAPosition.Z);
+        var angle = 90 + Mathf.RadiansToDegrees * Mathf.Atan2(nodeBPosition.X - nodeAPosition.X, nodeBPosition.Z - nodeAPosition.Z);
         Parent.LocalEulerAngles = new Float3(
             0,
             angle,

@@ -6,7 +6,14 @@
 	{
 		"ID": "08dbe1fb8c25eb710ec5949a5350ce1d",
 		"TypeName": "FlaxEngine.EmptyActor",
-		"Name": "Edge"
+		"Name": "Edge",
+		"Transform": {
+			"Scale": {
+				"X": 1.0,
+				"Y": 0.20000000298023225,
+				"Z": 1.0
+			}
+		}
 	},
 	{
 		"ID": "08dbe1fb8c26b4bc0ec5949a5350ce24",
@@ -22,18 +29,10 @@
 		"TypeName": "FlaxEngine.BoxCollider",
 		"ParentID": "08dbe1fb8c25eb710ec5949a5350ce1d",
 		"Name": "BoxCollider",
-		"Transform": {
-			"Orientation": {
-				"X": 0.0,
-				"Y": 0.0,
-				"Z": 0.3826834559440613,
-				"W": 0.9238795042037964
-			},
-			"Scale": {
-				"X": 0.15000000596046449,
-				"Y": 0.15000000596046449,
-				"Z": 1.0
-			}
+		"Size": {
+			"X": 100.0,
+			"Y": 10.0,
+			"Z": 100.0
 		}
 	},
 	{
@@ -41,24 +40,25 @@
 		"TypeName": "FlaxEngine.StaticModel",
 		"ParentID": "08dbe1fb8c27d9c80ec5949a5350ce26",
 		"Name": "StaticModel",
-		"Model": "b43f0f8f4aaba3f3156896a5a22ba493",
+		"Transform": {
+			"Orientation": {
+				"X": -0.7071068286895752,
+				"Y": 0.0,
+				"Z": 0.0,
+				"W": 0.7071068286895752
+			}
+		},
+		"Model": "54a1ff4a42af9f018234f7b39b1366b3",
 		"Buffer": {
 			"Entries": [
 				{
-					"Material": "08dbe1e38ce44684a59765953781947d",
+					"Material": "2b3b905e411b406a0ae183805b49fb59",
 					"ShadowsMode": 3,
 					"Visible": true,
 					"ReceiveDecals": true
 				}
 			]
 		}
-	},
-	{
-		"ID": "08dbe1fc96e4b95e28df216258505c55",
-		"TypeName": "FlaxEngine.ParticleEffect",
-		"ParentID": "08dbe1fb8c25eb710ec5949a5350ce1d",
-		"Name": "ParticleEffect",
-		"Overrides": []
 	}
 ]
 }
