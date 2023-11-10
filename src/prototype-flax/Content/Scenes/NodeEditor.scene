@@ -89,7 +89,6 @@
 			"ID": "08dbe1dd638229aa0bc3c2b3353c1f2e",
 			"TypeName": "FlaxEngine.EmptyActor",
 			"ParentID": "08dbe1dd621565e20a2e98da256873a8",
-			"IsActive": false,
 			"Name": "Nodes"
 		},
 		{
@@ -340,26 +339,6 @@
 					{}
 				]
 			}
-		},
-		{
-			"ID": "08dbe1fc99b1c5702b4a95487082e490",
-			"TypeName": "FlaxEngine.ParticleEffect",
-			"ParentID": "08dbe1f4bcff17a7664d4099be9d1fbc",
-			"Name": "ParticleEffect",
-			"Transform": {
-				"Orientation": {
-					"X": 0.0,
-					"Y": 0.0,
-					"Z": 0.3826834559440613,
-					"W": 0.9238795042037964
-				},
-				"Scale": {
-					"X": 0.15000000596046449,
-					"Y": 0.15000000596046449,
-					"Z": 1.0
-				}
-			},
-			"Overrides": []
 		}
 	]
 }
