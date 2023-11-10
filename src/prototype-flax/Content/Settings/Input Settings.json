@@ -3,7 +3,40 @@
 	"TypeName": "FlaxEditor.Content.Settings.InputSettings",
 	"EngineBuild": 6404,
 	"Data": {
-	"ActionMappings": null,
+	"ActionMappings": [
+		{
+			"Name": "Move camera left",
+			"Mode": 0,
+			"Key": 65,
+			"MouseButton": 0,
+			"GamepadButton": 3,
+			"Gamepad": 0
+		},
+		{
+			"Name": "Move camera right",
+			"Mode": 0,
+			"Key": 68,
+			"MouseButton": 0,
+			"GamepadButton": 4,
+			"Gamepad": 0
+		},
+		{
+			"Name": "Move camera up",
+			"Mode": 0,
+			"Key": 87,
+			"MouseButton": 0,
+			"GamepadButton": 1,
+			"Gamepad": 0
+		},
+		{
+			"Name": "Move camera down",
+			"Mode": 0,
+			"Key": 83,
+			"MouseButton": 0,
+			"GamepadButton": 2,
+			"Gamepad": 0
+		}
+	],
 	"AxisMappings": null
 }
 }

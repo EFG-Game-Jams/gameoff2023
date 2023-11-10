@@ -11,6 +11,7 @@ namespace Game;
 public class Player : Script
 {
     public Camera Camera;
+    public float CameraVelocity = 400f;
 
     /// <inheritdoc/>
     public override void OnStart()
@@ -50,6 +51,27 @@ public class Player : Script
                 }
             }
         }
+
+
+        Float3 inputMapping = new Float3(0, 0, 0);
+        if (Input.GetActionState("Move camera up") == InputActionState.Pressing)
+        {
+            inputMapping.Z += 1;
+        }
+        if (Input.GetActionState("Move camera down") == InputActionState.Pressing)
+        {
+            inputMapping.Z -= 1;
+        }
+        if (Input.GetActionState("Move camera left") == InputActionState.Pressing)
+        {
+            inputMapping.X -= 1;
+        }
+        if (Input.GetActionState("Move camera right") == InputActionState.Pressing)
+        {
+            inputMapping.X += 1;
+        }
+
+        Camera.Position += inputMapping * CameraVelocity * Time.DeltaTime;
         // Here you can add code that needs to be called every frame
     }
 }
