@@ -1,0 +1,64 @@
+{
+	"ID": "08dbe1fb8c29907b0ec594a75350ceaa",
+	"TypeName": "FlaxEngine.Prefab",
+	"EngineBuild": 6404,
+	"Data": [
+	{
+		"ID": "08dbe1fb8c25eb710ec5949a5350ce1d",
+		"TypeName": "FlaxEngine.EmptyActor",
+		"Name": "Edge"
+	},
+	{
+		"ID": "08dbe1fb8c26b4bc0ec5949a5350ce24",
+		"TypeName": "Game.Edge",
+		"ParentID": "08dbe1fb8c25eb710ec5949a5350ce1d",
+		"V": {
+	"NodeA": "a554ac604e7507be66579b9f9777b9f6",
+	"NodeB": "08dbe1f6d4145f0d9b6e39b6d1e6f9d2"
+}
+	},
+	{
+		"ID": "08dbe1fb8c27d9c80ec5949a5350ce26",
+		"TypeName": "FlaxEngine.BoxCollider",
+		"ParentID": "08dbe1fb8c25eb710ec5949a5350ce1d",
+		"Name": "BoxCollider",
+		"Transform": {
+			"Orientation": {
+				"X": 0.0,
+				"Y": 0.0,
+				"Z": 0.3826834559440613,
+				"W": 0.9238795042037964
+			},
+			"Scale": {
+				"X": 0.15000000596046449,
+				"Y": 0.15000000596046449,
+				"Z": 1.0
+			}
+		}
+	},
+	{
+		"ID": "08dbe1fb8c28691c0ec5949a5350ce27",
+		"TypeName": "FlaxEngine.StaticModel",
+		"ParentID": "08dbe1fb8c27d9c80ec5949a5350ce26",
+		"Name": "StaticModel",
+		"Model": "b43f0f8f4aaba3f3156896a5a22ba493",
+		"Buffer": {
+			"Entries": [
+				{
+					"Material": "08dbe1e38ce44684a59765953781947d",
+					"ShadowsMode": 3,
+					"Visible": true,
+					"ReceiveDecals": true
+				}
+			]
+		}
+	},
+	{
+		"ID": "08dbe1fc96e4b95e28df216258505c55",
+		"TypeName": "FlaxEngine.ParticleEffect",
+		"ParentID": "08dbe1fb8c25eb710ec5949a5350ce1d",
+		"Name": "ParticleEffect",
+		"Overrides": []
+	}
+]
+}
