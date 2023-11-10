@@ -1,0 +1,204 @@
+{
+	"ID": "08dbe1ee65094f5bbc79a9e81c58cff7",
+	"TypeName": "FlaxEngine.Prefab",
+	"EngineBuild": 6404,
+	"Data": [
+	{
+		"ID": "08dbe1ee64fc1bb7bc79a9cb1c58ced2",
+		"TypeName": "FlaxEngine.EmptyActor",
+		"ParentID": "00000000000000000000000000000000",
+		"Name": "Node"
+	},
+	{
+		"ID": "08dbe1ee64fdd800bc79a9cc1c58ced7",
+		"TypeName": "Game.Node",
+		"ParentID": "08dbe1ee64fc1bb7bc79a9cb1c58ced2",
+		"V": {}
+	},
+	{
+		"ID": "08dbe1ee64fe1824bc79a9cc1c58ceda",
+		"TypeName": "FlaxEngine.SphereCollider",
+		"ParentID": "08dbe1ee64fc1bb7bc79a9cb1c58ced2",
+		"Name": "SphereCollider"
+	},
+	{
+		"ID": "08dbe1ee64ff6383bc79a9cc1c58cedb",
+		"TypeName": "FlaxEngine.StaticModel",
+		"ParentID": "08dbe1ee64fe1824bc79a9cc1c58ceda",
+		"Name": "SphereModel",
+		"Model": "dd86c4724bf734c4959d23b3c74faa05",
+		"Buffer": {
+			"Entries": [
+				{
+					"Material": "387fc9404b2ba994686a499adee453c7",
+					"ShadowsMode": 3,
+					"Visible": true,
+					"ReceiveDecals": true
+				}
+			]
+		}
+	},
+	{
+		"ID": "08dbe1ee6500faebbc79a9cc1c58cedb",
+		"TypeName": "FlaxEngine.EmptyActor",
+		"ParentID": "08dbe1ee64fc1bb7bc79a9cb1c58ced2",
+		"Name": "PlayerControls",
+		"Transform": {
+			"Translation": {
+				"X": 34.0,
+				"Y": 0.0,
+				"Z": 61.84292221069336
+			},
+			"Orientation": {
+				"X": 3.090862321641907e-8,
+				"Y": 0.7071068286895752,
+				"Z": 0.7071068286895752,
+				"W": -3.090862321641907e-8
+			}
+		}
+	},
+	{
+		"ID": "08dbe1ee6501f9a4bc79a9cc1c58cedd",
+		"TypeName": "FlaxEngine.SpriteRender",
+		"ParentID": "08dbe1ee6500faebbc79a9cc1c58cedb",
+		"Name": "Disable",
+		"Size": {
+			"X": 20.0,
+			"Y": 20.0
+		},
+		"Color": {
+			"R": 1.0,
+			"G": 0.0,
+			"B": 0.009271621704101565,
+			"A": 1.0
+		},
+		"Sprite": {
+			"Atlas": "927eb18a42f3ea8b307f0c956f063111",
+			"Index": 3
+		},
+		"Material": "6542187d40386b3768d0818d98dbd63a",
+		"FaceCamera": false
+	},
+	{
+		"ID": "08dbe1ee6502c542bc79a9cc1c58cede",
+		"TypeName": "Game.NodeControl",
+		"ParentID": "08dbe1ee6501f9a4bc79a9cc1c58cedd",
+		"V": {
+			"Type": 3,
+			"Sprite": "08dbe1ee65057de6bc79a9cc1c58cedf"
+		}
+	},
+	{
+		"ID": "08dbe1ee6503368abc79a9cc1c58cede",
+		"TypeName": "FlaxEngine.SpriteRender",
+		"ParentID": "08dbe1ee6500faebbc79a9cc1c58cedb",
+		"Name": "Conserve",
+		"Transform": {
+			"Translation": {
+				"X": 21.65447235107422,
+				"Y": 0.0,
+				"Z": 0.0
+			}
+		},
+		"Size": {
+			"X": 20.0,
+			"Y": 20.0
+		},
+		"Color": {
+			"R": 1.0,
+			"G": 0.5015707015991211,
+			"B": 0.0,
+			"A": 1.0
+		},
+		"Sprite": {
+			"Atlas": "927eb18a42f3ea8b307f0c956f063111",
+			"Index": 2
+		},
+		"Material": "6542187d40386b3768d0818d98dbd63a",
+		"FaceCamera": false
+	},
+	{
+		"ID": "08dbe1ee65044403bc79a9cc1c58cedf",
+		"TypeName": "Game.NodeControl",
+		"ParentID": "08dbe1ee6503368abc79a9cc1c58cede",
+		"V": {
+			"Type": 1,
+			"Sprite": "08dbe1ee6503368abc79a9cc1c58cede"
+		}
+	},
+	{
+		"ID": "08dbe1ee65057de6bc79a9cc1c58cedf",
+		"TypeName": "FlaxEngine.SpriteRender",
+		"ParentID": "08dbe1ee6500faebbc79a9cc1c58cedb",
+		"Name": "Normal",
+		"Transform": {
+			"Translation": {
+				"X": 44.30107116699219,
+				"Y": 0.0,
+				"Z": 0.0
+			}
+		},
+		"Size": {
+			"X": 20.0,
+			"Y": 20.0
+		},
+		"Color": {
+			"R": 0.1230020523071289,
+			"G": 1.0,
+			"B": 0.0,
+			"A": 1.0
+		},
+		"Sprite": {
+			"Atlas": "927eb18a42f3ea8b307f0c956f063111",
+			"Index": 2
+		},
+		"Material": "6542187d40386b3768d0818d98dbd63a",
+		"FaceCamera": false
+	},
+	{
+		"ID": "08dbe1ee6506bfbfbc79a9cc1c58cee0",
+		"TypeName": "Game.NodeControl",
+		"ParentID": "08dbe1ee65057de6bc79a9cc1c58cedf",
+		"V": {
+			"Sprite": "08dbe1ee65057de6bc79a9cc1c58cedf"
+		}
+	},
+	{
+		"ID": "08dbe1ee6507f29cbc79a9cd1c58cee1",
+		"TypeName": "FlaxEngine.SpriteRender",
+		"ParentID": "08dbe1ee6500faebbc79a9cc1c58cedb",
+		"Name": "Outflow",
+		"Transform": {
+			"Translation": {
+				"X": 66.90375518798828,
+				"Y": 0.0,
+				"Z": 0.0
+			}
+		},
+		"Size": {
+			"X": 20.0,
+			"Y": 20.0
+		},
+		"Color": {
+			"R": 0.0,
+			"G": 0.023825645446777345,
+			"B": 1.0,
+			"A": 1.0
+		},
+		"Sprite": {
+			"Atlas": "927eb18a42f3ea8b307f0c956f063111",
+			"Index": 5
+		},
+		"Material": "6542187d40386b3768d0818d98dbd63a",
+		"FaceCamera": false
+	},
+	{
+		"ID": "08dbe1ee6508ebccbc79a9cd1c58cee1",
+		"TypeName": "Game.NodeControl",
+		"ParentID": "08dbe1ee6507f29cbc79a9cd1c58cee1",
+		"V": {
+			"Sprite": "08dbe1ee6507f29cbc79a9cd1c58cee1"
+		}
+	}
+]
+}

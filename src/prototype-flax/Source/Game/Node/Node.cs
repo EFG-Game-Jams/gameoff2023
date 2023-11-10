@@ -14,6 +14,10 @@ public class Node : Script
     /// <inheritdoc/>
     public override void OnStart()
     {
+        var model = Parent.GetChild<SphereCollider>().GetChild<StaticModel>();
+        var materialInstance = model.GetMaterial(0).CreateVirtualInstance();
+        materialInstance.SetParameterValue("Color", Color.White); // TODO set this to something else
+        model.SetMaterial(0, materialInstance);
         // Here you can add code that needs to be called when script is created, just before the first game update
     }
 
