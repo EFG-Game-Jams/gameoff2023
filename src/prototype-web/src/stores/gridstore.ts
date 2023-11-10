@@ -5,6 +5,7 @@ import {
   IGridNode,
   IPacketsInTransit as IEdgePayload,
   IPlayer,
+IGridNodePlayerProperties,
 } from "@/types";
 import { createPlayer } from "@/factories";
 
@@ -63,35 +64,7 @@ export const useGridStore = defineStore("grid-store", {
         );
       });
 
-      // Dispatch
-      this.nodes.forEach((n) => {
-        if (n.capacityUsed < 1 || n.currentlyOwnedByPlayerId == null) {
-          return;
-        }
-
-        // TODO handle flows (manual flow or else default flow)
-        // TODO use edge bandwidth instead of infinity
-        // Temporary endless circulation algorithm
-        const dispatchEdges = this.edges.filter(
-          (e) =>
-            (e.destinationNodeId === n.id &&
-              e.destinationToOriginProperties.enabled) ||
-            (e.originNodeId === n.id && e.originToDestinationProperties.enabled)
-        );
-        const packetsPerEdge = n.capacityUsed / dispatchEdges.length;
-        if (packetsPerEdge < 1) {
-          for (let i = 0; i < dispatchEdges.length; ++i) {
-            dispatchOnEdge(n, dispatchEdges[i], 1);
-          }
-        } else {
-          dispatchEdges.forEach((e) => {
-            dispatchOnEdge(n, e, Math.ceil(packetsPerEdge));
-          });
-        }
-        n.capacityUsed = 0;
-      });
-
-      // Receive
+      // Handle incoming packets on nodes
       let deliveriesToProcess: IEdgePayloadDelivery[] = [];
       this.edges.forEach((e) => {
         deliveriesToProcess = [
@@ -146,8 +119,18 @@ export const useGridStore = defineStore("grid-store", {
           });
       });
 
+      // Handle outflow through balancing/fluid algorithm
+      // TODO shuffle the edge array to avoid bias
+      this.nodes.forEach((n) => {
+        calculatePacketsToDispatch(
+          n,
+          this.edges,
+          this.players);
+      });
+
       // Trim excess capacity
       this.nodes.forEach((n) => {
+        // Consider disabling this line if overfilling is no longer an issue
         n.capacityUsed = Math.min(n.capacityUsed, n.capacityLimit);
         n.capacityUsed = Math.max(n.capacityUsed, 0);
       });
@@ -156,30 +139,64 @@ export const useGridStore = defineStore("grid-store", {
   getters: {},
 });
 
-function dispatchOnEdge(
-  origin: IGridNode,
-  edge: IEdge,
-  packetCount: number
-): void {
-  if (origin.currentlyOwnedByPlayerId == null) {
-    throw Error(
-      "Cannot dispatch packets from neutral node (missing Player ID)"
-    );
+function calculatePacketsToDispatch(
+  node: IGridNode,
+  edges: IEdge[],
+  players: IPlayer[]): void {
+  if (!properties.enabled) {
+    return;
   }
 
-  if (edge.originNodeId == origin.id) {
-    edge.originToDestinationProperties.payloads.push({
-      packetCount,
-      playerId: origin.currentlyOwnedByPlayerId,
-      elapsedTicks: 0,
-    });
-  } else {
-    edge.destinationToOriginProperties.payloads.push({
-      packetCount,
-      playerId: origin.currentlyOwnedByPlayerId,
-      elapsedTicks: 0,
-    });
+  const destinationNode = nodes.find((n) => n.id === destinationNodeId);
+  if (destinationNode == null) {
+    return;
   }
+  const destinationNodePlayerProperties =
+    destinationNode.playerProperties.find(
+      (fp) => fp.playerId === player.id
+    );
+  if (destinationNodePlayerProperties == null || destinationNodePlayerProperties.disableInflow) {
+    return;
+  }
+
+  const originNode = nodes.find((n) => n.id === originNodeId);
+  if (originNode == null) {
+    return;
+  }
+  const originNodePlayerProperties = originNode.playerProperties.find(
+    (fp) => fp.playerId === player.id
+  );
+  if (originNodePlayerProperties == null) {
+    return;
+  }
+
+  const destinationFillRatio = destinationNode.currentlyOwnedByPlayerId === player.id ?
+    (destinationNode.capacityUsed - destinationNodePlayerProperties.intendedFillRatio)
+}
+
+// Returns the balance expressed in the range -1 to 1
+// Ex 1: Node is half full, intended fill ratio is at half, result is 0 (perfectly balanced)
+// Ex 2: Node is half full, intended fill ratio is at three quarters, result is -0.25 (negative pressure)
+// Ex 3: Node is half full, intended fill ratio is at one quarters, result is 0.25 (positive pressure)
+// Ex 4: Node is half full, intended fill ratio is at zero, result is -0.5 (negative pressure)
+// Ex 4: Node is at zero, intended fill ratio is at half, result is 0.5 (positive pressure)
+function getNodeBalance(node: IGridNode, incomingEdges: IEdge[], playerProperties: IGridNodePlayerProperties): number {
+  if (node.currentlyOwnedByPlayerId != playerProperties.playerId) {
+    // The node is owned by the enemy but it is wanted. Commit the resources as dictated
+    // by the intended fill ratio directly
+    return playerProperties.intendedFillRatio;
+  }
+
+  // The node is owned by the player but it is intended to be empty
+  if (playerProperties.intendedFillRatio <= 0) {
+    return 1;
+  }
+
+  // Some fraction between 0 and 1 (inclusive)
+  const currentBalance = node.capacityUsed / node.capacityLimit;
+  // Some number between -1 and 1, 'negative' pressure to 'positive pressure), i.e.
+  // a node at negative pressure 'sucks' and a node at positive pressure 'pushes'
+  return currentBalance - playerProperties.intendedFillRatio;
 }
 
 function extractPayloadsToDeliver(

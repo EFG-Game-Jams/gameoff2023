@@ -22,10 +22,17 @@ export interface IGridNode {
   position: IPosition;
   spawnOwnedByPlayerId: null | number;
   currentlyOwnedByPlayerId: null | number;
-  capacityLimit: number;
+  playerProperties: IGridNodePlayerProperties[];
   capacityUsed: number;
+  capacityLimit: number;
   packetProductionPerTick: number;
   appliedUpgrades: string[];
+}
+
+export interface IGridNodePlayerProperties {
+  playerId: number;
+  intendedFillRatio: number; // 0..1 = 0% to 100%
+  disableInflow: boolean;
 }
 
 export interface INexusNode extends IGridNode {
@@ -60,12 +67,7 @@ export interface IPacketsInTransit {
   elapsedTicks: number;
 }
 
-export const DefaultFlowModes = [
-  "frontline",
-  "outward",
-  "overflow",
-  "none",
-] as const;
+export const DefaultFlowModes = ["frontline", "outward", "overflow"] as const;
 export type DefaultFlowMode = (typeof DefaultFlowModes)[number];
 
 export interface IPlayer {

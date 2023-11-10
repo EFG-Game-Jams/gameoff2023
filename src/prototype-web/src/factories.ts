@@ -7,9 +7,9 @@ import {
   IPlayer,
 } from "@/types";
 
-const defaultNodePacketCapacity = 1000;
-const defaultEdgeBandwidthInPacketsPerTick = 2;
-const defaultEdgeTransferLatencyInTicks = 1;
+const defaultNodePacketCapacity = 100000;
+const defaultEdgeBandwidthInPacketsPerTick = 200;
+const defaultEdgeTransferLatencyInTicks = 2;
 const defaultServerPacketProductionPerTick = 10;
 
 export function createNode(
@@ -17,7 +17,7 @@ export function createNode(
   id: number,
   x: number,
   y: number,
-  playerId: number | null
+  ownedByplayerId: number | null
 ): IGridNode {
   const packetProductionPerTick =
     type === "server" ? defaultServerPacketProductionPerTick : 0;
@@ -25,8 +25,18 @@ export function createNode(
     type: type,
     id,
     position: { x, y },
-    spawnOwnedByPlayerId: playerId,
-    currentlyOwnedByPlayerId: playerId,
+    spawnOwnedByPlayerId: ownedByplayerId,
+    currentlyOwnedByPlayerId: ownedByplayerId,
+    playerProperties:
+      ownedByplayerId == null
+        ? []
+        : [
+            {
+              playerId: ownedByplayerId,
+              intendedFillRatio: 0.5,
+              disableInflow: false,
+            },
+          ],
     capacityLimit: defaultNodePacketCapacity,
     capacityUsed: 0,
     packetProductionPerTick,
