@@ -44,9 +44,9 @@
 			}
 		},
 		"Bloom": {
-			"OverrideFlags": 0,
+			"OverrideFlags": 3,
 			"Enabled": true,
-			"Intensity": 1.0,
+			"Intensity": 0.3,
 			"Threshold": 3.0,
 			"BlurSigma": 4.0,
 			"Limit": 10.0
@@ -185,8 +185,8 @@
 			"LutWeight": 1.0
 		},
 		"EyeAdaptation": {
-			"OverrideFlags": 0,
-			"Mode": 2,
+			"OverrideFlags": 1,
+			"Mode": 0,
 			"SpeedUp": 3.0,
 			"SpeedDown": 1.0,
 			"PreExposure": 0.0,
@@ -217,8 +217,8 @@
 			}
 		},
 		"LensFlares": {
-			"OverrideFlags": 0,
-			"Intensity": 1.0,
+			"OverrideFlags": 1,
+			"Intensity": 0.0,
 			"Ghosts": 8,
 			"HaloWidth": 0.16,
 			"HaloIntensity": 0.666,
@@ -232,11 +232,11 @@
 			"LensStar": null
 		},
 		"DepthOfField": {
-			"OverrideFlags": 0,
+			"OverrideFlags": 63,
 			"Enabled": false,
 			"BlurStrength": 1.0,
-			"FocalDistance": 1700.0,
-			"FocalRegion": 3000.0,
+			"FocalDistance": 520.0,
+			"FocalRegion": 180.0,
 			"NearTransitionRange": 300.0,
 			"FarTransitionRange": 500.0,
 			"DepthLimit": 0.0,
