@@ -6,7 +6,6 @@
 	{
 		"ID": "08dbe1ee64fc1bb7bc79a9cb1c58ced2",
 		"TypeName": "FlaxEngine.EmptyActor",
-		"ParentID": "00000000000000000000000000000000",
 		"Name": "Node"
 	},
 	{
@@ -14,29 +13,6 @@
 		"TypeName": "Game.Node",
 		"ParentID": "08dbe1ee64fc1bb7bc79a9cb1c58ced2",
 		"V": {}
-	},
-	{
-		"ID": "08dbe1ee64fe1824bc79a9cc1c58ceda",
-		"TypeName": "FlaxEngine.SphereCollider",
-		"ParentID": "08dbe1ee64fc1bb7bc79a9cb1c58ced2",
-		"Name": "SphereCollider"
-	},
-	{
-		"ID": "08dbe1ee64ff6383bc79a9cc1c58cedb",
-		"TypeName": "FlaxEngine.StaticModel",
-		"ParentID": "08dbe1ee64fe1824bc79a9cc1c58ceda",
-		"Name": "SphereModel",
-		"Model": "dd86c4724bf734c4959d23b3c74faa05",
-		"Buffer": {
-			"Entries": [
-				{
-					"Material": "387fc9404b2ba994686a499adee453c7",
-					"ShadowsMode": 3,
-					"Visible": true,
-					"ReceiveDecals": true
-				}
-			]
-		}
 	},
 	{
 		"ID": "08dbe1ee6500faebbc79a9cc1c58cedb",
@@ -69,7 +45,7 @@
 		"Color": {
 			"R": 1.0,
 			"G": 0.0,
-			"B": 0.009271621704101565,
+			"B": 0.009271621704101563,
 			"A": 1.0
 		},
 		"Sprite": {
@@ -84,9 +60,9 @@
 		"TypeName": "Game.NodeControl",
 		"ParentID": "08dbe1ee6501f9a4bc79a9cc1c58cedd",
 		"V": {
-			"Type": 3,
-			"Sprite": "08dbe1ee65057de6bc79a9cc1c58cedf"
-		}
+	"Type": 3,
+	"Sprite": "08dbe1ee65057de6bc79a9cc1c58cedf"
+}
 	},
 	{
 		"ID": "08dbe1ee6503368abc79a9cc1c58cede",
@@ -122,9 +98,9 @@
 		"TypeName": "Game.NodeControl",
 		"ParentID": "08dbe1ee6503368abc79a9cc1c58cede",
 		"V": {
-			"Type": 1,
-			"Sprite": "08dbe1ee6503368abc79a9cc1c58cede"
-		}
+	"Type": 1,
+	"Sprite": "08dbe1ee6503368abc79a9cc1c58cede"
+}
 	},
 	{
 		"ID": "08dbe1ee65057de6bc79a9cc1c58cedf",
@@ -160,8 +136,8 @@
 		"TypeName": "Game.NodeControl",
 		"ParentID": "08dbe1ee65057de6bc79a9cc1c58cedf",
 		"V": {
-			"Sprite": "08dbe1ee65057de6bc79a9cc1c58cedf"
-		}
+	"Sprite": "08dbe1ee65057de6bc79a9cc1c58cedf"
+}
 	},
 	{
 		"ID": "08dbe1ee6507f29cbc79a9cd1c58cee1",
@@ -197,7 +173,90 @@
 		"TypeName": "Game.NodeControl",
 		"ParentID": "08dbe1ee6507f29cbc79a9cd1c58cee1",
 		"V": {
-			"Sprite": "08dbe1ee6507f29cbc79a9cd1c58cee1"
+	"Sprite": "08dbe1ee6507f29cbc79a9cd1c58cee1"
+}
+	},
+	{
+		"ID": "08dbe209b4aa327d8312fb8dde578fc1",
+		"TypeName": "FlaxEngine.TextRender",
+		"ParentID": "08dbe1ee64fc1bb7bc79a9cb1c58ced2",
+		"Name": "TextRender",
+		"Transform": {
+			"Translation": {
+				"X": 0.0,
+				"Y": 0.0,
+				"Z": -61.17889404296875
+			},
+			"Orientation": {
+				"X": 3.090862321641907e-8,
+				"Y": 0.7071068286895752,
+				"Z": 0.7071068286895752,
+				"W": -3.090862321641907e-8
+			}
+		},
+		"Text": "10000/10000",
+		"Color": {
+			"R": 0.0,
+			"G": 0.0,
+			"B": 0.0,
+			"A": 1.0
+		},
+		"Size": 12.0,
+		"Material": "e72782bd4d898e2f236ca3be780438af",
+		"Font": "4508d98f4aa1f0bd59362b81d47e38f4",
+		"ShadowsMode": 0
+	},
+	{
+		"ID": "08dbe212939d7d0b6a9b9838e9ae6f04",
+		"TypeName": "FlaxEngine.EmptyActor",
+		"ParentID": "08dbe1ee64fc1bb7bc79a9cb1c58ced2",
+		"Name": "Visuals"
+	},
+	{
+		"ID": "08dbe212939eae7d6a9b9838e9ae6f09",
+		"TypeName": "FlaxEngine.StaticModel",
+		"ParentID": "08dbe212939d7d0b6a9b9838e9ae6f04",
+		"Name": "RingTrace",
+		"Model": "08dbe216ae503e3ec4a8cb426e32949c",
+		"Buffer": {
+			"Entries": [
+				{
+					"Material": "2b3b905e411b406a0ae183805b49fb59",
+					"ShadowsMode": 3,
+					"Visible": true,
+					"ReceiveDecals": true
+				}
+			]
+		}
+	},
+	{
+		"ID": "08dbe21d8950251a7fb6b059bcbdd585",
+		"TypeName": "FlaxEngine.StaticModel",
+		"ParentID": "08dbe212939d7d0b6a9b9838e9ae6f04",
+		"Name": "StaticModel",
+		"Transform": {
+			"Translation": {
+				"X": 0.0,
+				"Y": 42.60443115234375,
+				"Z": 0.0
+			},
+			"Orientation": {
+				"X": -0.3826834559440613,
+				"Y": 0.0,
+				"Z": 0.0,
+				"W": 0.9238795042037964
+			}
+		},
+		"Model": "08dbe21d810406de778345e46abba7fa",
+		"Buffer": {
+			"Entries": [
+				{
+					"Material": "0f09a51147142d10eedd23b1d3baa28b",
+					"ShadowsMode": 3,
+					"Visible": true,
+					"ReceiveDecals": true
+				}
+			]
 		}
 	}
 ]
