@@ -1,0 +1,83 @@
+{
+	"ID": "180916f248a258ad25181cbcfedd9b3d",
+	"TypeName": "FlaxEngine.SceneAsset",
+	"EngineBuild": 6404,
+	"Data": [
+		{
+			"ID": "180916f248a258ad25181cbcfedd9b3d",
+			"TypeName": "FlaxEngine.Scene",
+			"LightmapSettings": {
+				"IndirectLightingIntensity": 1.0,
+				"GlobalObjectsScale": 1.0,
+				"ChartsPadding": 3,
+				"AtlasSize": 1024,
+				"BounceCount": 1,
+				"CompressLightmaps": true,
+				"UseGeometryWithNoMaterials": true,
+				"Quality": 10
+			}
+		},
+		{
+			"ID": "9376c2fc4855959a7a2cb287465a93ae",
+			"TypeName": "FlaxEngine.PostFxVolume",
+			"ParentID": "180916f248a258ad25181cbcfedd9b3d",
+			"Name": "PostFxVolume",
+			"IsBounded": false,
+			"Settings": {
+				"AO": {
+					"OverrideFlags": 1,
+					"Enabled": false
+				},
+				"GI": {
+					"OverrideFlags": 1
+				},
+				"Bloom": {},
+				"ToneMapping": {},
+				"ColorGrading": {},
+				"EyeAdaptation": {
+					"OverrideFlags": 1,
+					"Mode": 0
+				},
+				"CameraArtifacts": {},
+				"LensFlares": {
+					"OverrideFlags": 1,
+					"Intensity": 0.0
+				},
+				"DepthOfField": {},
+				"MotionBlur": {},
+				"SSR": {},
+				"AA": {},
+				"PostFxMaterials": {}
+			}
+		},
+		{
+			"ID": "02e40784451f884b21de9997c86ea3b1",
+			"TypeName": "FlaxEngine.Camera",
+			"ParentID": "180916f248a258ad25181cbcfedd9b3d",
+			"Name": "Camera",
+			"Transform": {
+				"Translation": {
+					"X": 0.0,
+					"Y": 150.0,
+					"Z": -300.0
+				}
+			}
+		},
+		{
+			"ID": "70dff19c42301f1baea9989dd525b24e",
+			"TypeName": "FlaxEngine.UICanvas",
+			"ParentID": "180916f248a258ad25181cbcfedd9b3d",
+			"Name": "SolverTest",
+			"V": {}
+		},
+		{
+			"ID": "1164a61b4d2fbc9cbddc5da165f8d595",
+			"TypeName": "Game.Flow.Test.FlowSolverTest",
+			"ParentID": "70dff19c42301f1baea9989dd525b24e",
+			"V": {
+	"prefabNode": "6124992c412a166994a4d4944a5927d8",
+	"prefabEdge": "87461de54880629afc1d70a6f6c2dd22"
+}
+		}
+	]
+}
