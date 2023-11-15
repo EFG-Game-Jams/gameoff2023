@@ -31,8 +31,14 @@
 				"GI": {
 					"OverrideFlags": 1
 				},
-				"Bloom": {},
-				"ToneMapping": {},
+				"Bloom": {
+					"OverrideFlags": 8,
+					"BlurSigma": 2.0
+				},
+				"ToneMapping": {
+					"OverrideFlags": 4,
+					"Mode": 0
+				},
 				"ColorGrading": {},
 				"EyeAdaptation": {
 					"OverrideFlags": 1,
@@ -57,9 +63,9 @@
 			"Name": "Camera",
 			"Transform": {
 				"Translation": {
-					"X": 0.0,
-					"Y": 150.0,
-					"Z": -300.0
+					"X": 1126.9566650390626,
+					"Y": 779.113525390625,
+					"Z": -1619.0626220703126
 				}
 			}
 		},
@@ -68,6 +74,13 @@
 			"TypeName": "FlaxEngine.UICanvas",
 			"ParentID": "180916f248a258ad25181cbcfedd9b3d",
 			"Name": "SolverTest",
+			"Transform": {
+				"Translation": {
+					"X": 0.0,
+					"Y": 0.00006103515625,
+					"Z": 0.0
+				}
+			},
 			"V": {}
 		},
 		{
@@ -78,6 +91,64 @@
 	"prefabNode": "6124992c412a166994a4d4944a5927d8",
 	"prefabEdge": "87461de54880629afc1d70a6f6c2dd22"
 }
+		},
+		{
+			"ID": "5c226ed546cca53585e5578c8af7fc41",
+			"TypeName": "FlaxEngine.StaticModel",
+			"ParentID": "180916f248a258ad25181cbcfedd9b3d",
+			"Name": "Cube",
+			"Transform": {
+				"Translation": {
+					"X": 1107.434814453125,
+					"Y": -812.7689819335938,
+					"Z": 1493.68408203125
+				},
+				"Scale": {
+					"X": 31.485454559326173,
+					"Y": 0.22135554254055024,
+					"Z": 0.23186515271663667
+				}
+			},
+			"Model": "b43f0f8f4aaba3f3156896a5a22ba493",
+			"Buffer": {
+				"Entries": [
+					{
+						"Material": "a15321cf40e0f9b512f94da6a8703ea0",
+						"ShadowsMode": 3,
+						"Visible": true,
+						"ReceiveDecals": true
+					}
+				]
+			}
+		},
+		{
+			"ID": "01733e5d447ea628189432a9ec73eafc",
+			"TypeName": "FlaxEngine.StaticModel",
+			"ParentID": "180916f248a258ad25181cbcfedd9b3d",
+			"Name": "Cube 0",
+			"Transform": {
+				"Translation": {
+					"X": 1107.434814453125,
+					"Y": 2370.189453125,
+					"Z": 1493.68408203125
+				},
+				"Scale": {
+					"X": 31.485454559326173,
+					"Y": 0.22135554254055024,
+					"Z": 0.23186515271663667
+				}
+			},
+			"Model": "b43f0f8f4aaba3f3156896a5a22ba493",
+			"Buffer": {
+				"Entries": [
+					{
+						"Material": "dbb3fb3c48590759b3e75995b301ece9",
+						"ShadowsMode": 3,
+						"Visible": true,
+						"ReceiveDecals": true
+					}
+				]
+			}
 		}
 	]
 }

@@ -8,6 +8,7 @@ public class GameTarget : GameProjectTarget
         base.Init();
 
         // Reference the modules for game
+        Modules.Add("SCALE");
         Modules.Add("Game");
     }
 }

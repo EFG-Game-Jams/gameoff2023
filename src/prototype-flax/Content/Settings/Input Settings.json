@@ -37,6 +37,43 @@
 			"Gamepad": 0
 		}
 	],
-	"AxisMappings": null
+	"AxisMappings": [
+		{
+			"Name": "Turn",
+			"Axis": 9,
+			"Gamepad": 0,
+			"PositiveButton": 68,
+			"NegativeButton": 65,
+			"DeadZone": 0.0,
+			"Sensitivity": 1.0,
+			"Gravity": 0.0,
+			"Scale": 1.0,
+			"Snap": false
+		},
+		{
+			"Name": "Thrust",
+			"Axis": 9,
+			"Gamepad": 0,
+			"PositiveButton": 87,
+			"NegativeButton": 83,
+			"DeadZone": 0.0,
+			"Sensitivity": 1.0,
+			"Gravity": 0.0,
+			"Scale": 1.0,
+			"Snap": false
+		},
+		{
+			"Name": "Strafe",
+			"Axis": 9,
+			"Gamepad": 0,
+			"PositiveButton": 39,
+			"NegativeButton": 37,
+			"DeadZone": 0.0,
+			"Sensitivity": 1.0,
+			"Gravity": 0.0,
+			"Scale": 1.0,
+			"Snap": false
+		}
+	]
 }
 }

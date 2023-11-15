@@ -15,17 +15,17 @@ public class Edge : Script
     /// <inheritdoc/>
     public override void OnStart()
     {
-        Vector3 nodeAPosition = NodeA.Parent.Position;
-        Vector3 nodeBPosition = NodeB.Parent.Position;
+        Float3 nodeAPosition = NodeA.Parent.Position;
+        Float3 nodeBPosition = NodeB.Parent.Position;
 
-        Parent.Scale = new Float3(
+        Parent.Scale = new Vector3(
             Math.Abs(Vector3.Distance(nodeBPosition, nodeAPosition) / 100f) - 1f,
             Parent.Scale.Y,
             Parent.Scale.Z);
 
         Parent.Position = (nodeAPosition + nodeBPosition) / 2;
         var angle = 90 + Mathf.RadiansToDegrees * Mathf.Atan2(nodeBPosition.X - nodeAPosition.X, nodeBPosition.Z - nodeAPosition.Z);
-        Parent.LocalEulerAngles = new Float3(
+        Parent.LocalEulerAngles = new Vector3(
             0,
             angle,
             0);

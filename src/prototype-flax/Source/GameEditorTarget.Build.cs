@@ -8,6 +8,7 @@ public class GameEditorTarget : GameProjectEditorTarget
         base.Init();
 
         // Reference the modules for editor
+        Modules.Add("SCALE");
         Modules.Add("Game");
     }
 }
