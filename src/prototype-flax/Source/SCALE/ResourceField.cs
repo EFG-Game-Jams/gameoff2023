@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using FlaxEngine;
 
 namespace SCALE;
@@ -10,9 +12,10 @@ namespace SCALE;
 public class ResourceField : Script
 {
     public Actor Player { get; set; }
-    public Prefab resourcePrefab;
+    public Prefab CollectiblePrefab;
     public float killDistance = 10000;
     public int maxResources = 10;
+    public int MaxResourceUnitValue = 100;
     public Float2 resourceScale = new(0.25f, 0.5f);
     public Float2 resourceSpawnDistance = new(1000, 10000);
 
@@ -42,21 +45,21 @@ public class ResourceField : Script
             float angle = (RandomUtil.Random.NextSingle() * 2f - 1f) * Mathf.TwoPi;
             Vector3 direction = new(Mathf.Cos(angle), Mathf.Sin(angle), 0);
             Vector3 position = Player.Position + direction * (RandomUtil.Random.NextSingle() * (resourceSpawnDistance.Y - resourceSpawnDistance.X) + resourceSpawnDistance.X);
-            float scale = RandomUtil.Random.NextSingle() * (resourceScale.Y - resourceScale.X) + resourceScale.X;
-
+            var units = 1 + (int)Mathf.Ceil(RandomUtil.Random.NextSingle() * MaxResourceUnitValue);
+            var scale = 0.2f + (units / (float)MaxResourceUnitValue);
             ++sampleCount;
             if (Physics.CheckSphere(position, scale * 100))
                 continue;
 
-            var resource = PrefabManager.SpawnPrefab(resourcePrefab);
-            resource.Position = position;
-            resource.Scale = Vector3.One * scale;
+            var collectiblePrefab = PrefabManager.SpawnPrefab(CollectiblePrefab);
+            collectiblePrefab.Position = position;
+            collectiblePrefab.Scale = new Float3(scale);
 
-            var resourceTrigger = resource.GetChild<BoxCollider>().GetScript<ResourceTrigger>();
-            resourceTrigger.ResourceField = this;
-            resourceTrigger.Player = Player;
+            var collectibleScript = collectiblePrefab.GetScript<Collectible>();
+            collectibleScript.ResourceField = this;
+            collectibleScript.Units = units;
 
-            resources.Add(resource);
+            resources.Add(collectiblePrefab);
         }
     }
 

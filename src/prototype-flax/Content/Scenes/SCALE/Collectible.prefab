@@ -1,0 +1,46 @@
+{
+	"ID": "08dbe86cb7d0af2d13c874c194c9c84a",
+	"TypeName": "FlaxEngine.Prefab",
+	"EngineBuild": 6404,
+	"Data": [
+	{
+		"ID": "08dbe86cb7ccfba213c874b494c9c7c5",
+		"TypeName": "FlaxEngine.RigidBody",
+		"Name": "Collectible",
+		"Layer": 2,
+		"Mass": 1000.0000610351563,
+		"EnableGravity": false
+	},
+	{
+		"ID": "08dbe86cb7cde9ba13c874b594c9c7cd",
+		"TypeName": "SCALE.Collectible",
+		"ParentID": "08dbe86cb7ccfba213c874b494c9c7c5",
+		"V": {}
+	},
+	{
+		"ID": "08dbe86cb7ce7ca713c874b594c9c7d0",
+		"TypeName": "FlaxEngine.BoxCollider",
+		"ParentID": "08dbe86cb7ccfba213c874b494c9c7c5",
+		"Name": "BoxCollider",
+		"Layer": 2
+	},
+	{
+		"ID": "08dbe86cb7cf3b8213c874b594c9c7d2",
+		"TypeName": "FlaxEngine.StaticModel",
+		"ParentID": "08dbe86cb7ccfba213c874b494c9c7c5",
+		"Name": "BoxModel",
+		"Layer": 2,
+		"Model": "b43f0f8f4aaba3f3156896a5a22ba493",
+		"Buffer": {
+			"Entries": [
+				{
+					"Material": "8231dfba45bbd1946f1506891e8f4eee",
+					"ShadowsMode": 3,
+					"Visible": true,
+					"ReceiveDecals": true
+				}
+			]
+		}
+	}
+]
+}

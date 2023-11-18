@@ -8,10 +8,12 @@ namespace SCALE;
 /// <summary>
 /// ShipResourceTrigger Script.
 /// </summary>
-public class ResourceTrigger : Script
+public class Collectible : Script
 {
+    [ReadOnly]
     public ResourceField ResourceField { get; set; }
-    public Actor Player { get; set; }
+
+    public int Units { get; set; }
 
     /// <inheritdoc/>
     public override void OnStart()
@@ -23,13 +25,11 @@ public class ResourceTrigger : Script
     public override void OnEnable()
     {
         // Register for event
-        Actor.As<Collider>().TriggerEnter += OnTriggerEnter;
     }
 
     public override void OnDisable()
     {
         // Unregister for event
-        Actor.As<Collider>().TriggerEnter -= OnTriggerEnter;
     }
 
     /// <inheritdoc/>
@@ -38,12 +38,8 @@ public class ResourceTrigger : Script
         // Here you can add code that needs to be called every frame
     }
 
-    void OnTriggerEnter(PhysicsColliderActor collider)
+    public void OnCollected()
     {
-        if (collider.HasTag("Player"))
-        {
-            Player.GetScript<ShipController>().ResourcesCollected++;
-            ResourceField.RemoveResource(Parent.Parent);
-        }
+        ResourceField.RemoveResource(Parent);
     }
 }

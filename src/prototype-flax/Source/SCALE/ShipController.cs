@@ -18,10 +18,11 @@ public class ShipController : Script
 	private DistanceJoint grappleJoint;
 
 	public RigidBody body;
-
 	public RigidBody HookBody;
-
 	public ThrusterController ThrusterController;
+
+	public float ResourceCollectionRadius { get; set; } = 100f;
+	public LayersMask ResourceLayerMask { get; set; }
 
 	[ReadOnly]
 	public RigidBody GrappleTarget
@@ -59,12 +60,18 @@ public class ShipController : Script
 		}
 	}
 
+	[ReadOnly]
 	public float controlForward;
+	[ReadOnly]
 	public float controlStrafe;
+	[ReadOnly]
 	public float controlTurn;
+	[ReadOnly]
 	public bool autoBrake;
 
+	[ReadOnly]
 	public bool fireGrapplingHook;
+	[ReadOnly]
 	public bool releaseGrapplingHook;
 
 	public override void OnEnable()
@@ -93,23 +100,35 @@ public class ShipController : Script
 	{
 		if (fireGrapplingHook)
 		{
-			DestroyGrapplingHook();
-			var hookTrigger = HookBody.GetChild<SphereCollider>().GetScript<HookTrigger>();
-			hookTrigger.Fire(
-				Parent.Position,
-				 new Float3(
-					(Input.MousePosition.X / Screen.Size.X) - 0.5f,
-					-1f * ((Input.MousePosition.Y / Screen.Size.Y) - 0.5f),
-					0f).Normalized);
+			FireGrapplingHook();
 		}
 		else if (releaseGrapplingHook)
 		{
-			HookBody.GetChild<SphereCollider>().GetScript<HookTrigger>().Reset();
-			DestroyGrapplingHook();
+			ReleaseGrapplingHook();
 		}
-		
+
 		// stick to z = 0, rigid body Z constraint doesn't seem to be enough
 		body.AddMovement(new(0, 0, -body.Position.Z));
+
+		CollectResources();
+	}
+
+	private void FireGrapplingHook()
+	{
+		DestroyGrapplingHook();
+		var hookTrigger = HookBody.GetChild<SphereCollider>().GetScript<HookTrigger>();
+		hookTrigger.Fire(
+			Parent.Position,
+			new Float3(
+				(Input.MousePosition.X / Screen.Size.X) - 0.5f,
+				-1f * ((Input.MousePosition.Y / Screen.Size.Y) - 0.5f),
+				0f).Normalized);
+	}
+
+	private void ReleaseGrapplingHook()
+	{
+		HookBody.GetChild<SphereCollider>().GetScript<HookTrigger>().Reset();
+		DestroyGrapplingHook();
 	}
 
 	private void DestroyGrapplingHook()
@@ -120,5 +139,18 @@ public class ShipController : Script
 		}
 		grappleTarget = null;
 		grappleJoint = null;
+	}
+
+	private void CollectResources()
+	{
+		if (Physics.OverlapSphere(Parent.Position, ResourceCollectionRadius, out PhysicsColliderActor[] hits, ResourceLayerMask.Mask, false))
+		{
+			foreach (var hit in hits)
+			{
+				var resourceValue = hit.Parent.GetScript<Collectible>();
+				resourcesCollected += resourceValue.Units;
+				resourceValue.OnCollected();
+			}
+		}
 	}
 }
