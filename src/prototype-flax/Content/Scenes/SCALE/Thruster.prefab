@@ -1,0 +1,29 @@
+{
+	"ID": "ac6fe64947bc2df2be8b8b84fbfff26d",
+	"TypeName": "FlaxEngine.Prefab",
+	"EngineBuild": 6404,
+	"Data": [
+	{
+		"ID": "8e70e64444bff34505a3bd811b3d8e45",
+		"TypeName": "FlaxEngine.EmptyActor",
+		"ParentID": "00000000000000000000000000000000",
+		"Name": "Thruster",
+		"Transform": {
+			"Translation": {
+				"X": 0.0,
+				"Y": -50.0,
+				"Z": 0.0
+			}
+		},
+		"StaticFlags": 0
+	},
+	{
+		"ID": "47dfc7964b93383b8c219d9fd7e7f12a",
+		"TypeName": "SCALE.Thruster",
+		"ParentID": "8e70e64444bff34505a3bd811b3d8e45",
+		"V": {
+			"maxThrust": 1000.0
+		}
+	}
+]
+}

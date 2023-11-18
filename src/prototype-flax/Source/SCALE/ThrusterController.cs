@@ -18,33 +18,28 @@ public class ThrusterController : Script
 	public float MaxThrustRequest { get; set; } = 1000;
 	public float MaxTorqueRequest { get; set; } = 1000;
 
-	[Header("Status")]
+	[Header("State")]
 	public bool KillTranslation { get; set; }
 	public bool KillRotation { get; set; }
+	public Float2 LinearVelocityControl { get; set; }
+	public float AngularVelocityControl { get; set; }
 
 	public override void OnFixedUpdate()
 	{
-		int controlX = (Input.GetKey(KeyboardKeys.ArrowRight) ? 1 : 0) - (Input.GetKey(KeyboardKeys.ArrowLeft) ? 1 : 0);
-		int controlY = (Input.GetKey(KeyboardKeys.W) ? 1 : 0) - (Input.GetKey(KeyboardKeys.S) ? 1 : 0);
-		int controlTorque = (Input.GetKey(KeyboardKeys.D) ? 1 : 0) - (Input.GetKey(KeyboardKeys.A) ? 1 : 0);
-
-		if (Input.GetKey(KeyboardKeys.Spacebar))
-			KillTranslation = !KillTranslation;
-		
 		Double2 currentLinearVelocity = (Vector2)vessel.Transform.WorldToLocalVector(vessel.LinearVelocity);
 		double currentAngularVelocity = vessel.AngularVelocity.Z;
 
 		Double2 desiredLinearVelocity;
-		if (controlX != 0 || controlY != 0)
-			desiredLinearVelocity = new Double2(controlX, controlY) * MaxLinearSpeed;
+		if (!LinearVelocityControl.IsZero)
+			desiredLinearVelocity = LinearVelocityControl * MaxLinearSpeed;
 		else if (KillTranslation)
 			desiredLinearVelocity = Double2.Zero;
 		else
 			desiredLinearVelocity = currentLinearVelocity;
 
 		double desiredAngularVelocity;
-		if (controlTorque != 0)
-			desiredAngularVelocity = controlTorque * MaxAngularSpeed;
+		if (AngularVelocityControl != 0)
+			desiredAngularVelocity = AngularVelocityControl * MaxAngularSpeed;
 		else if (KillRotation)
 			desiredAngularVelocity = 0;
 		else

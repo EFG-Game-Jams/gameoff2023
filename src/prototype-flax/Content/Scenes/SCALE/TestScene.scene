@@ -58,13 +58,6 @@
 			"TypeName": "FlaxEngine.RigidBody",
 			"ParentID": "e7ca86554002f14810cd68b3ef49a1e2",
 			"Name": "Player",
-			"Transform": {
-				"Scale": {
-					"X": 0.5,
-					"Y": 1.0,
-					"Z": 0.5
-				}
-			},
 			"StaticFlags": 0,
 			"OverrideMass": true,
 			"LinearDamping": 0.0010000000474974514,
@@ -78,27 +71,40 @@
 			"V": {
 	"body": "e8adb9724c4e218dea4bfaa859db3976",
 	"HookBody": "08dbe847a95cf99b5d8baafd7665a6f9",
-	"maxSpeed": 1000.0,
-	"maxAngularSpeed": 5.0,
-	"forceScale": 200.0,
-	"thrustForward": 1.5,
-	"torque": 25.0
+	"ThrusterController": "95118e87497dc9f8e93f9bae9206f2df"
 }
 		},
 		{
-			"ID": "ebb5bde043662e9118177292ae8707ec",
+			"ID": "e5a5bd2042e854c510a009bb8eb6da99",
+			"TypeName": "FlaxEngine.CapsuleCollider",
+			"ParentID": "e8adb9724c4e218dea4bfaa859db3976",
+			"Name": "Collider",
+			"Transform": {
+				"Orientation": {
+					"X": 0.0,
+					"Y": 0.0,
+					"Z": 0.7071068286895752,
+					"W": 0.7071068286895752
+				}
+			},
+			"StaticFlags": 0,
+			"Radius": 25.0,
+			"Height": 50.0
+		},
+		{
+			"ID": "17f12c0641019a8557ff2aa6cd04e78c",
 			"TypeName": "FlaxEngine.StaticModel",
 			"ParentID": "e8adb9724c4e218dea4bfaa859db3976",
-			"Name": "Cone",
+			"Name": "Capsule",
 			"Transform": {
 				"Translation": {
 					"X": 0.0,
-					"Y": 20.0,
+					"Y": -50.0,
 					"Z": 0.0
 				}
 			},
 			"StaticFlags": 0,
-			"Model": "1b4a643d44706750b2e35ea4e11e3663",
+			"Model": "3f82e57744f57c28285150b646ad2198",
 			"Buffer": {
 				"Entries": [
 					{
@@ -111,27 +117,197 @@
 			}
 		},
 		{
-			"ID": "64be2ff74061dbe909c606866dada6bd",
-			"TypeName": "FlaxEngine.MeshCollider",
+			"ID": "418e4a8f43b68927ce45e590665f45a9",
+			"TypeName": "FlaxEngine.EmptyActor",
 			"ParentID": "e8adb9724c4e218dea4bfaa859db3976",
-			"Name": "AsteroidCollider",
+			"Name": "Thrust"
+		},
+		{
+			"ID": "95118e87497dc9f8e93f9bae9206f2df",
+			"TypeName": "SCALE.ThrusterController",
+			"ParentID": "418e4a8f43b68927ce45e590665f45a9",
+			"V": {
+	"vessel": "e8adb9724c4e218dea4bfaa859db3976",
+	"thrusters": "9fd7f4994bf4b8cfcb1fe594ab1c599d",
+	"MaxAngularSpeed": 5.0,
+	"LinearSensitivity": 10.0,
+	"AngularSensitivity": 1000.0,
+	"MaxThrustRequest": 200.0,
+	"KillTranslation": true,
+	"KillRotation": true
+}
+		},
+		{
+			"ID": "9fd7f4994bf4b8cfcb1fe594ab1c599d",
+			"TypeName": "SCALE.ThrusterSystem",
+			"ParentID": "418e4a8f43b68927ce45e590665f45a9",
+			"V": {
+	"vessel": "e8adb9724c4e218dea4bfaa859db3976",
+	"thrusters": [
+		"fa67a7e548ab42687032fc86d2516196",
+		"99ea08a14cbcbe9f9cbc51affb1ea5ef",
+		"b21059f14cc5aa9efa141c9a0382e8bf",
+		"3ad1a44246cf13a9e0075ea7c92e2fb8",
+		"6fcf9e3042fdd66573bd5a957a76fdd4",
+		"ec7542204d4bb7af6d658d91b881127f"
+	]
+}
+		},
+		{
+			"ID": "bdbb83854820ced5adfc4b9e7cffbe22",
+			"PrefabID": "ac6fe64947bc2df2be8b8b84fbfff26d",
+			"PrefabObjectID": "8e70e64444bff34505a3bd811b3d8e45",
+			"ParentID": "418e4a8f43b68927ce45e590665f45a9",
+			"Name": "Thruster F",
 			"Transform": {
 				"Translation": {
 					"X": 0.0,
-					"Y": 20.0,
+					"Y": 50.0,
 					"Z": 0.0
+				},
+				"Orientation": {
+					"X": 0.0,
+					"Y": -0.0,
+					"Z": 1.0,
+					"W": -4.371138828673793e-8
 				}
-			},
-			"Tag": "Player",
-			"CollisionData": "caf944ee4cf941213d6fe1a234b82f45"
+			}
 		},
 		{
-			"ID": "08dbe82b9bb2a0dc8a83947138113c38",
-			"TypeName": "FlaxEngine.SphereCollider",
-			"ParentID": "e8adb9724c4e218dea4bfaa859db3976",
-			"Name": "ResourceCollider",
-			"Tag": "Player",
-			"IsTrigger": true
+			"ID": "fa67a7e548ab42687032fc86d2516196",
+			"PrefabID": "ac6fe64947bc2df2be8b8b84fbfff26d",
+			"PrefabObjectID": "47dfc7964b93383b8c219d9fd7e7f12a",
+			"ParentID": "bdbb83854820ced5adfc4b9e7cffbe22",
+			"V": {}
+		},
+		{
+			"ID": "03619004465365d887b265bc836fa70c",
+			"PrefabID": "ac6fe64947bc2df2be8b8b84fbfff26d",
+			"PrefabObjectID": "8e70e64444bff34505a3bd811b3d8e45",
+			"ParentID": "418e4a8f43b68927ce45e590665f45a9",
+			"Name": "Thruster B",
+			"Transform": {
+				"Translation": {
+					"X": 0.0,
+					"Y": -50.0,
+					"Z": 0.0
+				}
+			}
+		},
+		{
+			"ID": "99ea08a14cbcbe9f9cbc51affb1ea5ef",
+			"PrefabID": "ac6fe64947bc2df2be8b8b84fbfff26d",
+			"PrefabObjectID": "47dfc7964b93383b8c219d9fd7e7f12a",
+			"ParentID": "03619004465365d887b265bc836fa70c",
+			"V": {}
+		},
+		{
+			"ID": "8469be254c5aa6c2670398aea88301e2",
+			"PrefabID": "ac6fe64947bc2df2be8b8b84fbfff26d",
+			"PrefabObjectID": "8e70e64444bff34505a3bd811b3d8e45",
+			"ParentID": "418e4a8f43b68927ce45e590665f45a9",
+			"Name": "Thruster LF",
+			"Transform": {
+				"Translation": {
+					"X": -25.0,
+					"Y": 25.0,
+					"Z": 0.0
+				},
+				"Orientation": {
+					"X": 0.0,
+					"Y": 0.0,
+					"Z": -0.7071068286895752,
+					"W": 0.7071068286895752
+				}
+			}
+		},
+		{
+			"ID": "b21059f14cc5aa9efa141c9a0382e8bf",
+			"PrefabID": "ac6fe64947bc2df2be8b8b84fbfff26d",
+			"PrefabObjectID": "47dfc7964b93383b8c219d9fd7e7f12a",
+			"ParentID": "8469be254c5aa6c2670398aea88301e2",
+			"V": {}
+		},
+		{
+			"ID": "3ac75ea5434a62584914aba0d09aa727",
+			"PrefabID": "ac6fe64947bc2df2be8b8b84fbfff26d",
+			"PrefabObjectID": "8e70e64444bff34505a3bd811b3d8e45",
+			"ParentID": "418e4a8f43b68927ce45e590665f45a9",
+			"Name": "Thruster LB",
+			"Transform": {
+				"Translation": {
+					"X": -25.0,
+					"Y": -25.0,
+					"Z": 0.0
+				},
+				"Orientation": {
+					"X": 0.0,
+					"Y": 0.0,
+					"Z": -0.7071068286895752,
+					"W": 0.7071068286895752
+				}
+			}
+		},
+		{
+			"ID": "3ad1a44246cf13a9e0075ea7c92e2fb8",
+			"PrefabID": "ac6fe64947bc2df2be8b8b84fbfff26d",
+			"PrefabObjectID": "47dfc7964b93383b8c219d9fd7e7f12a",
+			"ParentID": "3ac75ea5434a62584914aba0d09aa727",
+			"V": {}
+		},
+		{
+			"ID": "9dcbfc9a436da8b90d618d9bb6668d0b",
+			"PrefabID": "ac6fe64947bc2df2be8b8b84fbfff26d",
+			"PrefabObjectID": "8e70e64444bff34505a3bd811b3d8e45",
+			"ParentID": "418e4a8f43b68927ce45e590665f45a9",
+			"Name": "Thruster RF",
+			"Transform": {
+				"Translation": {
+					"X": 24.9999942779541,
+					"Y": 25.0,
+					"Z": 0.0
+				},
+				"Orientation": {
+					"X": 0.0,
+					"Y": 0.0,
+					"Z": 0.7071068286895752,
+					"W": 0.7071068286895752
+				}
+			}
+		},
+		{
+			"ID": "6fcf9e3042fdd66573bd5a957a76fdd4",
+			"PrefabID": "ac6fe64947bc2df2be8b8b84fbfff26d",
+			"PrefabObjectID": "47dfc7964b93383b8c219d9fd7e7f12a",
+			"ParentID": "9dcbfc9a436da8b90d618d9bb6668d0b",
+			"V": {}
+		},
+		{
+			"ID": "d57096c64061cf98b18f3db881751ae6",
+			"PrefabID": "ac6fe64947bc2df2be8b8b84fbfff26d",
+			"PrefabObjectID": "8e70e64444bff34505a3bd811b3d8e45",
+			"ParentID": "418e4a8f43b68927ce45e590665f45a9",
+			"Name": "Thruster RB",
+			"Transform": {
+				"Translation": {
+					"X": 24.9999942779541,
+					"Y": -25.0,
+					"Z": 0.0
+				},
+				"Orientation": {
+					"X": 0.0,
+					"Y": 0.0,
+					"Z": 0.7071068286895752,
+					"W": 0.7071068286895752
+				}
+			}
+		},
+		{
+			"ID": "ec7542204d4bb7af6d658d91b881127f",
+			"PrefabID": "ac6fe64947bc2df2be8b8b84fbfff26d",
+			"PrefabObjectID": "47dfc7964b93383b8c219d9fd7e7f12a",
+			"ParentID": "d57096c64061cf98b18f3db881751ae6",
+			"V": {}
 		},
 		{
 			"ID": "0801cc744e9e3d8eba57c8b15dfbc903",
