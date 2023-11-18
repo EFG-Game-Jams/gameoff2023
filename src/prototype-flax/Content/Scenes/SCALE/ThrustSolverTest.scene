@@ -1,0 +1,272 @@
+{
+	"ID": "0289bc5a4121287763cc4684e3f419d2",
+	"TypeName": "FlaxEngine.SceneAsset",
+	"EngineBuild": 6404,
+	"Data": [
+		{
+			"ID": "0289bc5a4121287763cc4684e3f419d2",
+			"TypeName": "FlaxEngine.Scene",
+			"LightmapSettings": {
+				"IndirectLightingIntensity": 1.0,
+				"GlobalObjectsScale": 1.0,
+				"ChartsPadding": 3,
+				"AtlasSize": 1024,
+				"BounceCount": 1,
+				"CompressLightmaps": true,
+				"UseGeometryWithNoMaterials": true,
+				"Quality": 10
+			}
+		},
+		{
+			"ID": "cf47c08449684774d4235eb990b2b0a6",
+			"TypeName": "FlaxEngine.SkyLight",
+			"ParentID": "0289bc5a4121287763cc4684e3f419d2",
+			"Name": "SkyLight",
+			"Brightness": 2.5,
+			"CustomTexture": "c54410104ff39427bc11e5bc761d66b0"
+		},
+		{
+			"ID": "f84be54a4a6ec39aa9ffa2b60e95cb97",
+			"TypeName": "FlaxEngine.Camera",
+			"ParentID": "0289bc5a4121287763cc4684e3f419d2",
+			"Name": "Camera",
+			"Transform": {
+				"Translation": {
+					"X": 0.0,
+					"Y": 0.0,
+					"Z": -300.0
+				}
+			}
+		},
+		{
+			"ID": "678a049d4d06a21d1cbcf48b6d224b60",
+			"TypeName": "FlaxEngine.RigidBody",
+			"ParentID": "0289bc5a4121287763cc4684e3f419d2",
+			"Name": "Vessel",
+			"StaticFlags": 0,
+			"OverrideMass": true,
+			"Mass": 10.0,
+			"Constraints": 28,
+			"EnableGravity": false
+		},
+		{
+			"ID": "1b0704d14b8bc1c6f3031292780e0720",
+			"TypeName": "SCALE.ThrusterSystem",
+			"ParentID": "678a049d4d06a21d1cbcf48b6d224b60",
+			"V": {
+	"vessel": "678a049d4d06a21d1cbcf48b6d224b60",
+	"thrusters": [
+		"8c4e0a524b4852ceddc5b0a56b00a83f",
+		"3bf4ef1e4d6b854d3972dfbf46999bef",
+		"feaff60d4e8c43667aed9a9a40610c35",
+		"e8e57ec346961bef956f41a33831dcee",
+		"ebcf81794b7567ae85ccceab00c743b2",
+		"90e71a0d4e89b8bdb0a8eb97567c5339"
+	]
+}
+		},
+		{
+			"ID": "ac120dad41b19d92394ae2b7db3a8c51",
+			"TypeName": "SCALE.ThrusterController",
+			"ParentID": "678a049d4d06a21d1cbcf48b6d224b60",
+			"V": {
+	"vessel": "678a049d4d06a21d1cbcf48b6d224b60",
+	"thrusters": "1b0704d14b8bc1c6f3031292780e0720",
+	"LinearSensitivity": 10.0,
+	"AngularSensitivity": 5000.0,
+	"MaxThrustRequest": 20000.0,
+	"MaxTorqueRequest": 10000.0,
+	"KillTranslation": true,
+	"KillRotation": true
+}
+		},
+		{
+			"ID": "81dfb022467feac09fc8fd823119090b",
+			"TypeName": "FlaxEngine.SphereCollider",
+			"ParentID": "678a049d4d06a21d1cbcf48b6d224b60",
+			"Name": "SphereCollider",
+			"StaticFlags": 0
+		},
+		{
+			"ID": "6f6646bc4d33813aa568619ff2df7540",
+			"TypeName": "FlaxEngine.EmptyActor",
+			"ParentID": "678a049d4d06a21d1cbcf48b6d224b60",
+			"Name": "Thrusters",
+			"StaticFlags": 0
+		},
+		{
+			"ID": "3bf26e8843322f89606b02b81cea44cb",
+			"TypeName": "FlaxEngine.EmptyActor",
+			"ParentID": "6f6646bc4d33813aa568619ff2df7540",
+			"Name": "ThrusterA",
+			"Transform": {
+				"Translation": {
+					"X": -50.0,
+					"Y": -60.0,
+					"Z": 0.0
+				}
+			},
+			"StaticFlags": 0
+		},
+		{
+			"ID": "8c4e0a524b4852ceddc5b0a56b00a83f",
+			"TypeName": "SCALE.Thruster",
+			"ParentID": "3bf26e8843322f89606b02b81cea44cb",
+			"V": {
+	"maxThrust": 10000.0
+}
+		},
+		{
+			"ID": "e75af5b64d45b776f8e33f8f6c66ca51",
+			"TypeName": "FlaxEngine.EmptyActor",
+			"ParentID": "6f6646bc4d33813aa568619ff2df7540",
+			"Name": "ThrusterA 0",
+			"Transform": {
+				"Translation": {
+					"X": 50.0,
+					"Y": -60.0,
+					"Z": 0.0
+				}
+			},
+			"StaticFlags": 0
+		},
+		{
+			"ID": "3bf4ef1e4d6b854d3972dfbf46999bef",
+			"TypeName": "SCALE.Thruster",
+			"ParentID": "e75af5b64d45b776f8e33f8f6c66ca51",
+			"V": {
+	"maxThrust": 10000.0
+}
+		},
+		{
+			"ID": "f764668544d9f33e9ea6f7882898604f",
+			"TypeName": "FlaxEngine.EmptyActor",
+			"ParentID": "6f6646bc4d33813aa568619ff2df7540",
+			"Name": "ThrusterA 1",
+			"Transform": {
+				"Translation": {
+					"X": 50.00004577636719,
+					"Y": 59.99998474121094,
+					"Z": 0.0
+				},
+				"Orientation": {
+					"X": 0.0,
+					"Y": 0.0,
+					"Z": 1.0,
+					"W": 1.6391277313232423e-7
+				}
+			},
+			"StaticFlags": 0
+		},
+		{
+			"ID": "feaff60d4e8c43667aed9a9a40610c35",
+			"TypeName": "SCALE.Thruster",
+			"ParentID": "f764668544d9f33e9ea6f7882898604f",
+			"V": {
+	"maxThrust": 10000.0
+}
+		},
+		{
+			"ID": "0bc93ad24f6f74adfaefa1af08253413",
+			"TypeName": "FlaxEngine.EmptyActor",
+			"ParentID": "6f6646bc4d33813aa568619ff2df7540",
+			"Name": "ThrusterA 2",
+			"Transform": {
+				"Translation": {
+					"X": -49.99995422363281,
+					"Y": 60.00001525878906,
+					"Z": 0.0
+				},
+				"Orientation": {
+					"X": 0.0,
+					"Y": 0.0,
+					"Z": 1.0,
+					"W": 1.6391277313232423e-7
+				}
+			},
+			"StaticFlags": 0
+		},
+		{
+			"ID": "e8e57ec346961bef956f41a33831dcee",
+			"TypeName": "SCALE.Thruster",
+			"ParentID": "0bc93ad24f6f74adfaefa1af08253413",
+			"V": {
+	"maxThrust": 10000.0
+}
+		},
+		{
+			"ID": "8c1ad8cf4efbaa43a0961c864441da99",
+			"TypeName": "FlaxEngine.EmptyActor",
+			"ParentID": "6f6646bc4d33813aa568619ff2df7540",
+			"Name": "ThrusterA 3",
+			"Transform": {
+				"Translation": {
+					"X": -49.99998092651367,
+					"Y": -9.999984741210938,
+					"Z": 0.0
+				},
+				"Orientation": {
+					"X": 0.0,
+					"Y": 0.0,
+					"Z": 0.7071069478988648,
+					"W": -0.7071066498756409
+				}
+			},
+			"StaticFlags": 0
+		},
+		{
+			"ID": "ebcf81794b7567ae85ccceab00c743b2",
+			"TypeName": "SCALE.Thruster",
+			"ParentID": "8c1ad8cf4efbaa43a0961c864441da99",
+			"V": {
+	"maxThrust": 10000.0
+}
+		},
+		{
+			"ID": "3327cdec41e9732e28c213bbd96ddc3d",
+			"TypeName": "FlaxEngine.EmptyActor",
+			"ParentID": "6f6646bc4d33813aa568619ff2df7540",
+			"Name": "ThrusterA 4",
+			"Transform": {
+				"Translation": {
+					"X": 50.00001907348633,
+					"Y": -10.000032424926758,
+					"Z": 0.0
+				},
+				"Orientation": {
+					"X": 0.0,
+					"Y": 0.0,
+					"Z": -0.7071066498756409,
+					"W": -0.7071069478988648
+				}
+			},
+			"StaticFlags": 0
+		},
+		{
+			"ID": "90e71a0d4e89b8bdb0a8eb97567c5339",
+			"TypeName": "SCALE.Thruster",
+			"ParentID": "3327cdec41e9732e28c213bbd96ddc3d",
+			"V": {
+	"maxThrust": 10000.0
+}
+		},
+		{
+			"ID": "37114f814b94c701642ba0943889851b",
+			"TypeName": "FlaxEngine.StaticModel",
+			"ParentID": "678a049d4d06a21d1cbcf48b6d224b60",
+			"Name": "Cube",
+			"StaticFlags": 0,
+			"Model": "b43f0f8f4aaba3f3156896a5a22ba493",
+			"Buffer": {
+				"Entries": [
+					{
+						"Material": "00000000000000000000000000000000",
+						"ShadowsMode": 3,
+						"Visible": true,
+						"ReceiveDecals": true
+					}
+				]
+			}
+		}
+	]
+}
