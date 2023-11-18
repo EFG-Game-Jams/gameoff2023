@@ -35,6 +35,22 @@
 			"MouseButton": 0,
 			"GamepadButton": 2,
 			"Gamepad": 0
+		},
+		{
+			"Name": "Fire",
+			"Mode": 2,
+			"Key": 0,
+			"MouseButton": 1,
+			"GamepadButton": 13,
+			"Gamepad": 0
+		},
+		{
+			"Name": "Release",
+			"Mode": 2,
+			"Key": 0,
+			"MouseButton": 3,
+			"GamepadButton": 14,
+			"Gamepad": 0
 		}
 	],
 	"AxisMappings": [

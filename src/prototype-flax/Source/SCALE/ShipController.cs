@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using FlaxEngine;
 
 namespace SCALE;
@@ -13,8 +14,35 @@ public class ShipController : Script
 
 	private int resourcesCollected = 0;
 	private Float3 originalScale;
+	private RigidBody grappleTarget;
+	private DistanceJoint grappleJoint;
 
 	public RigidBody body;
+
+	public RigidBody HookBody;
+
+	[ReadOnly]
+	public RigidBody GrappleTarget
+	{
+		get => grappleTarget;
+		set
+		{
+			if (grappleJoint != null)
+			{
+				DestroyGrapplingHook();
+			}
+
+			if (value != null)
+			{
+				grappleJoint = body.AddChild<DistanceJoint>();
+				grappleJoint.Target = value;
+				grappleJoint.MaxDistance = Float3.Distance(body.Position, value.Position);
+				grappleJoint.Flags = DistanceJointFlag.MaxDistance;
+			}
+
+			grappleTarget = value;
+		}
+	}
 
 	[ReadOnly]
 	public int ResourcesCollected
@@ -42,6 +70,9 @@ public class ShipController : Script
 	public float controlTurn;
 	public bool autoBrake;
 
+	public bool fireGrapplingHook;
+	public bool releaseGrapplingHook;
+
 	public override void OnEnable()
 	{
 		base.OnEnable();
@@ -55,10 +86,30 @@ public class ShipController : Script
 		controlTurn = -Input.GetAxis("Turn");
 		if (Input.GetKeyDown(KeyboardKeys.Spacebar))
 			autoBrake = !autoBrake;
+
+		fireGrapplingHook = Input.GetAction("Fire");
+		releaseGrapplingHook = Input.GetAction("Release");
 	}
 
 	public override void OnFixedUpdate()
 	{
+		if (fireGrapplingHook)
+		{
+			DestroyGrapplingHook();
+			var hookTrigger = HookBody.GetChild<SphereCollider>().GetScript<HookTrigger>();
+			hookTrigger.Fire(
+				Parent.Position,
+				 new Float3(
+					(Input.MousePosition.X / Screen.Size.X) - 0.5f,
+					-1f * ((Input.MousePosition.Y / Screen.Size.Y) - 0.5f),
+					0f).Normalized);
+		}
+		else if (releaseGrapplingHook)
+		{
+			HookBody.GetChild<SphereCollider>().GetScript<HookTrigger>().Reset();
+			DestroyGrapplingHook();
+		}
+
 		Float3 lvel = (Float3)body.Transform.WorldToLocalVector(body.LinearVelocity);
 		float avel = (float)body.AngularVelocity.Z;
 
@@ -116,5 +167,15 @@ public class ShipController : Script
 			body.AngularVelocity = angularVelocity;
 		}
 		*/
+	}
+
+	private void DestroyGrapplingHook()
+	{
+		if (grappleJoint != null)
+		{
+			Destroy(grappleJoint);
+		}
+		grappleTarget = null;
+		grappleJoint = null;
 	}
 }

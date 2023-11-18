@@ -77,6 +77,7 @@
 			"ParentID": "e8adb9724c4e218dea4bfaa859db3976",
 			"V": {
 	"body": "e8adb9724c4e218dea4bfaa859db3976",
+	"HookBody": "08dbe847a95cf99b5d8baafd7665a6f9",
 	"maxSpeed": 1000.0,
 	"maxAngularSpeed": 5.0,
 	"forceScale": 200.0,
@@ -168,6 +169,62 @@
 			"V": {
 	"resourcePrefab": "08dbe82a8eeba0b47856bb6782509043",
 	"Player": "e8adb9724c4e218dea4bfaa859db3976"
+}
+		},
+		{
+			"ID": "08dbe847a95cf99b5d8baafd7665a6f9",
+			"TypeName": "FlaxEngine.RigidBody",
+			"ParentID": "e7ca86554002f14810cd68b3ef49a1e2",
+			"Name": "Hook",
+			"EnableGravity": false
+		},
+		{
+			"ID": "08dbe8469227084851923b8dfea748ec",
+			"TypeName": "FlaxEngine.StaticModel",
+			"ParentID": "08dbe847a95cf99b5d8baafd7665a6f9",
+			"Name": "Model",
+			"Transform": {
+				"Scale": {
+					"X": 0.20000000298023225,
+					"Y": 0.20000000298023225,
+					"Z": 0.20000000298023225
+				}
+			},
+			"Model": "dd86c4724bf734c4959d23b3c74faa05",
+			"Buffer": {
+				"Entries": [
+					{
+						"Material": "49d650074945a2fd6811e497eed8d259",
+						"ShadowsMode": 3,
+						"Visible": true,
+						"ReceiveDecals": true
+					}
+				]
+			}
+		},
+		{
+			"ID": "08dbe83d795048165fb5787a8c06a083",
+			"TypeName": "FlaxEngine.SphereCollider",
+			"ParentID": "08dbe847a95cf99b5d8baafd7665a6f9",
+			"Name": "HookCollider",
+			"Transform": {
+				"Scale": {
+					"X": 0.20000000298023225,
+					"Y": 0.20000000298023225,
+					"Z": 0.20000000298023225
+				}
+			},
+			"Tag": "GrapplingHook",
+			"IsTrigger": true
+		},
+		{
+			"ID": "396fd77d42143177f6fb438df5e32ca8",
+			"TypeName": "SCALE.HookTrigger",
+			"ParentID": "08dbe83d795048165fb5787a8c06a083",
+			"V": {
+	"Player": "e8adb9724c4e218dea4bfaa859db3976",
+	"Velocity": 1500.0,
+	"MaxLength": 800.0
 }
 		}
 	]

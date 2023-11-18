@@ -50,5 +50,6 @@ public class AsteroidTrigger : Script
                 shipController.ResourcesCollected--;
             }
         }
+        // else if (collision.)
     }
 }
