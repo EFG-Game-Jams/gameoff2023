@@ -63,7 +63,21 @@ public class ThrusterSystem : Script
 				alignmentScore = Math.Pow(Math.Abs(alignmentScore), alignmentExponent);
 			}
 
-			return torqueScore + magnitudeScore + alignmentScore;
+			double efficiencyScore = 0;
+			if (!totalThrust.IsZero)
+			{
+				Double2 totalThrustDir = totalThrust;
+				totalThrustDir.Normalize();
+				for (int i = 0; i < x.Length; i++)
+				{
+					var thrust = ThrusterStates[i].directionLocal;
+					var misaligned = Math.Max(0, 1 - Double2.Dot(thrust, totalThrustDir));
+					efficiencyScore += misaligned * x[i];
+				}
+			}
+			efficiencyScore *= 10;
+
+			return torqueScore + magnitudeScore + alignmentScore + efficiencyScore;
 		});
 
 		var constraints = new NonlinearConstraint[thrusters.Length];
