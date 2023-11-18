@@ -6,11 +6,10 @@ using FlaxEngine;
 namespace SCALE;
 
 /// <summary>
-/// ShipResourceTrigger Script.
+/// AsteroidTrigger Script.
 /// </summary>
-public class ResourceTrigger : Script
+public class AsteroidTrigger : Script
 {
-    public ResourceField ResourceField { get; set; }
     public Actor Player { get; set; }
 
     /// <inheritdoc/>
@@ -19,17 +18,16 @@ public class ResourceTrigger : Script
         // Here you can add code that needs to be called when script is created, just before the first game update
     }
 
-
     public override void OnEnable()
     {
         // Register for event
-        Actor.As<Collider>().TriggerEnter += OnTriggerEnter;
+        Actor.As<Collider>().CollisionEnter += OnCollisionEnter;
     }
 
     public override void OnDisable()
     {
         // Unregister for event
-        Actor.As<Collider>().TriggerEnter -= OnTriggerEnter;
+        Actor.As<Collider>().CollisionEnter -= OnCollisionEnter;
     }
 
     /// <inheritdoc/>
@@ -38,9 +36,19 @@ public class ResourceTrigger : Script
         // Here you can add code that needs to be called every frame
     }
 
-    void OnTriggerEnter(PhysicsColliderActor collider)
+    private void OnCollisionEnter(Collision collision)
     {
-        Player.GetScript<ShipController>().ResourcesCollected++;
-        ResourceField.RemoveResource(Parent.Parent);
+        if (collision.OtherActor.HasTag("Player"))
+        {
+            var shipController = Player.GetScript<ShipController>();
+            if (shipController.ResourcesCollected <= 0)
+            {
+                Debug.Log("Player died");
+            }
+            else
+            {
+                shipController.ResourcesCollected--;
+            }
+        }
     }
 }

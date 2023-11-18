@@ -10,7 +10,7 @@ namespace SCALE;
 /// </summary>
 public class AsteroidField : Script
 {
-	public Actor focus;
+	public Actor Player;
 	public Prefab asteroidPrefab;
 	public float killDistance = 10000;
 	public int maxAsteroids = 10;
@@ -30,7 +30,7 @@ public class AsteroidField : Script
 		// kill
 		foreach (var asteroid in asteroids.ToList())
 		{
-			if (Vector3.Distance(asteroid.Position, focus.Position) > killDistance)
+			if (Vector3.Distance(asteroid.Position, Player.Position) > killDistance)
 			{
 				asteroids.Remove(asteroid);
 				Destroy(asteroid);
@@ -43,7 +43,7 @@ public class AsteroidField : Script
 		{
 			float angle = (RandomUtil.Random.NextSingle() * 2f - 1f) * Mathf.TwoPi;
 			Vector3 direction = new Vector3(Mathf.Cos(angle), Mathf.Sin(angle), 0);
-			Vector3 position = focus.Position + direction * (RandomUtil.Random.NextSingle() * (asteroidSpawnDistance.Y - asteroidSpawnDistance.X) + asteroidSpawnDistance.X);
+			Vector3 position = Player.Position + direction * (RandomUtil.Random.NextSingle() * (asteroidSpawnDistance.Y - asteroidSpawnDistance.X) + asteroidSpawnDistance.X);
 			float scale = RandomUtil.Random.NextSingle() * (asteroidScale.Y - asteroidScale.X) + asteroidScale.X;
 
 			++sampleCount;
@@ -53,6 +53,10 @@ public class AsteroidField : Script
 			var asteroid = PrefabManager.SpawnPrefab(asteroidPrefab);
 			asteroid.Position = position;
 			asteroid.Scale = Vector3.One * scale;
+
+			var asteroidTrigger = asteroid.GetChild<SphereCollider>().GetScript<AsteroidTrigger>();
+			asteroidTrigger.Player = Player;
+
 			asteroids.Add(asteroid);
 		}
 	}

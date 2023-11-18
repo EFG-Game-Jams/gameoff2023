@@ -121,6 +121,7 @@
 					"Z": 0.0
 				}
 			},
+			"Tag": "Player",
 			"CollisionData": "caf944ee4cf941213d6fe1a234b82f45"
 		},
 		{
@@ -128,6 +129,7 @@
 			"TypeName": "FlaxEngine.SphereCollider",
 			"ParentID": "e8adb9724c4e218dea4bfaa859db3976",
 			"Name": "ResourceCollider",
+			"Tag": "Player",
 			"IsTrigger": true
 		},
 		{
@@ -142,7 +144,7 @@
 			"TypeName": "SCALE.AsteroidField",
 			"ParentID": "0801cc744e9e3d8eba57c8b15dfbc903",
 			"V": {
-	"focus": "e8adb9724c4e218dea4bfaa859db3976",
+	"Player": "e8adb9724c4e218dea4bfaa859db3976",
 	"asteroidPrefab": "06d999cb40cf09782771788bbcf6bdb4",
 	"killDistance": 20000.0,
 	"maxAsteroids": 200,
@@ -164,8 +166,8 @@
 			"TypeName": "SCALE.ResourceField",
 			"ParentID": "08dbe829812c4143610d45519971c6de",
 			"V": {
-	"focus": "e8adb9724c4e218dea4bfaa859db3976",
-	"resourcePrefab": "08dbe82a8eeba0b47856bb6782509043"
+	"resourcePrefab": "08dbe82a8eeba0b47856bb6782509043",
+	"Player": "e8adb9724c4e218dea4bfaa859db3976"
 }
 		}
 	]

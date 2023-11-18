@@ -1,44 +1,53 @@
 {
-	"ID": "06d999cb40cf09782771788bbcf6bdb4",
-	"TypeName": "FlaxEngine.Prefab",
-	"EngineBuild": 6404,
-	"Data": [
-	{
-		"ID": "b5c66837487e2cda2c201c97a00e1c98",
-		"TypeName": "FlaxEngine.RigidBody",
-		"Name": "Asteroid",
-		"StaticFlags": 0,
-		"Mass": 523.5988159179688,
-		"LinearDamping": 0.0010000000474974514,
-		"MaxAngularVelocity": 0.5,
-		"Constraints": 28,
-		"EnableGravity": false,
-		"UpdateMassWhenScaleChanges": true
-	},
-	{
-		"ID": "c616c6dc4e17fb0bcd2d078409864ecd",
-		"TypeName": "FlaxEngine.SphereCollider",
-		"ParentID": "b5c66837487e2cda2c201c97a00e1c98",
-		"Name": "SphereCollider",
-		"StaticFlags": 0
-	},
-	{
-		"ID": "7c92f896449341ce057954a6e4edde44",
-		"TypeName": "FlaxEngine.StaticModel",
-		"ParentID": "b5c66837487e2cda2c201c97a00e1c98",
-		"Name": "Sphere",
-		"StaticFlags": 0,
-		"Model": "dd86c4724bf734c4959d23b3c74faa05",
-		"Buffer": {
-			"Entries": [
-				{
-					"Material": "0fd979274815b642f64064b1befa49e7",
-					"ShadowsMode": 3,
-					"Visible": true,
-					"ReceiveDecals": true
-				}
-			]
-		}
-	}
-]
+  "ID": "06d999cb40cf09782771788bbcf6bdb4",
+  "TypeName": "FlaxEngine.Prefab",
+  "EngineBuild": 6404,
+  "Data": [
+    {
+      "ID": "b5c66837487e2cda2c201c97a00e1c98",
+      "TypeName": "FlaxEngine.RigidBody",
+      "Name": "Asteroid",
+      "StaticFlags": 0,
+      "Layer": 1,
+      "Mass": 523.5988159179688,
+      "LinearDamping": 0.0010000000474974513,
+      "MaxAngularVelocity": 0.5,
+      "Constraints": 28,
+      "EnableGravity": false,
+      "UpdateMassWhenScaleChanges": true
+    },
+    {
+      "ID": "c616c6dc4e17fb0bcd2d078409864ecd",
+      "TypeName": "FlaxEngine.SphereCollider",
+      "ParentID": "b5c66837487e2cda2c201c97a00e1c98",
+      "Name": "SphereCollider",
+      "StaticFlags": 0,
+      "Layer": 1
+    },
+    {
+      "ID": "08dbe834b8cd73477d20cf55b236c853",
+      "TypeName": "SCALE.AsteroidTrigger",
+      "ParentID": "c616c6dc4e17fb0bcd2d078409864ecd",
+      "V": {}
+    },
+    {
+      "ID": "7c92f896449341ce057954a6e4edde44",
+      "TypeName": "FlaxEngine.StaticModel",
+      "ParentID": "b5c66837487e2cda2c201c97a00e1c98",
+      "Name": "Sphere",
+      "StaticFlags": 0,
+      "Layer": 1,
+      "Model": "dd86c4724bf734c4959d23b3c74faa05",
+      "Buffer": {
+        "Entries": [
+          {
+            "Material": "0fd979274815b642f64064b1befa49e7",
+            "ShadowsMode": 3,
+            "Visible": true,
+            "ReceiveDecals": true
+          }
+        ]
+      }
+    }
+  ]
 }

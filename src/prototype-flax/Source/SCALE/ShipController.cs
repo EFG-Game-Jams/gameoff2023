@@ -9,7 +9,24 @@ namespace SCALE;
 /// </summary>
 public class ShipController : Script
 {
+	private const float resourceScalingFactor = 1.2f;
+
+	private int resourcesCollected = 0;
+	private Float3 originalScale;
+
 	public RigidBody body;
+
+	[ReadOnly]
+	public int ResourcesCollected
+	{
+		get => resourcesCollected;
+		set
+		{
+			resourcesCollected = value;
+			var newScale = MathF.Max(1, (1 + resourcesCollected) * resourceScalingFactor);
+			Parent.Scale = originalScale * newScale;
+		}
+	}
 
 	public float maxSpeed = 500f;
 	public float maxAngularSpeed = 10f;
@@ -24,6 +41,12 @@ public class ShipController : Script
 	public float controlStrafe;
 	public float controlTurn;
 	public bool autoBrake;
+
+	public override void OnEnable()
+	{
+		base.OnEnable();
+		originalScale = Parent.Scale;
+	}
 
 	public override void OnUpdate()
 	{
@@ -65,7 +88,7 @@ public class ShipController : Script
 		Vector3 force = body.Transform.LocalToWorldVector(new(strafeErrorSign * forceStrafeAbs, forwardErrorSign * forceForwardAbs, 0));
 		force.Z = 0;
 		body.AddForce(force);
-		DebugDraw.DrawRay(body.Position, body.Transform.LocalToWorldVector(force)*100, Color.Red, .05f);
+		DebugDraw.DrawRay(body.Position, body.Transform.LocalToWorldVector(force) * 100, Color.Red, .05f);
 		DebugDraw.DrawRay(body.Position, body.LinearVelocity.Normalized * 200, Color.Blue, .05f);
 		body.AddTorque(new Vector3(0, 0, turnErrorSign * torqueAbs));
 
