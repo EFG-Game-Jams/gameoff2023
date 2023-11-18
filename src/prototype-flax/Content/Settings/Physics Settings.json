@@ -22,9 +22,9 @@
 	"TriangleMeshTriangleMinAreaThreshold": 5.0,
 	"QueriesHitTriggers": true,
 	"LayerMasks": [
-		4294967295,
-		4294967295,
-		4294967295,
+		4294967294,
+		4294967289,
+		4294967289,
 		4294967295,
 		4294967295,
 		4294967295,

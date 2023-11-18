@@ -1,0 +1,42 @@
+{
+	"ID": "08dbe82a8eeba0b47856bb6782509043",
+	"TypeName": "FlaxEngine.Prefab",
+	"EngineBuild": 6404,
+	"Data": [
+	{
+		"ID": "08dbe82a8ee908df7856bb5b82508fc0",
+		"TypeName": "FlaxEngine.StaticModel",
+		"Name": "Resource",
+		"Layer": 2,
+		"Model": "b43f0f8f4aaba3f3156896a5a22ba493",
+		"Buffer": {
+			"Entries": [
+				{
+					"Material": "8231dfba45bbd1946f1506891e8f4eee",
+					"ShadowsMode": 3,
+					"Visible": true,
+					"ReceiveDecals": true
+				}
+			]
+		}
+	},
+	{
+		"ID": "08dbe82a8eea72c47856bb5b82508fc9",
+		"TypeName": "FlaxEngine.BoxCollider",
+		"ParentID": "08dbe82a8ee908df7856bb5b82508fc0",
+		"Name": "BoxCollider",
+		"Layer": 2,
+		"Tags": [
+			"Collectible",
+			"Collectible.Resource"
+		],
+		"IsTrigger": true
+	},
+	{
+		"ID": "08dbe82db25fe295bf813d9849fa277e",
+		"TypeName": "SCALE.ResourceTrigger",
+		"ParentID": "08dbe82a8eea72c47856bb5b82508fc9",
+		"V": {}
+	}
+]
+}

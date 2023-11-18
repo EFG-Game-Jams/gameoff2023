@@ -3,11 +3,15 @@
 	"TypeName": "FlaxEditor.Content.Settings.LayersAndTagsSettings",
 	"EngineBuild": 6404,
 	"Data": {
-	"Tags": [],
+	"Tags": [
+		"Collectible",
+		"Collectible.Resource",
+		"Player"
+	],
 	"Layers": [
-		null,
-		null,
-		null,
+		"Player",
+		"Asteroid",
+		"Collectible",
 		null,
 		null,
 		null,
