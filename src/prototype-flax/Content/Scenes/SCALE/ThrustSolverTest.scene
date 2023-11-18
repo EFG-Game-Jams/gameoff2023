@@ -34,7 +34,7 @@
 				"Translation": {
 					"X": 0.0,
 					"Y": 0.0,
-					"Z": -300.0
+					"Z": -500.0
 				}
 			}
 		},
@@ -72,10 +72,11 @@
 			"V": {
 	"vessel": "678a049d4d06a21d1cbcf48b6d224b60",
 	"thrusters": "1b0704d14b8bc1c6f3031292780e0720",
+	"MaxAngularSpeed": 5.0,
 	"LinearSensitivity": 10.0,
-	"AngularSensitivity": 5000.0,
+	"AngularSensitivity": 20000.0,
 	"MaxThrustRequest": 20000.0,
-	"MaxTorqueRequest": 10000.0,
+	"MaxTorqueRequest": 200000.0,
 	"KillTranslation": true,
 	"KillRotation": true
 }
@@ -201,8 +202,8 @@
 			"Name": "ThrusterA 3",
 			"Transform": {
 				"Translation": {
-					"X": -49.99998092651367,
-					"Y": -9.999984741210938,
+					"X": -60.0,
+					"Y": -0.000019073486328125,
 					"Z": 0.0
 				},
 				"Orientation": {
@@ -229,8 +230,8 @@
 			"Name": "ThrusterA 4",
 			"Transform": {
 				"Translation": {
-					"X": 50.00001907348633,
-					"Y": -10.000032424926758,
+					"X": 60.00001907348633,
+					"Y": -0.0000035762786865234377,
 					"Z": 0.0
 				},
 				"Orientation": {

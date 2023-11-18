@@ -83,7 +83,19 @@ public class ThrusterSystem : Script
 	public void Solve()
 	{
 		RefreshThrusterStates();
+
+		// set initial guess
+		// each thruster's contribution is its dot product with the desired direction
+		Double2 desiredDirection = DesiredThrust.Normalized;
+		for (int i = 0; i < ThrusterStates.Length; i++)
+		{
+			var thruster = ThrusterStates[i];
+			Solution[i] = Double2.Dot(thruster.directionLocal, desiredDirection);
+		}
+		solver.Solution = Solution;
+
 		RunSolver(maxSolverTimeMs);
+
 		ApplySolution();
 	}
 
@@ -151,4 +163,13 @@ public class ThrusterSystem : Script
 		ObjectiveResult = (float)solver.Function(solver.Solution);
 	}
 
+	public override void OnDebugDrawSelected()
+	{
+		foreach (var thruster in thrusters)
+		{
+			var worldPos = thruster.Actor.Position;
+			DebugDraw.DrawSphere(new(worldPos, 2f), Color.Red);
+			DebugDraw.DrawLine(worldPos, worldPos + thruster.Transform.Down * 100 * thruster.throttle, Color.Blue);
+		}
+	}
 }
