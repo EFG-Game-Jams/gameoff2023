@@ -40,7 +40,10 @@ public class ResourceTrigger : Script
 
     void OnTriggerEnter(PhysicsColliderActor collider)
     {
-        Player.GetScript<ShipController>().ResourcesCollected++;
-        ResourceField.RemoveResource(Parent.Parent);
+        if (collider.HasTag("Player"))
+        {
+            Player.GetScript<ShipController>().ResourcesCollected++;
+            ResourceField.RemoveResource(Parent.Parent);
+        }
     }
 }

@@ -4,8 +4,10 @@
 	"EngineBuild": 6404,
 	"Data": {
 	"Tags": [
+		"Asteroid",
 		"Collectible",
 		"Collectible.Resource",
+		"GrapplingHook",
 		"Player"
 	],
 	"Layers": [
