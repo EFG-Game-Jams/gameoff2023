@@ -35,6 +35,7 @@ public class ShipController : Script
 			if (value != null)
 			{
 				grappleJoint = body.AddChild<DistanceJoint>();
+				grappleJoint.LocalPosition = body.CenterOfMass;
 				grappleJoint.Target = value;
 				grappleJoint.MaxDistance = Float3.Distance(body.Position, value.Position);
 				grappleJoint.Flags = DistanceJointFlag.MaxDistance;

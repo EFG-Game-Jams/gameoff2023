@@ -222,6 +222,9 @@
 			"TypeName": "SCALE.HookTrigger",
 			"ParentID": "08dbe83d795048165fb5787a8c06a083",
 			"V": {
+	"LayersMask": {
+		"Mask": 2
+	},
 	"Player": "e8adb9724c4e218dea4bfaa859db3976",
 	"Velocity": 1500.0,
 	"MaxLength": 800.0
