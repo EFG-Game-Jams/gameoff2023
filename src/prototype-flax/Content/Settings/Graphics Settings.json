@@ -30,7 +30,7 @@
 			"FadeDistance": 500.0
 		},
 		"GI": {
-			"OverrideFlags": 0,
+			"OverrideFlags": 1,
 			"Mode": 0,
 			"Intensity": 1.0,
 			"BounceIntensity": 1.0,

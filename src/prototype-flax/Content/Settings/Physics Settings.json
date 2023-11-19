@@ -18,7 +18,7 @@
 	"EnableSubstepping": false,
 	"SubstepDeltaTime": 0.008333334,
 	"MaxSubsteps": 5,
-	"SupportCookingAtRuntime": false,
+	"SupportCookingAtRuntime": true,
 	"TriangleMeshTriangleMinAreaThreshold": 5.0,
 	"QueriesHitTriggers": true,
 	"LayerMasks": [

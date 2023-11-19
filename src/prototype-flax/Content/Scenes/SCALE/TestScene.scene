@@ -411,6 +411,37 @@
 	"Velocity": 1500.0,
 	"MaxLength": 800.0
 }
+		},
+		{
+			"ID": "f174a9a84f6053d138aa80988c932cef",
+			"TypeName": "FlaxEngine.EmptyActor",
+			"ParentID": "e7ca86554002f14810cd68b3ef49a1e2",
+			"Name": "ProceduralAsteroids",
+			"Transform": {
+				"Translation": {
+					"X": 0.0,
+					"Y": 0.0,
+					"Z": 1000.0
+				}
+			},
+			"Layer": 1
+		},
+		{
+			"ID": "71c2d1be485aefbd779be1b39a2c8228",
+			"TypeName": "SCALE.ProceduralAsteroids",
+			"ParentID": "f174a9a84f6053d138aa80988c932cef",
+			"V": {
+	"variantCount": 256,
+	"pointCountRange": {
+		"X": 6,
+		"Y": 16
+	},
+	"perAxisScaleRange": {
+		"X": 200.0,
+		"Y": 1000.0
+	},
+	"spawnDebugActors": true
+}
 		}
 	]
 }
