@@ -433,12 +433,12 @@
 			"V": {
 	"variantCount": 256,
 	"pointCountRange": {
-		"X": 6,
-		"Y": 16
+		"X": 16,
+		"Y": 128
 	},
 	"perAxisScaleRange": {
 		"X": 200.0,
-		"Y": 1000.0
+		"Y": 500.0
 	},
 	"spawnDebugActors": true
 }

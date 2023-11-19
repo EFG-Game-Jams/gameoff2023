@@ -50,6 +50,7 @@ public class ProceduralAsteroids : Script
 			StaticModel model = new StaticModel();
 			model.Model = variant.Model;
 			model.Position = position;
+			model.EulerAngles = new Float3(0, 0, Random.Shared.NextSingle() * 360);
 			model.Parent = Actor;
 
 			MeshCollider collider = new MeshCollider();
@@ -98,12 +99,30 @@ public class ProceduralAsteroids : Script
 
 	private Float3[] GenerateHullPoints(int pointCount, Float3 scale)
 	{
+		Float3 InBox(Float3 scale) => new(
+			(Random.Shared.NextSingle() - .5f) * scale.X,
+			(Random.Shared.NextSingle() - .5f) * scale.Y,
+			(Random.Shared.NextSingle() - .5f) * scale.Z);
+
+		Float3 InEllipsoid(Float3 scale)
+		{
+			Float3 point;
+			do
+				point = InBox(scale);
+			while ((point / scale).LengthSquared > .5f);
+			return point;
+		}
+
+		Float3 OnEllipsoid(Float3 scale)
+		{
+			Float3 point = InEllipsoid(scale);
+			return point.Normalized * .5f * scale;
+		}
+
 		var points = new Float3[pointCount];
 		for (int i = 0; i < pointCount; i++)
 		{
-			points[i].X = (Random.Shared.NextSingle() - .5f) * scale.X;
-			points[i].Y = (Random.Shared.NextSingle() - .5f) * scale.Y;
-			points[i].Z = (Random.Shared.NextSingle() - .5f) * scale.Z;
+			points[i] = OnEllipsoid(scale);
 		}
 		return points;
 	}
