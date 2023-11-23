@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
 using FlaxEngine;
 
 namespace SCALE;
@@ -51,7 +50,7 @@ public class ResourceField : Script
             if (Physics.CheckSphere(position, scale * 100))
                 continue;
 
-            var collectiblePrefab = PrefabManager.SpawnPrefab(CollectiblePrefab);
+            var collectiblePrefab = PrefabManager.SpawnPrefab(CollectiblePrefab, Parent);
             collectiblePrefab.Position = position;
             collectiblePrefab.Scale = new Float3(scale);
 

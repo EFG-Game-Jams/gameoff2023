@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using FlaxEditor.Content.Settings;
+using FlaxEditor.Surface.Archetypes;
 using FlaxEngine;
 
 namespace SCALE;
@@ -11,7 +13,8 @@ namespace SCALE;
 public class AsteroidField : Script
 {
 	public Actor Player;
-	public Prefab asteroidPrefab;
+	[CustomEditorAlias("FlaxEditor.CustomEditors.Editors.ActorLayerEditor")]
+	public int AsteroidLayer;
 	public float killDistance = 10000;
 	public int maxAsteroids = 10;
 	public Float2 asteroidScale = new Float2(1, 10);
@@ -50,11 +53,20 @@ public class AsteroidField : Script
 			if (Physics.CheckSphere(position, scale * 100))
 				continue;
 
-			var asteroid = PrefabManager.SpawnPrefab(asteroidPrefab);
-			asteroid.Position = position;
-			asteroid.Scale = Vector3.One * scale;
+			var proceduralAsteroids = Parent.GetScript<ProceduralAsteroids>();
+			var variant = proceduralAsteroids.GetRandomVariant();
 
-			var asteroidTrigger = asteroid.GetChild<SphereCollider>().GetScript<AsteroidTrigger>();
+			var asteroid = Parent.AddChild<StaticModel>();
+			asteroid.Model = variant.Model;
+			asteroid.Position = position;
+			asteroid.EulerAngles = new Float3(0, 0, Random.Shared.NextSingle() * 360);
+			//asteroid.Scale = Vector3.One * scale;
+
+			var meshCollider = asteroid.AddChild<MeshCollider>();
+			meshCollider.CollisionData = variant.CollisionData;
+			meshCollider.Layer = AsteroidLayer;
+
+			var asteroidTrigger = meshCollider.AddScript<AsteroidTrigger>();
 			asteroidTrigger.Player = Player;
 
 			asteroids.Add(asteroid);

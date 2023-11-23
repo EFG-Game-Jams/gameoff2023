@@ -11,11 +11,10 @@ public class ProceduralAsteroids : Script
 	[Serialize, ShowInEditor] private Float2 perAxisScaleRange;
 	[Serialize, ShowInEditor] private bool spawnDebugActors;
 
-	public struct Variant
-	{
-		public CollisionData CollisionData;
-		public Model Model;
-	}
+	public record struct Variant(
+		CollisionData CollisionData,
+		Model Model);
+
 	private Variant[] variants;
 
 	public Variant GetRandomVariant()
@@ -54,7 +53,7 @@ public class ProceduralAsteroids : Script
 			model.Parent = Actor;
 
 			MeshCollider collider = new MeshCollider();
-			collider.CollisionData = variant.CollisionData;			
+			collider.CollisionData = variant.CollisionData;
 			collider.Parent = model;
 
 			position += Vector3.Right * perAxisScaleRange.Y;
