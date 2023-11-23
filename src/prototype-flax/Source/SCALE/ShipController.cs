@@ -10,8 +10,6 @@ namespace SCALE;
 /// </summary>
 public class ShipController : Script
 {
-	private const float resourceScalingFactor = 1.2f;
-
 	private int resourcesCollected = 0;
 	private Float3 originalScale;
 	private RigidBody grappleTarget;
@@ -21,7 +19,7 @@ public class ShipController : Script
 	public RigidBody HookBody;
 	public ThrusterController ThrusterController;
 
-	public float ResourceCollectionRadius { get; set; } = 100f;
+	public float ResourceCollectionRadius { get; set; } = 25f;
 	public LayersMask ResourceLayerMask { get; set; }
 
 	[ReadOnly]
@@ -55,7 +53,7 @@ public class ShipController : Script
 		set
 		{
 			resourcesCollected = value;
-			var newScale = MathF.Max(1, (1 + resourcesCollected) * resourceScalingFactor);
+			var newScale = 1 + Math.Log10((resourcesCollected / 100.0) + 1.0) * 9.0;
 			Parent.Scale = originalScale * newScale;
 		}
 	}
@@ -143,12 +141,20 @@ public class ShipController : Script
 
 	private void CollectResources()
 	{
-		if (Physics.OverlapSphere(Parent.Position, ResourceCollectionRadius, out PhysicsColliderActor[] hits, ResourceLayerMask.Mask, false))
+		var playerCapsule = Parent.GetChild<CapsuleCollider>();
+		if (Physics.OverlapCapsule(
+			playerCapsule.Position,
+			(playerCapsule.Radius * Parent.Scale.X) + ResourceCollectionRadius,
+			(playerCapsule.Height * Parent.Scale.X) + ResourceCollectionRadius,
+			out Collider[] hits,
+			playerCapsule.Orientation,
+			ResourceLayerMask.Mask,
+			false))
 		{
 			foreach (var hit in hits)
 			{
 				var resourceValue = hit.Parent.GetScript<Collectible>();
-				resourcesCollected += resourceValue.Units;
+				ResourcesCollected += resourceValue.Units;
 				resourceValue.OnCollected();
 			}
 		}
