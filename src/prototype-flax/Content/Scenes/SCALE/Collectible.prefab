@@ -22,7 +22,8 @@
 		"TypeName": "FlaxEngine.BoxCollider",
 		"ParentID": "08dbe86cb7ccfba213c874b494c9c7c5",
 		"Name": "BoxCollider",
-		"Layer": 2
+		"Layer": 2,
+		"IsTrigger": true
 	},
 	{
 		"ID": "08dbe86cb7cf3b8213c874b594c9c7d2",

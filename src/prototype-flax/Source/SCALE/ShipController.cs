@@ -149,7 +149,7 @@ public class ShipController : Script
 			out Collider[] hits,
 			playerCapsule.Orientation,
 			ResourceLayerMask.Mask,
-			false))
+			hitTriggers: true))
 		{
 			foreach (var hit in hits)
 			{
