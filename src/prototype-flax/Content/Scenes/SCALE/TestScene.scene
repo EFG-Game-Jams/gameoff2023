@@ -427,6 +427,44 @@
 	"Velocity": 1500.0,
 	"MaxLength": 800.0
 }
+		},
+		{
+			"ID": "601ccbd446f9d7c02b2388b914b546bc",
+			"TypeName": "FlaxEngine.EmptyActor",
+			"ParentID": "e7ca86554002f14810cd68b3ef49a1e2",
+			"IsActive": false,
+			"Name": "QuadTreeTest"
+		},
+		{
+			"ID": "92b8f3bb4ad00dd3e096aca74298a847",
+			"TypeName": "SCALE.QuadTreeTest",
+			"ParentID": "601ccbd446f9d7c02b2388b914b546bc",
+			"V": {
+	"itemCount": 524288,
+	"bounds": {
+		"Location": {
+			"X": -10000.0,
+			"Y": -10000.0
+		},
+		"Size": {
+			"X": 20000.0,
+			"Y": 20000.0
+		},
+		"X": -10000.0,
+		"Y": -10000.0,
+		"Width": 20000.0,
+		"Height": 20000.0
+	},
+	"samplePoint": "e09f26f54aacf02335fa998bc76ad1c7",
+	"sampleRadius": 100.0
+}
+		},
+		{
+			"ID": "e09f26f54aacf02335fa998bc76ad1c7",
+			"TypeName": "FlaxEngine.EmptyActor",
+			"ParentID": "601ccbd446f9d7c02b2388b914b546bc",
+			"Name": "Sampler",
+			"StaticFlags": 0
 		}
 	]
 }
