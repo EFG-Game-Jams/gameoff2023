@@ -358,13 +358,9 @@
 			"ParentID": "0801cc744e9e3d8eba57c8b15dfbc903",
 			"V": {
 	"Player": "e8adb9724c4e218dea4bfaa859db3976",
+	"Camera": "7d2b1917407196794daee6b09b78192b",
 	"AsteroidLayer": 1,
-	"killDistance": 20000.0,
-	"maxAsteroids": 200,
-	"asteroidSpawnDistance": {
-		"X": 5000.0,
-		"Y": 20000.0
-	},
+	"MaxAsteroids": 200,
 	"asteroidMaterial": "93e8772e4ea2d2578e56c1b80152d9bc",
 	"Actor": "0801cc744e9e3d8eba57c8b15dfbc903",
 	"Parent": "0801cc744e9e3d8eba57c8b15dfbc903",
