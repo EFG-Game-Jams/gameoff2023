@@ -1,7 +1,7 @@
 {
 	"ID": "e7ca86554002f14810cd68b3ef49a1e2",
 	"TypeName": "FlaxEngine.SceneAsset",
-	"EngineBuild": 6404,
+	"EngineBuild": 6406,
 	"Data": [
 		{
 			"ID": "e7ca86554002f14810cd68b3ef49a1e2",
@@ -44,7 +44,10 @@
 	"zRange": {
 		"X": -1000.0,
 		"Y": -5000.0
-	}
+	},
+	"Actor": "7d2b1917407196794daee6b09b78192b",
+	"Parent": "7d2b1917407196794daee6b09b78192b",
+	"OrderInParent": 0
 }
 		},
 		{
@@ -74,7 +77,10 @@
 	"ThrusterController": "95118e87497dc9f8e93f9bae9206f2df",
 	"ResourceLayerMask": {
 		"Mask": 4
-	}
+	},
+	"Actor": "e8adb9724c4e218dea4bfaa859db3976",
+	"Parent": "e8adb9724c4e218dea4bfaa859db3976",
+	"OrderInParent": 0
 }
 		},
 		{
@@ -137,7 +143,10 @@
 	"AngularSensitivity": 5000.0,
 	"MaxTorqueRequest": 5000.0,
 	"KillTranslation": true,
-	"KillRotation": true
+	"KillRotation": true,
+	"Actor": "418e4a8f43b68927ce45e590665f45a9",
+	"Parent": "418e4a8f43b68927ce45e590665f45a9",
+	"OrderInParent": 0
 }
 		},
 		{
@@ -156,7 +165,10 @@
 	],
 	"torqueExponent": 2.0,
 	"magnitudeExponent": 2.0,
-	"maxSolverTimeMs": 5.0
+	"maxSolverTimeMs": 5.0,
+	"Actor": "418e4a8f43b68927ce45e590665f45a9",
+	"Parent": "418e4a8f43b68927ce45e590665f45a9",
+	"OrderInParent": 1
 }
 		},
 		{
@@ -184,7 +196,10 @@
 			"PrefabID": "ac6fe64947bc2df2be8b8b84fbfff26d",
 			"PrefabObjectID": "47dfc7964b93383b8c219d9fd7e7f12a",
 			"ParentID": "bdbb83854820ced5adfc4b9e7cffbe22",
-			"V": {}
+			"V": {
+	"Actor": "bdbb83854820ced5adfc4b9e7cffbe22",
+	"Parent": "bdbb83854820ced5adfc4b9e7cffbe22"
+}
 		},
 		{
 			"ID": "03619004465365d887b265bc836fa70c",
@@ -205,7 +220,10 @@
 			"PrefabID": "ac6fe64947bc2df2be8b8b84fbfff26d",
 			"PrefabObjectID": "47dfc7964b93383b8c219d9fd7e7f12a",
 			"ParentID": "03619004465365d887b265bc836fa70c",
-			"V": {}
+			"V": {
+	"Actor": "03619004465365d887b265bc836fa70c",
+	"Parent": "03619004465365d887b265bc836fa70c"
+}
 		},
 		{
 			"ID": "8469be254c5aa6c2670398aea88301e2",
@@ -232,7 +250,10 @@
 			"PrefabID": "ac6fe64947bc2df2be8b8b84fbfff26d",
 			"PrefabObjectID": "47dfc7964b93383b8c219d9fd7e7f12a",
 			"ParentID": "8469be254c5aa6c2670398aea88301e2",
-			"V": {}
+			"V": {
+	"Actor": "8469be254c5aa6c2670398aea88301e2",
+	"Parent": "8469be254c5aa6c2670398aea88301e2"
+}
 		},
 		{
 			"ID": "3ac75ea5434a62584914aba0d09aa727",
@@ -259,7 +280,10 @@
 			"PrefabID": "ac6fe64947bc2df2be8b8b84fbfff26d",
 			"PrefabObjectID": "47dfc7964b93383b8c219d9fd7e7f12a",
 			"ParentID": "3ac75ea5434a62584914aba0d09aa727",
-			"V": {}
+			"V": {
+	"Actor": "3ac75ea5434a62584914aba0d09aa727",
+	"Parent": "3ac75ea5434a62584914aba0d09aa727"
+}
 		},
 		{
 			"ID": "9dcbfc9a436da8b90d618d9bb6668d0b",
@@ -286,7 +310,10 @@
 			"PrefabID": "ac6fe64947bc2df2be8b8b84fbfff26d",
 			"PrefabObjectID": "47dfc7964b93383b8c219d9fd7e7f12a",
 			"ParentID": "9dcbfc9a436da8b90d618d9bb6668d0b",
-			"V": {}
+			"V": {
+	"Actor": "9dcbfc9a436da8b90d618d9bb6668d0b",
+	"Parent": "9dcbfc9a436da8b90d618d9bb6668d0b"
+}
 		},
 		{
 			"ID": "d57096c64061cf98b18f3db881751ae6",
@@ -313,7 +340,10 @@
 			"PrefabID": "ac6fe64947bc2df2be8b8b84fbfff26d",
 			"PrefabObjectID": "47dfc7964b93383b8c219d9fd7e7f12a",
 			"ParentID": "d57096c64061cf98b18f3db881751ae6",
-			"V": {}
+			"V": {
+	"Actor": "d57096c64061cf98b18f3db881751ae6",
+	"Parent": "d57096c64061cf98b18f3db881751ae6"
+}
 		},
 		{
 			"ID": "0801cc744e9e3d8eba57c8b15dfbc903",
@@ -334,7 +364,11 @@
 	"asteroidSpawnDistance": {
 		"X": 5000.0,
 		"Y": 20000.0
-	}
+	},
+	"asteroidMaterial": "93e8772e4ea2d2578e56c1b80152d9bc",
+	"Actor": "0801cc744e9e3d8eba57c8b15dfbc903",
+	"Parent": "0801cc744e9e3d8eba57c8b15dfbc903",
+	"OrderInParent": 0
 }
 		},
 		{
@@ -350,7 +384,10 @@
 	"perAxisScaleRange": {
 		"X": 200.0,
 		"Y": 500.0
-	}
+	},
+	"Actor": "0801cc744e9e3d8eba57c8b15dfbc903",
+	"Parent": "0801cc744e9e3d8eba57c8b15dfbc903",
+	"OrderInParent": 1
 }
 		},
 		{
@@ -366,7 +403,10 @@
 			"ParentID": "08dbe829812c4143610d45519971c6de",
 			"V": {
 	"CollectiblePrefab": "08dbe86cb7d0af2d13c874c194c9c84a",
-	"Player": "e8adb9724c4e218dea4bfaa859db3976"
+	"Player": "e8adb9724c4e218dea4bfaa859db3976",
+	"Actor": "08dbe829812c4143610d45519971c6de",
+	"Parent": "08dbe829812c4143610d45519971c6de",
+	"OrderInParent": 0
 }
 		},
 		{
@@ -425,7 +465,10 @@
 	},
 	"Player": "e8adb9724c4e218dea4bfaa859db3976",
 	"Velocity": 1500.0,
-	"MaxLength": 800.0
+	"MaxLength": 800.0,
+	"Actor": "08dbe83d795048165fb5787a8c06a083",
+	"Parent": "08dbe83d795048165fb5787a8c06a083",
+	"OrderInParent": 0
 }
 		},
 		{
@@ -456,7 +499,10 @@
 		"Height": 20000.0
 	},
 	"samplePoint": "e09f26f54aacf02335fa998bc76ad1c7",
-	"sampleRadius": 100.0
+	"sampleRadius": 100.0,
+	"Actor": "601ccbd446f9d7c02b2388b914b546bc",
+	"Parent": "601ccbd446f9d7c02b2388b914b546bc",
+	"OrderInParent": 0
 }
 		},
 		{

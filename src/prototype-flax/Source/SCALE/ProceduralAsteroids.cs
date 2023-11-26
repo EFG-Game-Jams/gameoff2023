@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using FlaxEngine;
 
 namespace SCALE;
@@ -91,9 +92,53 @@ public class ProceduralAsteroids : Script
 		collisionData.ExtractGeometry(out Float3[] vertexBuffer, out int[] indexBuffer);
 		ConvertToFlatShadedMesh(vertexBuffer, indexBuffer, out Float3[] flatVertices, out int[] flatIndices, out Float3[] flatNormals);
 		var mesh = model.LODs[0].Meshes[0];
-		mesh.UpdateMesh(flatVertices, flatIndices, flatNormals);
+		//mesh.UpdateMesh(flatVertices, flatIndices, flatNormals);
+
+		// use raw mesh
+		indexBuffer = indexBuffer.Reverse().ToArray();
+		CalculateSmoothNormals(vertexBuffer, indexBuffer, out Float3[] normals);
+		mesh.UpdateMesh(vertexBuffer, indexBuffer, normals);
 
 		return new() { CollisionData = collisionData, Model = model };
+	}
+
+	void CalculateSmoothNormals(Float3[] vertexBuffer, int[] indexBuffer, out Float3[] normals)
+	{
+		normals = new Float3[vertexBuffer.Length];
+
+		// Initialize normals array
+		for (int i = 0; i < normals.Length; i++)
+		{
+			normals[i] = new Float3(0, 0, 0);
+		}
+
+		// Accumulate normals for each vertex
+		for (int i = 0; i < indexBuffer.Length; i += 3)
+		{
+			int index0 = indexBuffer[i];
+			int index1 = indexBuffer[i + 1];
+			int index2 = indexBuffer[i + 2];
+
+			Float3 vertex0 = vertexBuffer[index0];
+			Float3 vertex1 = vertexBuffer[index1];
+			Float3 vertex2 = vertexBuffer[index2];
+
+			// Calculate the normal of the triangle
+			Float3 edge1 = vertex1 - vertex0;
+			Float3 edge2 = vertex2 - vertex0;
+			Float3 triangleNormal = Float3.Cross(edge1, edge2).Normalized;
+
+			// Add the triangle normal to the normals of the vertices of the triangle
+			normals[index0] += triangleNormal;
+			normals[index1] += triangleNormal;
+			normals[index2] += triangleNormal;
+		}
+
+		// Normalize each vertex normal
+		for (int i = 0; i < normals.Length; i++)
+		{
+			normals[i] = normals[i].Normalized;
+		}
 	}
 
 	private Float3[] GenerateHullPoints(int pointCount, Float3 scale)

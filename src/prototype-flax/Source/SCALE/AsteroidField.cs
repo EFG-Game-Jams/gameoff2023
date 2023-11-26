@@ -4,6 +4,7 @@ using System.Linq;
 using FlaxEditor.Content.Settings;
 using FlaxEditor.Surface.Archetypes;
 using FlaxEngine;
+using Material = FlaxEngine.Material;
 
 namespace SCALE;
 
@@ -19,6 +20,7 @@ public class AsteroidField : Script
 	public int maxAsteroids = 10;
 	public Float2 asteroidScale = new Float2(1, 10);
 	public Float2 asteroidSpawnDistance = new Float2(1000, 10000);
+	public Material asteroidMaterial;
 
 	private HashSet<Actor> asteroids = new HashSet<Actor>();
 
@@ -60,6 +62,7 @@ public class AsteroidField : Script
 			asteroid.Model = variant.Model;
 			asteroid.Position = position;
 			asteroid.EulerAngles = new Float3(0, 0, Random.Shared.NextSingle() * 360);
+			asteroid.SetMaterial(0, asteroidMaterial);
 			//asteroid.Scale = Vector3.One * scale;
 
 			var meshCollider = asteroid.AddChild<MeshCollider>();
