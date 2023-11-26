@@ -25,7 +25,7 @@ public class AsteroidField : Script
 	public double AsteroidMaxRotationSpeed = Mathd.Pi;
 	public double AsteroidMaxVelocity = 100.0;
 
-	private HashSet<Actor> asteroids = [];
+	private HashSet<Actor> asteroids = new();
 
 	public override void OnUpdate()
 	{
