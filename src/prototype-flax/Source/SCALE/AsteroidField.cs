@@ -21,7 +21,11 @@ public class AsteroidField : Script
 	public Float2 asteroidScale = new Float2(1, 10);
 	public Material asteroidMaterial;
 
-	private HashSet<Actor> asteroids = new HashSet<Actor>();
+	// radians per second
+	public double AsteroidMaxRotationSpeed = Mathd.Pi;
+	public double AsteroidMaxVelocity = 100.0;
+
+	private HashSet<Actor> asteroids = [];
 
 	public override void OnUpdate()
 	{
@@ -83,9 +87,7 @@ public class AsteroidField : Script
 			Vector3 randomDirection;
 			if (normalizedPlayerDirection.X + normalizedPlayerDirection.Y + normalizedPlayerDirection.Z < 0.1)
 			{
-				// The player is barely moving, spawn stuff anywhere in a circle around the player
-				var randomAngle = (RandomUtil.Random.NextSingle() * 2.0 - 1.0) * Mathd.TwoPi;
-				randomDirection = new Vector3(Mathd.Cos(randomAngle), Mathd.Sin(randomAngle), 0);
+				randomDirection = new Vector3(GetRandomUnitVector2(), 0);
 			}
 			else
 			{
@@ -119,23 +121,40 @@ public class AsteroidField : Script
 					continue;
 				}
 
-				var asteroid = Parent.AddChild<StaticModel>();
-				asteroid.Model = variant.Model;
+				var asteroid = Parent.AddChild<RigidBody>();
 				asteroid.Position = candidatePosition;
 				asteroid.EulerAngles = new Float3(0, 0, Random.Shared.NextSingle() * 360);
-				asteroid.SetMaterial(0, asteroidMaterial);
+				asteroid.EnableGravity = false;
+				asteroid.StaticFlags = StaticFlags.None;
+				asteroid.Constraints = RigidbodyConstraints.LockPositionZ;
+
+				asteroid.LinearVelocity = new Vector3(GetRandomUnitVector2() * AsteroidMaxVelocity, 0);
+				asteroid.AngularVelocity = new(
+					Random.Shared.NextSingle() * AsteroidMaxRotationSpeed,
+					Random.Shared.NextSingle() * AsteroidMaxRotationSpeed,
+					Random.Shared.NextSingle() * AsteroidMaxRotationSpeed);
+
+				var asteroidModel = asteroid.AddChild<StaticModel>();
+				asteroidModel.Model = variant.Model;
+				asteroidModel.SetMaterial(0, asteroidMaterial);
 
 				var meshCollider = asteroid.AddChild<MeshCollider>();
 				meshCollider.CollisionData = variant.CollisionData;
 				meshCollider.Layer = AsteroidLayer;
 
-				var asteroidTrigger = meshCollider.AddScript<AsteroidTrigger>();
-				asteroidTrigger.Player = Player;
+				// Override the collider set mass
+				asteroid.Mass = 3;
 
 				asteroids.Add(asteroid);
 				break;
 			}
 		}
+	}
+
+	private static Vector2 GetRandomUnitVector2()
+	{
+		var randomAngle = (RandomUtil.Random.NextSingle() * 2.0 - 1.0) * Mathd.TwoPi;
+		return new(Mathd.Cos(randomAngle), Mathd.Sin(randomAngle));
 	}
 
 	private Vector3 GetRandomAsteroidSpawnPosition(BoundingSphere boundingSphere)
