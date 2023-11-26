@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using FlaxEngine;
+using FlaxEngine.Assertions;
 
 #if USE_LARGE_WORLDS
 using Real = System.Double;
@@ -13,16 +14,16 @@ public class QuadTree : Script
 {
 	public struct Rect
 	{
-		public readonly Vector2 Min;
-		public readonly Vector2 Max;
+		public Vector2 Min;
+		public Vector2 Max;
 
 		public Real Width => Max.X - Min.X;
 		public Real Height => Max.Y - Min.Y;
 
 		public Rect(Vector2 min, Vector2 max)
 		{
-			this.Min = min;
-			this.Max = max;
+			Min = min;
+			Max = max;
 		}
 		public Rect(Real x0, Real y0, Real width, Real height)
 			: this(new Vector2(x0, y0), new Vector2(x0 + width, y0 + height))
@@ -54,12 +55,17 @@ public class QuadTree : Script
 		public bool IsLeaf => Children == null;
 	}
 
+	private Rect bounds;
 	private Node root;
 
 	public Rect Bounds
 	{
-		get => root.Bounds;
-		set => root = new Node(value);
+		get => bounds;
+		set
+		{
+			bounds = value;
+			Assert.IsNull(root);
+		}
 	}
 	public int MaxItemsPerNode { get; set; } = 4;
 	
@@ -69,6 +75,7 @@ public class QuadTree : Script
 
 	public void Insert(Actor item)
 	{
+		root ??= new(bounds);
 		Insert(item, root);
 	}
 
@@ -129,7 +136,7 @@ public class QuadTree : Script
 		node.Items.Clear();
 	}
 
-	private void Query(Rect area, List<Actor> result)
+	public void Query(Rect area, List<Actor> result)
 	{
 		Query(area, root, result);
 	}
@@ -186,5 +193,10 @@ public class QuadTree : Script
 			foreach (var child in node.Children)
 				QueryCells(area, child, leafNodesOnly, result);
 		}
+	}
+
+	public override void OnDebugDraw()
+	{
+		DebugDraw.DrawWireBox(new BoundingBox((Vector3)bounds.Min, (Vector3)bounds.Max), Color.Wheat);
 	}
 }

@@ -468,45 +468,490 @@
 }
 		},
 		{
-			"ID": "601ccbd446f9d7c02b2388b914b546bc",
-			"TypeName": "FlaxEngine.EmptyActor",
+			"ID": "e83de7df4de2f34cbfa65b8147854b37",
+			"TypeName": "SCALE.WorldParameterNode",
 			"ParentID": "e7ca86554002f14810cd68b3ef49a1e2",
-			"IsActive": false,
-			"Name": "QuadTreeTest"
+			"V": {
+	"parameters": {
+		"Position": {
+			"X": -413.2957153320313,
+			"Y": -151.4691162109375
+		},
+		"AsteroidDensity": 0.0,
+		"AsteroidSize": {
+			"X": 0.0,
+			"Y": 0.0
+		},
+		"AsteroidLinearSpeed": {
+			"X": 0.0,
+			"Y": 0.0
+		},
+		"AsteroidAngularSpeed": {
+			"X": 0.0,
+			"Y": 0.0
+		}
+	},
+	"Model": "b43f0f8f4aaba3f3156896a5a22ba493",
+	"Entries": [
+		{
+			"Material": "bff6de3a45a0f6567a713f8cf1d97904",
+			"ShadowsMode": 3,
+			"Visible": true,
+			"ReceiveDecals": true
+		}
+	],
+	"Layer": 3,
+	"Name": "WorldParameterSampler",
+	"StaticFlags": 0,
+	"LocalTransform": {
+		"Translation": {
+			"X": -413.29571533203125,
+			"Y": -151.4691162109375,
+			"Z": 3.613145963754505E-05
+		},
+		"Orientation": {
+			"X": 0.0,
+			"Y": 1.0,
+			"Z": 0.0,
+			"W": -4.371139E-08
+		},
+		"Scale": {
+			"X": 1.0,
+			"Y": 1.0,
+			"Z": 1.0
+		}
+	},
+	"Parent": "e7ca86554002f14810cd68b3ef49a1e2",
+	"OrderInParent": 6
+},
+			"Name": "WorldParameterSampler",
+			"Transform": {
+				"Translation": {
+					"X": -413.29571533203127,
+					"Y": -151.4691162109375,
+					"Z": 0.00003613145963754505
+				},
+				"Orientation": {
+					"X": 0.0,
+					"Y": 1.0,
+					"Z": 0.0,
+					"W": -4.371138828673793e-8
+				}
+			},
+			"StaticFlags": 0,
+			"Layer": 3,
+			"Model": "b43f0f8f4aaba3f3156896a5a22ba493",
+			"Buffer": {
+				"Entries": [
+					{
+						"Material": "bff6de3a45a0f6567a713f8cf1d97904",
+						"ShadowsMode": 3,
+						"Visible": true,
+						"ReceiveDecals": true
+					}
+				]
+			}
 		},
 		{
-			"ID": "92b8f3bb4ad00dd3e096aca74298a847",
-			"TypeName": "SCALE.QuadTreeTest",
-			"ParentID": "601ccbd446f9d7c02b2388b914b546bc",
+			"ID": "33b581be4ac189dfb27bef84238a46c4",
+			"TypeName": "SCALE.WorldParameterSampler",
+			"ParentID": "e83de7df4de2f34cbfa65b8147854b37",
 			"V": {
-	"itemCount": 524288,
-	"bounds": {
-		"Location": {
-			"X": -10000.0,
-			"Y": -10000.0
-		},
-		"Size": {
-			"X": 20000.0,
-			"Y": 20000.0
-		},
-		"X": -10000.0,
-		"Y": -10000.0,
-		"Width": 20000.0,
-		"Height": 20000.0
-	},
-	"samplePoint": "e09f26f54aacf02335fa998bc76ad1c7",
-	"sampleRadius": 100.0,
-	"Actor": "601ccbd446f9d7c02b2388b914b546bc",
-	"Parent": "601ccbd446f9d7c02b2388b914b546bc",
+	"level": "1bbaf49e4a46c3fa109af5b57a45df6c",
+	"node": "e83de7df4de2f34cbfa65b8147854b37",
+	"radius": 10000.0,
+	"Actor": "e83de7df4de2f34cbfa65b8147854b37",
+	"Parent": "e83de7df4de2f34cbfa65b8147854b37",
 	"OrderInParent": 0
 }
 		},
 		{
-			"ID": "e09f26f54aacf02335fa998bc76ad1c7",
-			"TypeName": "FlaxEngine.EmptyActor",
-			"ParentID": "601ccbd446f9d7c02b2388b914b546bc",
-			"Name": "Sampler",
-			"StaticFlags": 0
+			"ID": "1bbaf49e4a46c3fa109af5b57a45df6c",
+			"TypeName": "SCALE.Level",
+			"ParentID": "e7ca86554002f14810cd68b3ef49a1e2",
+			"V": {
+	"worldScale": 10.0,
+	"QuadTree": "07f9cc734211a1a660a53283924889a9",
+	"Layer": 3,
+	"Name": "Level",
+	"Parent": "e7ca86554002f14810cd68b3ef49a1e2",
+	"OrderInParent": 7
+},
+			"Name": "Level",
+			"Layer": 3
+		},
+		{
+			"ID": "08ee1d164e22ab3eea3899a855ae1adc",
+			"TypeName": "SCALE.LevelInitialiser",
+			"ParentID": "1bbaf49e4a46c3fa109af5b57a45df6c",
+			"V": {
+	"level": "1bbaf49e4a46c3fa109af5b57a45df6c",
+	"quadTree": "07f9cc734211a1a660a53283924889a9",
+	"Actor": "1bbaf49e4a46c3fa109af5b57a45df6c",
+	"Parent": "1bbaf49e4a46c3fa109af5b57a45df6c",
+	"OrderInParent": 0
+}
+		},
+		{
+			"ID": "07f9cc734211a1a660a53283924889a9",
+			"TypeName": "QuadTree",
+			"ParentID": "1bbaf49e4a46c3fa109af5b57a45df6c",
+			"V": {
+	"Bounds": {
+		"Min": {
+			"X": -100000.0,
+			"Y": -100000.0
+		},
+		"Max": {
+			"X": 100000.0,
+			"Y": 100000.0
+		}
+	},
+	"MaxItemsPerNode": 16,
+	"Actor": "1bbaf49e4a46c3fa109af5b57a45df6c",
+	"Parent": "1bbaf49e4a46c3fa109af5b57a45df6c",
+	"OrderInParent": 1
+}
+		},
+		{
+			"ID": "29aaa55b4f88b2353d780286258f701b",
+			"TypeName": "SCALE.WorldParameterNode",
+			"ParentID": "1bbaf49e4a46c3fa109af5b57a45df6c",
+			"V": {
+	"parameters": {
+		"Position": {
+			"X": -249.39451599121097,
+			"Y": 182.54383850097656
+		},
+		"AsteroidDensity": 10.0,
+		"AsteroidSize": {
+			"X": 0.0,
+			"Y": 0.0
+		},
+		"AsteroidLinearSpeed": {
+			"X": 0.0,
+			"Y": 0.0
+		},
+		"AsteroidAngularSpeed": {
+			"X": 0.0,
+			"Y": 0.0
+		}
+	},
+	"Model": "b43f0f8f4aaba3f3156896a5a22ba493",
+	"Entries": [
+		{
+			"Material": "b9f6a9ea4ffad93caad51b86dba65da8",
+			"ShadowsMode": 3,
+			"Visible": true,
+			"ReceiveDecals": true
+		}
+	],
+	"Layer": 3,
+	"Name": "WorldParameterNode 0",
+	"StaticFlags": 0,
+	"LocalTransform": {
+		"Translation": {
+			"X": -249.39451599121094,
+			"Y": 182.54383850097656,
+			"Z": 2.1802748960908502E-05
+		},
+		"Orientation": {
+			"X": 0.0,
+			"Y": 1.0,
+			"Z": 0.0,
+			"W": -4.371139E-08
+		},
+		"Scale": {
+			"X": 1.0,
+			"Y": 1.0,
+			"Z": 1.0
+		}
+	},
+	"Parent": "1bbaf49e4a46c3fa109af5b57a45df6c",
+	"OrderInParent": 0
+},
+			"Name": "WorldParameterNode 0",
+			"Transform": {
+				"Translation": {
+					"X": -249.39451599121095,
+					"Y": 182.54383850097657,
+					"Z": 0.000021802748960908504
+				},
+				"Orientation": {
+					"X": 0.0,
+					"Y": 1.0,
+					"Z": 0.0,
+					"W": -4.371138828673793e-8
+				}
+			},
+			"StaticFlags": 0,
+			"Layer": 3,
+			"Model": "b43f0f8f4aaba3f3156896a5a22ba493",
+			"Buffer": {
+				"Entries": [
+					{
+						"Material": "b9f6a9ea4ffad93caad51b86dba65da8",
+						"ShadowsMode": 3,
+						"Visible": true,
+						"ReceiveDecals": true
+					}
+				]
+			}
+		},
+		{
+			"ID": "e53e1f8f43d84ee91f67228712e502b0",
+			"TypeName": "SCALE.WorldParameterNode",
+			"ParentID": "1bbaf49e4a46c3fa109af5b57a45df6c",
+			"V": {
+	"parameters": {
+		"Position": {
+			"X": -565.9038696289062,
+			"Y": -474.5227355957031
+		},
+		"AsteroidDensity": 100.0,
+		"AsteroidSize": {
+			"X": 0.0,
+			"Y": 0.0
+		},
+		"AsteroidLinearSpeed": {
+			"X": 0.0,
+			"Y": 0.0
+		},
+		"AsteroidAngularSpeed": {
+			"X": 0.0,
+			"Y": 0.0
+		}
+	},
+	"Model": "b43f0f8f4aaba3f3156896a5a22ba493",
+	"Entries": [
+		{
+			"Material": "b9f6a9ea4ffad93caad51b86dba65da8",
+			"ShadowsMode": 3,
+			"Visible": true,
+			"ReceiveDecals": true
+		}
+	],
+	"Layer": 3,
+	"Name": "WorldParameterNode 1",
+	"StaticFlags": 0,
+	"LocalTransform": {
+		"Translation": {
+			"X": -565.9038696289062,
+			"Y": -474.5227355957031,
+			"Z": 4.947288834955543E-05
+		},
+		"Orientation": {
+			"X": 0.0,
+			"Y": 1.0,
+			"Z": 0.0,
+			"W": -4.371139E-08
+		},
+		"Scale": {
+			"X": 1.0,
+			"Y": 1.0,
+			"Z": 1.0
+		}
+	},
+	"Parent": "1bbaf49e4a46c3fa109af5b57a45df6c",
+	"OrderInParent": 1
+},
+			"Name": "WorldParameterNode 1",
+			"Transform": {
+				"Translation": {
+					"X": -565.9038696289063,
+					"Y": -474.5227355957031,
+					"Z": 0.00004947288834955543
+				},
+				"Orientation": {
+					"X": 0.0,
+					"Y": 1.0,
+					"Z": 0.0,
+					"W": -4.371138828673793e-8
+				}
+			},
+			"StaticFlags": 0,
+			"Layer": 3,
+			"Model": "b43f0f8f4aaba3f3156896a5a22ba493",
+			"Buffer": {
+				"Entries": [
+					{
+						"Material": "b9f6a9ea4ffad93caad51b86dba65da8",
+						"ShadowsMode": 3,
+						"Visible": true,
+						"ReceiveDecals": true
+					}
+				]
+			}
+		},
+		{
+			"ID": "ebfb95eb4f87217d6c5703bc79685ab6",
+			"TypeName": "SCALE.WorldParameterNode",
+			"ParentID": "1bbaf49e4a46c3fa109af5b57a45df6c",
+			"V": {
+	"parameters": {
+		"Position": {
+			"X": 377.491943359375,
+			"Y": -141.5594940185547
+		},
+		"AsteroidDensity": 0.0,
+		"AsteroidSize": {
+			"X": 0.0,
+			"Y": 0.0
+		},
+		"AsteroidLinearSpeed": {
+			"X": 0.0,
+			"Y": 0.0
+		},
+		"AsteroidAngularSpeed": {
+			"X": 0.0,
+			"Y": 0.0
+		}
+	},
+	"Model": "b43f0f8f4aaba3f3156896a5a22ba493",
+	"Entries": [
+		{
+			"Material": "b9f6a9ea4ffad93caad51b86dba65da8",
+			"ShadowsMode": 3,
+			"Visible": true,
+			"ReceiveDecals": true
+		}
+	],
+	"Layer": 3,
+	"Name": "WorldParameterNode 3",
+	"StaticFlags": 0,
+	"LocalTransform": {
+		"Translation": {
+			"X": 377.491943359375,
+			"Y": -141.5594940185547,
+			"Z": -3.300139360362664E-05
+		},
+		"Orientation": {
+			"X": 0.0,
+			"Y": 1.0,
+			"Z": 0.0,
+			"W": -4.371139E-08
+		},
+		"Scale": {
+			"X": 1.0,
+			"Y": 1.0,
+			"Z": 1.0
+		}
+	},
+	"Parent": "1bbaf49e4a46c3fa109af5b57a45df6c",
+	"OrderInParent": 2
+},
+			"Name": "WorldParameterNode 3",
+			"Transform": {
+				"Translation": {
+					"X": 377.491943359375,
+					"Y": -141.5594940185547,
+					"Z": -0.00003300139360362664
+				},
+				"Orientation": {
+					"X": 0.0,
+					"Y": 1.0,
+					"Z": 0.0,
+					"W": -4.371138828673793e-8
+				}
+			},
+			"StaticFlags": 0,
+			"Layer": 3,
+			"Model": "b43f0f8f4aaba3f3156896a5a22ba493",
+			"Buffer": {
+				"Entries": [
+					{
+						"Material": "b9f6a9ea4ffad93caad51b86dba65da8",
+						"ShadowsMode": 3,
+						"Visible": true,
+						"ReceiveDecals": true
+					}
+				]
+			}
+		},
+		{
+			"ID": "8628e53840ba9cd138991d929a6d80f0",
+			"TypeName": "SCALE.WorldParameterNode",
+			"ParentID": "1bbaf49e4a46c3fa109af5b57a45df6c",
+			"V": {
+	"parameters": {
+		"Position": {
+			"X": 377.491943359375,
+			"Y": -141.5594940185547
+		},
+		"AsteroidDensity": -100.0,
+		"AsteroidSize": {
+			"X": 0.0,
+			"Y": 0.0
+		},
+		"AsteroidLinearSpeed": {
+			"X": 0.0,
+			"Y": 0.0
+		},
+		"AsteroidAngularSpeed": {
+			"X": 0.0,
+			"Y": 0.0
+		}
+	},
+	"Model": "b43f0f8f4aaba3f3156896a5a22ba493",
+	"Entries": [
+		{
+			"Material": "b9f6a9ea4ffad93caad51b86dba65da8",
+			"ShadowsMode": 3,
+			"Visible": true,
+			"ReceiveDecals": true
+		}
+	],
+	"Layer": 3,
+	"Name": "WorldParameterNode 2",
+	"StaticFlags": 0,
+	"LocalTransform": {
+		"Translation": {
+			"X": 338.019287109375,
+			"Y": -522.8815307617188,
+			"Z": -2.9550583349191584E-05
+		},
+		"Orientation": {
+			"X": 0.0,
+			"Y": 1.0,
+			"Z": 0.0,
+			"W": -4.371139E-08
+		},
+		"Scale": {
+			"X": 1.0,
+			"Y": 1.0,
+			"Z": 1.0
+		}
+	},
+	"Parent": "1bbaf49e4a46c3fa109af5b57a45df6c",
+	"OrderInParent": 3
+},
+			"Name": "WorldParameterNode 2",
+			"Transform": {
+				"Translation": {
+					"X": 338.019287109375,
+					"Y": -522.8815307617188,
+					"Z": -0.000029550583349191585
+				},
+				"Orientation": {
+					"X": 0.0,
+					"Y": 1.0,
+					"Z": 0.0,
+					"W": -4.371138828673793e-8
+				}
+			},
+			"StaticFlags": 0,
+			"Layer": 3,
+			"Model": "b43f0f8f4aaba3f3156896a5a22ba493",
+			"Buffer": {
+				"Entries": [
+					{
+						"Material": "b9f6a9ea4ffad93caad51b86dba65da8",
+						"ShadowsMode": 3,
+						"Visible": true,
+						"ReceiveDecals": true
+					}
+				]
+			}
 		}
 	]
 }
