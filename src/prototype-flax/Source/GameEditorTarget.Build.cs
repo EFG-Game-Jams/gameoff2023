@@ -12,13 +12,12 @@ public class GameEditorTarget : GameProjectEditorTarget
 
         // Reference the modules for editor
         Modules.Add("SCALE");
-        Modules.Add("Game");
     }
     /// <inheritdoc />
 	public override void SetupTargetEnvironment(BuildOptions options)
-	{
-		base.SetupTargetEnvironment(options);
-		options.ScriptingAPI.FileReferences.Add(Path.Combine(Globals.Project.ProjectFolderPath, "ThirdParty", "Accord.dll"));
-		options.ScriptingAPI.FileReferences.Add(Path.Combine(Globals.Project.ProjectFolderPath, "ThirdParty", "Accord.Math.dll"));
-	}
+    {
+        base.SetupTargetEnvironment(options);
+        options.ScriptingAPI.FileReferences.Add(Path.Combine(Globals.Project.ProjectFolderPath, "ThirdParty", "Accord.dll"));
+        options.ScriptingAPI.FileReferences.Add(Path.Combine(Globals.Project.ProjectFolderPath, "ThirdParty", "Accord.Math.dll"));
+    }
 }

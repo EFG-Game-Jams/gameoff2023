@@ -5,14 +5,13 @@ using System.IO;
 /// <inheritdoc />
 public class GameTarget : GameProjectTarget
 {
-    /// <inheritdoc />
-    public override void Init()
-    {
-        base.Init();
+	/// <inheritdoc />
+	public override void Init()
+	{
+		base.Init();
 
-        // Reference the modules for game
-        Modules.Add("SCALE");
-        Modules.Add("Game");
+		// Reference the modules for game
+		Modules.Add("SCALE");
 	}
 	/// <inheritdoc />
 	public override void SetupTargetEnvironment(BuildOptions options)
