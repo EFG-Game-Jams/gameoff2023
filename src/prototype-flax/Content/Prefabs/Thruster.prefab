@@ -1,12 +1,11 @@
 {
 	"ID": "ac6fe64947bc2df2be8b8b84fbfff26d",
 	"TypeName": "FlaxEngine.Prefab",
-	"EngineBuild": 6404,
+	"EngineBuild": 6406,
 	"Data": [
 	{
 		"ID": "8e70e64444bff34505a3bd811b3d8e45",
 		"TypeName": "FlaxEngine.EmptyActor",
-		"ParentID": "00000000000000000000000000000000",
 		"Name": "Thruster",
 		"Transform": {
 			"Translation": {
@@ -22,8 +21,38 @@
 		"TypeName": "SCALE.Thruster",
 		"ParentID": "8e70e64444bff34505a3bd811b3d8e45",
 		"V": {
-			"maxThrust": 1000.0
-		}
+	"maxThrust": 1000.0,
+	"thrustEffect": "9bd2b26a4271a6e5d02bf682e0d57592",
+	"Actor": "8e70e64444bff34505a3bd811b3d8e45",
+	"Parent": "8e70e64444bff34505a3bd811b3d8e45",
+	"OrderInParent": 0
+}
+	},
+	{
+		"ID": "9bd2b26a4271a6e5d02bf682e0d57592",
+		"TypeName": "FlaxEngine.ParticleEffect",
+		"ParentID": "8e70e64444bff34505a3bd811b3d8e45",
+		"Name": "ParticleEffect",
+		"Transform": {
+			"Orientation": {
+				"X": 0.0,
+				"Y": -0.0,
+				"Z": 1.0,
+				"W": -4.371138828673793e-8
+			}
+		},
+		"StaticFlags": 0,
+		"Overrides": [
+			{
+				"Track": "Thrust",
+				"Id": "4ec358674e1455fb0fea2ab4eb6ff117",
+				"Value": {
+					"Type": 7,
+					"Value": 0.0
+				}
+			}
+		],
+		"ParticleSystem": "b18ba789489c5a9af0e169857907597e"
 	}
 ]
 }

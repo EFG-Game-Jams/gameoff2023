@@ -116,7 +116,7 @@ public class ThrusterSystem : Script
 	public void ApplySolutionToThrusters()
 	{
 		for (int i = 0; i < thrusters.Length; i++)
-			thrusters[i].throttle = (float)Solution[i];
+			thrusters[i].SetThrottle((float)Solution[i]);
 	}
 
 	public void ApplyThrustAndTorque()

@@ -197,9 +197,17 @@
 			"PrefabObjectID": "47dfc7964b93383b8c219d9fd7e7f12a",
 			"ParentID": "bdbb83854820ced5adfc4b9e7cffbe22",
 			"V": {
+	"thrustEffect": "4b1006254b030b042931438bc45e283e",
 	"Actor": "bdbb83854820ced5adfc4b9e7cffbe22",
 	"Parent": "bdbb83854820ced5adfc4b9e7cffbe22"
 }
+		},
+		{
+			"ID": "4b1006254b030b042931438bc45e283e",
+			"PrefabID": "ac6fe64947bc2df2be8b8b84fbfff26d",
+			"PrefabObjectID": "9bd2b26a4271a6e5d02bf682e0d57592",
+			"ParentID": "bdbb83854820ced5adfc4b9e7cffbe22",
+			"Overrides": []
 		},
 		{
 			"ID": "03619004465365d887b265bc836fa70c",
@@ -221,9 +229,17 @@
 			"PrefabObjectID": "47dfc7964b93383b8c219d9fd7e7f12a",
 			"ParentID": "03619004465365d887b265bc836fa70c",
 			"V": {
+	"thrustEffect": "d489d1a148faf2b004e2e6a6273cb875",
 	"Actor": "03619004465365d887b265bc836fa70c",
 	"Parent": "03619004465365d887b265bc836fa70c"
 }
+		},
+		{
+			"ID": "d489d1a148faf2b004e2e6a6273cb875",
+			"PrefabID": "ac6fe64947bc2df2be8b8b84fbfff26d",
+			"PrefabObjectID": "9bd2b26a4271a6e5d02bf682e0d57592",
+			"ParentID": "03619004465365d887b265bc836fa70c",
+			"Overrides": []
 		},
 		{
 			"ID": "8469be254c5aa6c2670398aea88301e2",
@@ -251,9 +267,17 @@
 			"PrefabObjectID": "47dfc7964b93383b8c219d9fd7e7f12a",
 			"ParentID": "8469be254c5aa6c2670398aea88301e2",
 			"V": {
+	"thrustEffect": "a6db4cba49ad761fc749deb5d15cb930",
 	"Actor": "8469be254c5aa6c2670398aea88301e2",
 	"Parent": "8469be254c5aa6c2670398aea88301e2"
 }
+		},
+		{
+			"ID": "a6db4cba49ad761fc749deb5d15cb930",
+			"PrefabID": "ac6fe64947bc2df2be8b8b84fbfff26d",
+			"PrefabObjectID": "9bd2b26a4271a6e5d02bf682e0d57592",
+			"ParentID": "8469be254c5aa6c2670398aea88301e2",
+			"Overrides": []
 		},
 		{
 			"ID": "3ac75ea5434a62584914aba0d09aa727",
@@ -281,9 +305,17 @@
 			"PrefabObjectID": "47dfc7964b93383b8c219d9fd7e7f12a",
 			"ParentID": "3ac75ea5434a62584914aba0d09aa727",
 			"V": {
+	"thrustEffect": "933b85d947e6d1397f8d908bae73cf72",
 	"Actor": "3ac75ea5434a62584914aba0d09aa727",
 	"Parent": "3ac75ea5434a62584914aba0d09aa727"
 }
+		},
+		{
+			"ID": "933b85d947e6d1397f8d908bae73cf72",
+			"PrefabID": "ac6fe64947bc2df2be8b8b84fbfff26d",
+			"PrefabObjectID": "9bd2b26a4271a6e5d02bf682e0d57592",
+			"ParentID": "3ac75ea5434a62584914aba0d09aa727",
+			"Overrides": []
 		},
 		{
 			"ID": "9dcbfc9a436da8b90d618d9bb6668d0b",
@@ -311,9 +343,17 @@
 			"PrefabObjectID": "47dfc7964b93383b8c219d9fd7e7f12a",
 			"ParentID": "9dcbfc9a436da8b90d618d9bb6668d0b",
 			"V": {
+	"thrustEffect": "9dd3ac034e771c68a408efa9538fbb52",
 	"Actor": "9dcbfc9a436da8b90d618d9bb6668d0b",
 	"Parent": "9dcbfc9a436da8b90d618d9bb6668d0b"
 }
+		},
+		{
+			"ID": "9dd3ac034e771c68a408efa9538fbb52",
+			"PrefabID": "ac6fe64947bc2df2be8b8b84fbfff26d",
+			"PrefabObjectID": "9bd2b26a4271a6e5d02bf682e0d57592",
+			"ParentID": "9dcbfc9a436da8b90d618d9bb6668d0b",
+			"Overrides": []
 		},
 		{
 			"ID": "d57096c64061cf98b18f3db881751ae6",
@@ -341,9 +381,17 @@
 			"PrefabObjectID": "47dfc7964b93383b8c219d9fd7e7f12a",
 			"ParentID": "d57096c64061cf98b18f3db881751ae6",
 			"V": {
+	"thrustEffect": "67affa3749de39bf941c22ae45b28977",
 	"Actor": "d57096c64061cf98b18f3db881751ae6",
 	"Parent": "d57096c64061cf98b18f3db881751ae6"
 }
+		},
+		{
+			"ID": "67affa3749de39bf941c22ae45b28977",
+			"PrefabID": "ac6fe64947bc2df2be8b8b84fbfff26d",
+			"PrefabObjectID": "9bd2b26a4271a6e5d02bf682e0d57592",
+			"ParentID": "d57096c64061cf98b18f3db881751ae6",
+			"Overrides": []
 		},
 		{
 			"ID": "0801cc744e9e3d8eba57c8b15dfbc903",
@@ -784,91 +832,6 @@
 			}
 		},
 		{
-			"ID": "ebfb95eb4f87217d6c5703bc79685ab6",
-			"TypeName": "SCALE.WorldParameterNode",
-			"ParentID": "1bbaf49e4a46c3fa109af5b57a45df6c",
-			"V": {
-	"parameters": {
-		"Position": {
-			"X": 377.491943359375,
-			"Y": -141.5594940185547
-		},
-		"AsteroidDensity": 0.0,
-		"AsteroidSize": {
-			"X": 0.0,
-			"Y": 0.0
-		},
-		"AsteroidLinearSpeed": {
-			"X": 0.0,
-			"Y": 0.0
-		},
-		"AsteroidAngularSpeed": {
-			"X": 0.0,
-			"Y": 0.0
-		}
-	},
-	"Model": "b43f0f8f4aaba3f3156896a5a22ba493",
-	"Entries": [
-		{
-			"Material": "b9f6a9ea4ffad93caad51b86dba65da8",
-			"ShadowsMode": 3,
-			"Visible": true,
-			"ReceiveDecals": true
-		}
-	],
-	"Layer": 3,
-	"Name": "WorldParameterNode 3",
-	"StaticFlags": 0,
-	"LocalTransform": {
-		"Translation": {
-			"X": 377.491943359375,
-			"Y": -141.5594940185547,
-			"Z": -3.300139360362664E-05
-		},
-		"Orientation": {
-			"X": 0.0,
-			"Y": 1.0,
-			"Z": 0.0,
-			"W": -4.371139E-08
-		},
-		"Scale": {
-			"X": 1.0,
-			"Y": 1.0,
-			"Z": 1.0
-		}
-	},
-	"Parent": "1bbaf49e4a46c3fa109af5b57a45df6c",
-	"OrderInParent": 2
-},
-			"Name": "WorldParameterNode 3",
-			"Transform": {
-				"Translation": {
-					"X": 377.491943359375,
-					"Y": -141.5594940185547,
-					"Z": -0.00003300139360362664
-				},
-				"Orientation": {
-					"X": 0.0,
-					"Y": 1.0,
-					"Z": 0.0,
-					"W": -4.371138828673793e-8
-				}
-			},
-			"StaticFlags": 0,
-			"Layer": 3,
-			"Model": "b43f0f8f4aaba3f3156896a5a22ba493",
-			"Buffer": {
-				"Entries": [
-					{
-						"Material": "b9f6a9ea4ffad93caad51b86dba65da8",
-						"ShadowsMode": 3,
-						"Visible": true,
-						"ReceiveDecals": true
-					}
-				]
-			}
-		},
-		{
 			"ID": "8628e53840ba9cd138991d929a6d80f0",
 			"TypeName": "SCALE.WorldParameterNode",
 			"ParentID": "1bbaf49e4a46c3fa109af5b57a45df6c",
@@ -923,7 +886,7 @@
 		}
 	},
 	"Parent": "1bbaf49e4a46c3fa109af5b57a45df6c",
-	"OrderInParent": 3
+	"OrderInParent": 2
 },
 			"Name": "WorldParameterNode 2",
 			"Transform": {
@@ -931,6 +894,91 @@
 					"X": 338.019287109375,
 					"Y": -522.8815307617188,
 					"Z": -0.000029550583349191585
+				},
+				"Orientation": {
+					"X": 0.0,
+					"Y": 1.0,
+					"Z": 0.0,
+					"W": -4.371138828673793e-8
+				}
+			},
+			"StaticFlags": 0,
+			"Layer": 3,
+			"Model": "b43f0f8f4aaba3f3156896a5a22ba493",
+			"Buffer": {
+				"Entries": [
+					{
+						"Material": "b9f6a9ea4ffad93caad51b86dba65da8",
+						"ShadowsMode": 3,
+						"Visible": true,
+						"ReceiveDecals": true
+					}
+				]
+			}
+		},
+		{
+			"ID": "ebfb95eb4f87217d6c5703bc79685ab6",
+			"TypeName": "SCALE.WorldParameterNode",
+			"ParentID": "1bbaf49e4a46c3fa109af5b57a45df6c",
+			"V": {
+	"parameters": {
+		"Position": {
+			"X": 377.491943359375,
+			"Y": -141.5594940185547
+		},
+		"AsteroidDensity": 0.0,
+		"AsteroidSize": {
+			"X": 0.0,
+			"Y": 0.0
+		},
+		"AsteroidLinearSpeed": {
+			"X": 0.0,
+			"Y": 0.0
+		},
+		"AsteroidAngularSpeed": {
+			"X": 0.0,
+			"Y": 0.0
+		}
+	},
+	"Model": "b43f0f8f4aaba3f3156896a5a22ba493",
+	"Entries": [
+		{
+			"Material": "b9f6a9ea4ffad93caad51b86dba65da8",
+			"ShadowsMode": 3,
+			"Visible": true,
+			"ReceiveDecals": true
+		}
+	],
+	"Layer": 3,
+	"Name": "WorldParameterNode 3",
+	"StaticFlags": 0,
+	"LocalTransform": {
+		"Translation": {
+			"X": 377.491943359375,
+			"Y": -141.5594940185547,
+			"Z": -3.300139360362664E-05
+		},
+		"Orientation": {
+			"X": 0.0,
+			"Y": 1.0,
+			"Z": 0.0,
+			"W": -4.371139E-08
+		},
+		"Scale": {
+			"X": 1.0,
+			"Y": 1.0,
+			"Z": 1.0
+		}
+	},
+	"Parent": "1bbaf49e4a46c3fa109af5b57a45df6c",
+	"OrderInParent": 3
+},
+			"Name": "WorldParameterNode 3",
+			"Transform": {
+				"Translation": {
+					"X": 377.491943359375,
+					"Y": -141.5594940185547,
+					"Z": -0.00003300139360362664
 				},
 				"Orientation": {
 					"X": 0.0,

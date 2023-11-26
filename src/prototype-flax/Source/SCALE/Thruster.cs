@@ -12,6 +12,8 @@ public class Thruster : Script
 	public float maxThrust;
 	public float throttle;
 
+	public ParticleEffect thrustEffect;
+
 	public Double2 GetRelativeThrustDirection(Transform vessel)
 	{
 		Vector3 relativeUp = vessel.WorldToLocalVector(Transform.Up);
@@ -23,5 +25,11 @@ public class Thruster : Script
 		Double3 forcePosition = vessel.WorldToLocal(Actor.Position);
 		Double3 forceDirection = vessel.WorldToLocalVector(Transform.Up);
 		return Double3.Cross(forcePosition, forceDirection).Z;
+	}
+
+	public void SetThrottle(float throttle)
+	{
+		this.throttle = throttle;
+		thrustEffect.SetParameterValue("Thrust", "Density", throttle);
 	}
 }

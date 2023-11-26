@@ -153,7 +153,7 @@ public class ProceduralAsteroids : Script
 			Float3 point;
 			do
 				point = InBox(scale);
-			while ((point / scale).LengthSquared > .5f);
+			while ((point / scale).Length > .5f);
 			return point;
 		}
 
