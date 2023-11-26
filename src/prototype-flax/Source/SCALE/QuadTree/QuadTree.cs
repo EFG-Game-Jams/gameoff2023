@@ -1,15 +1,50 @@
 ﻿using System.Collections.Generic;
 using FlaxEngine;
 
-public class Quadtree : Script
+#if USE_LARGE_WORLDS
+using Real = System.Double;
+using Mathr = FlaxEngine.Mathd;
+#else
+using Real = System.Single;
+using Mathr = FlaxEngine.Mathf;
+#endif
+
+public class QuadTree : Script
 {
+	public struct Rect
+	{
+		public readonly Vector2 Min;
+		public readonly Vector2 Max;
+
+		public Real Width => Max.X - Min.X;
+		public Real Height => Max.Y - Min.Y;
+
+		public Rect(Vector2 min, Vector2 max)
+		{
+			this.Min = min;
+			this.Max = max;
+		}
+		public Rect(Real x0, Real y0, Real width, Real height)
+			: this(new Vector2(x0, y0), new Vector2(x0 + width, y0 + height))
+		{
+		}
+		public bool Contains(Vector2 point)
+		{
+			return point.X >= Min.X && point.X <= Max.X && point.Y >= Min.Y && point.Y <= Max.Y;
+		}
+		public bool Intersects(in Rect other)
+		{
+			return Min.X <= other.Max.X && Max.X >= other.Min.X && Min.Y <= other.Max.Y && Max.Y >= other.Min.Y;
+		}
+	}
+
 	private class Node
 	{
-		public Rectangle Bounds;
+		public Rect Bounds;
 		public List<Actor> Items;
 		public Node[] Children;
 
-		public Node(Rectangle bounds)
+		public Node(Rect bounds)
 		{
 			Bounds = bounds;
 			Items = new();
@@ -21,14 +56,14 @@ public class Quadtree : Script
 
 	private Node root;
 
-	public Rectangle Bounds
+	public Rect Bounds
 	{
 		get => root.Bounds;
 		set => root = new Node(value);
 	}
 	public int MaxItemsPerNode { get; set; } = 4;
 	
-	public Quadtree()
+	public QuadTree()
 	{
 	}
 
@@ -64,17 +99,17 @@ public class Quadtree : Script
 
 	private void Split(Node node)
 	{
-		float halfWidth = node.Bounds.Width * 0.5f;
-		float halfHeight = node.Bounds.Height * 0.5f;
-		float x = node.Bounds.X;
-		float y = node.Bounds.Y;
+		var halfWidth = node.Bounds.Width / 2;
+		var halfHeight = node.Bounds.Height / 2;
+		var x = node.Bounds.Min.X;
+		var y = node.Bounds.Min.Y;
 
 		// Creating four child nodes
 		node.Children = new Node[4];
-		node.Children[0] = new Node(new Rectangle(x, y, halfWidth, halfHeight)); // Top left
-		node.Children[1] = new Node(new Rectangle(x + halfWidth, y, halfWidth, halfHeight)); // Top right
-		node.Children[2] = new Node(new Rectangle(x, y + halfHeight, halfWidth, halfHeight)); // Bottom left
-		node.Children[3] = new Node(new Rectangle(x + halfWidth, y + halfHeight, halfWidth, halfHeight)); // Bottom right
+		node.Children[0] = new Node(new Rect(x, y, halfWidth, halfHeight)); // Top left
+		node.Children[1] = new Node(new Rect(x + halfWidth, y, halfWidth, halfHeight)); // Top right
+		node.Children[2] = new Node(new Rect(x, y + halfHeight, halfWidth, halfHeight)); // Bottom left
+		node.Children[3] = new Node(new Rect(x + halfWidth, y + halfHeight, halfWidth, halfHeight)); // Bottom right
 
 		// Reassign items to children
 		foreach (Actor item in node.Items)
@@ -94,19 +129,19 @@ public class Quadtree : Script
 		node.Items.Clear();
 	}
 
-	private void Query(Rectangle area, List<Actor> result)
+	private void Query(Rect area, List<Actor> result)
 	{
 		Query(area, root, result);
 	}
-	public List<Actor> Query(Rectangle area)
+	public List<Actor> Query(Rect area)
 	{
 		var result = new List<Actor>();
 		Query(area, result);
 		return result;
 	}	
-	private void Query(Rectangle area, Node node, List<Actor> result)
+	private void Query(Rect area, Node node, List<Actor> result)
 	{
-		if (!node.Bounds.Intersects(ref area))
+		if (!node.Bounds.Intersects(area))
 			return;
 
 		if (node.IsLeaf)
@@ -125,19 +160,19 @@ public class Quadtree : Script
 		}
 	}
 
-	public List<Rectangle> QueryCells(Rectangle area, bool leafNodesOnly)
+	public List<Rect> QueryCells(Rect area, bool leafNodesOnly)
 	{
-		var result = new List<Rectangle>();
+		var result = new List<Rect>();
 		QueryCells(area, leafNodesOnly, result);
 		return result;
 	}
-	public void QueryCells(Rectangle area, bool leafNodesOnly, List<Rectangle> result)
+	public void QueryCells(Rect area, bool leafNodesOnly, List<Rect> result)
 	{
 		QueryCells(area, root, leafNodesOnly, result);
 	}
-	private void QueryCells(Rectangle area, Node node, bool leafNodesOnly, List<Rectangle> result)
+	private void QueryCells(Rect area, Node node, bool leafNodesOnly, List<Rect> result)
 	{
-		if (!node.Bounds.Intersects(ref area))
+		if (!node.Bounds.Intersects(area))
 			return;
 
 		if (node.IsLeaf)

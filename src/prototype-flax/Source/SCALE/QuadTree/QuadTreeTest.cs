@@ -18,14 +18,14 @@ public class QuadTreeTest : Script
 
     public float lastQueryTimeMs;
 
-    private Quadtree tree;
+    private QuadTree tree;
     private List<EmptyActor> items;
 
     /// <inheritdoc/>
     public override void OnStart()
     {
-        tree = Actor.AddScript<Quadtree>();
-        tree.Bounds = bounds;
+        tree = Actor.AddScript<QuadTree>();
+        tree.Bounds = new(bounds.X, bounds.Y, bounds.Width, bounds.Height);
         tree.MaxItemsPerNode = 16;
 
         items = new();
@@ -52,7 +52,7 @@ public class QuadTreeTest : Script
         if (samplePoint == null)
 			return;
 
-        Rectangle rect = new Rectangle(samplePoint.Position.X - sampleRadius, samplePoint.Position.Y - sampleRadius, sampleRadius * 2, sampleRadius * 2);
+        var rect = new QuadTree.Rect(samplePoint.Position.X - sampleRadius, samplePoint.Position.Y - sampleRadius, sampleRadius * 2, sampleRadius * 2);
         
         var stopwatch = System.Diagnostics.Stopwatch.StartNew();
         List<Actor> items = null;
@@ -91,7 +91,7 @@ public class QuadTreeTest : Script
             r.Y += 10;
             r.Width -= 20;
             r.Height -= 20;*/
-            DebugDraw.DrawWireBox(new BoundingBox((Float3)(r.UpperLeft), (Float3)(r.BottomRight)), Color.Gray);
+            DebugDraw.DrawWireBox(new BoundingBox((Vector3)r.Min, (Vector3)r.Max), Color.Gray);
 		}
     }
 }
