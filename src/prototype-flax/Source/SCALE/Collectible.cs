@@ -10,8 +10,7 @@ namespace SCALE;
 /// </summary>
 public class Collectible : Script
 {
-    [ReadOnly]
-    public ResourceField ResourceField { get; set; }
+    public NpcSpawner NpcSpawner { get; set; }
 
     public int Units { get; set; }
 
@@ -20,7 +19,6 @@ public class Collectible : Script
     {
         // Here you can add code that needs to be called when script is created, just before the first game update
     }
-
 
     public override void OnEnable()
     {
@@ -40,6 +38,6 @@ public class Collectible : Script
 
     public void OnCollected()
     {
-        ResourceField.RemoveResource(Parent);
+        NpcSpawner.RemoveResource(Parent);
     }
 }

@@ -1,7 +1,7 @@
 {
 	"ID": "08dbe86cb7d0af2d13c874c194c9c84a",
 	"TypeName": "FlaxEngine.Prefab",
-	"EngineBuild": 6404,
+	"EngineBuild": 6406,
 	"Data": [
 	{
 		"ID": "08dbe86cb7ccfba213c874b494c9c7c5",
@@ -15,7 +15,11 @@
 		"ID": "08dbe86cb7cde9ba13c874b594c9c7cd",
 		"TypeName": "SCALE.Collectible",
 		"ParentID": "08dbe86cb7ccfba213c874b494c9c7c5",
-		"V": {}
+		"V": {
+	"Actor": "08dbe86cb7ccfba213c874b494c9c7c5",
+	"Parent": "08dbe86cb7ccfba213c874b494c9c7c5",
+	"OrderInParent": 0
+}
 	},
 	{
 		"ID": "08dbe86cb7ce7ca713c874b594c9c7d0",

@@ -397,12 +397,12 @@
 			"ID": "0801cc744e9e3d8eba57c8b15dfbc903",
 			"TypeName": "FlaxEngine.EmptyActor",
 			"ParentID": "e7ca86554002f14810cd68b3ef49a1e2",
-			"Name": "AsteroidField",
+			"Name": "NpcSpawner",
 			"Layer": 1
 		},
 		{
-			"ID": "557912d041988b314cbb62a7cd166e35",
-			"TypeName": "SCALE.AsteroidField",
+			"ID": "71f090364810eb318c55a8b5b228adf2",
+			"TypeName": "SCALE.NpcSpawner",
 			"ParentID": "0801cc744e9e3d8eba57c8b15dfbc903",
 			"V": {
 	"Player": "e8adb9724c4e218dea4bfaa859db3976",
@@ -410,6 +410,7 @@
 	"AsteroidLayer": 1,
 	"MaxAsteroids": 200,
 	"asteroidMaterial": "93e8772e4ea2d2578e56c1b80152d9bc",
+	"ResourcePrefab": "08dbe86cb7d0af2d13c874c194c9c84a",
 	"Actor": "0801cc744e9e3d8eba57c8b15dfbc903",
 	"Parent": "0801cc744e9e3d8eba57c8b15dfbc903",
 	"OrderInParent": 0
@@ -432,25 +433,6 @@
 	"Actor": "0801cc744e9e3d8eba57c8b15dfbc903",
 	"Parent": "0801cc744e9e3d8eba57c8b15dfbc903",
 	"OrderInParent": 1
-}
-		},
-		{
-			"ID": "08dbe829812c4143610d45519971c6de",
-			"TypeName": "FlaxEngine.EmptyActor",
-			"ParentID": "e7ca86554002f14810cd68b3ef49a1e2",
-			"Name": "ResourceField",
-			"Layer": 2
-		},
-		{
-			"ID": "d15e60e8436b57f631f5e6aa884e965d",
-			"TypeName": "SCALE.ResourceField",
-			"ParentID": "08dbe829812c4143610d45519971c6de",
-			"V": {
-	"CollectiblePrefab": "08dbe86cb7d0af2d13c874c194c9c84a",
-	"Player": "e8adb9724c4e218dea4bfaa859db3976",
-	"Actor": "08dbe829812c4143610d45519971c6de",
-	"Parent": "08dbe829812c4143610d45519971c6de",
-	"OrderInParent": 0
 }
 		},
 		{
@@ -570,7 +552,7 @@
 		}
 	},
 	"Parent": "e7ca86554002f14810cd68b3ef49a1e2",
-	"OrderInParent": 6
+	"OrderInParent": 5
 },
 			"Name": "WorldParameterSampler",
 			"Transform": {
@@ -623,7 +605,7 @@
 	"Layer": 3,
 	"Name": "Level",
 	"Parent": "e7ca86554002f14810cd68b3ef49a1e2",
-	"OrderInParent": 7
+	"OrderInParent": 6
 },
 			"Name": "Level",
 			"Layer": 3
