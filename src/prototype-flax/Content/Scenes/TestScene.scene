@@ -97,23 +97,23 @@
 				}
 			},
 			"StaticFlags": 0,
-			"Radius": 25.0,
-			"Height": 50.0
+			"Radius": 40.0,
+			"Height": 250.0
 		},
 		{
 			"ID": "17f12c0641019a8557ff2aa6cd04e78c",
 			"TypeName": "FlaxEngine.StaticModel",
 			"ParentID": "e8adb9724c4e218dea4bfaa859db3976",
-			"Name": "Capsule",
+			"Name": "Model",
 			"Transform": {
 				"Translation": {
 					"X": 0.0,
-					"Y": -50.0,
+					"Y": 26.22384787844139,
 					"Z": 0.0
 				}
 			},
 			"StaticFlags": 0,
-			"Model": "3f82e57744f57c28285150b646ad2198",
+			"Model": "08dc06f5a0bfd408ef2417f109d4bfa2",
 			"Buffer": {
 				"Entries": [
 					{
@@ -407,8 +407,9 @@
 			"V": {
 	"Player": "e8adb9724c4e218dea4bfaa859db3976",
 	"Camera": "7d2b1917407196794daee6b09b78192b",
+	"WorldParameterSampler": "33b581be4ac189dfb27bef84238a46c4",
+	"DespawnRadius": 1000.0,
 	"AsteroidLayer": 1,
-	"MaxAsteroids": 200,
 	"asteroidMaterial": "93e8772e4ea2d2578e56c1b80152d9bc",
 	"ResourcePrefab": "08dbe86cb7d0af2d13c874c194c9c84a",
 	"Actor": "0801cc744e9e3d8eba57c8b15dfbc903",
@@ -588,7 +589,6 @@
 			"ParentID": "e83de7df4de2f34cbfa65b8147854b37",
 			"V": {
 	"level": "1bbaf49e4a46c3fa109af5b57a45df6c",
-	"node": "e83de7df4de2f34cbfa65b8147854b37",
 	"radius": 10000.0,
 	"Actor": "e83de7df4de2f34cbfa65b8147854b37",
 	"Parent": "e83de7df4de2f34cbfa65b8147854b37",
