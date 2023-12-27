@@ -7,13 +7,12 @@ namespace SCALE;
 public class WorldParameterSampler : Script
 {
 	public Level level;
-	public WorldParameterNode node;
 	public float radius = 1000;
 
 	private WorldLocalParameters.Interpolator interpolator;
 	private List<Actor> queryResult;
 
-	public override void OnUpdate()
+	public WorldLocalParameters Sample()
 	{
 		interpolator ??= new();
 		interpolator.Clear();
@@ -21,7 +20,7 @@ public class WorldParameterSampler : Script
 		queryResult ??= new();
 		queryResult.Clear();
 
-		Vector2 position = (Vector2)node.Position;
+		Vector2 position = (Vector2)Parent.Position;
 		Vector2 halfExtents = Vector2.One * radius;
 		var rect = new QuadTree.Rect(position - halfExtents, position + halfExtents);
 		level.QuadTree.Query(rect, queryResult);
@@ -32,6 +31,7 @@ public class WorldParameterSampler : Script
 			if (actor is WorldParameterNode node)
 				interpolator.Add(node.Parameters);
 		}
-		node.Parameters = interpolator.Sample(position);
+
+		return interpolator.Sample(position);
 	}
 }

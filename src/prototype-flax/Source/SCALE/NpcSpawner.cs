@@ -10,18 +10,17 @@ public class NpcSpawner : Script
 {
 	public RigidBody Player;
 	public Camera Camera;
+	public WorldParameterSampler WorldParameterSampler;
 
 	public double DespawnRadius = 10_000.0;
 
+	#region Asteroids
 	[EditorDisplay("Asteroids")]
 	[CustomEditorAlias("FlaxEditor.CustomEditors.Editors.ActorLayerEditor")]
 	public int AsteroidLayer;
 
 	[EditorDisplay("Asteroids")]
-	public int MaxAsteroids = 25;
-
-	[EditorDisplay("Asteroids")]
-	public Float2 asteroidScale = new Float2(1, 10);
+	public Float2 asteroidScale = new(1, 10);
 
 	[EditorDisplay("Asteroids")]
 	public Material asteroidMaterial;
@@ -32,18 +31,18 @@ public class NpcSpawner : Script
 
 	[EditorDisplay("Asteroids")]
 	public double AsteroidMaxVelocity = 100.0;
+	#endregion
 
+	#region Collectibles
 	[EditorDisplay("Collectibles")]
 	public Prefab ResourcePrefab;
-
-	[EditorDisplay("Collectibles")]
-	public int MaxResources = 10;
 
 	[EditorDisplay("Collectibles")]
 	public int MaxResourceUnitValue = 100;
 
 	[EditorDisplay("Collectibles")]
 	public Float2 ResourceScaling = new(0.25f, 0.5f);
+	#endregion
 
 	private readonly HashSet<Actor> asteroids = new();
 	private readonly HashSet<Actor> resources = new();
@@ -58,12 +57,14 @@ public class NpcSpawner : Script
 
 		DespawnObjectsTooFarAway();
 
+		var parameters = WorldParameterSampler.Sample();
+
 		SpawnNewAsteroids(
-			Math.Max(0, MaxAsteroids - asteroids.Count),
+			parameters,
 			allowSpawnInView: asteroids.Count == 0);
 
 		SpawnNewResources(
-			Math.Max(0, MaxResources - resources.Count),
+			parameters,
 			allowSpawnInView: resources.Count == 0);
 	}
 
@@ -86,9 +87,10 @@ public class NpcSpawner : Script
 		}
 	}
 
-	private void SpawnNewAsteroids(int count, bool allowSpawnInView)
+	private void SpawnNewAsteroids(WorldLocalParameters parameters, bool allowSpawnInView)
 	{
-		if (count == 0)
+		var desiredAsteroidCount = Math.Round(Math.Max(20, parameters.AsteroidDensity) * 10);
+		if (desiredAsteroidCount == 0)
 		{
 			return;
 		}
@@ -96,7 +98,7 @@ public class NpcSpawner : Script
 		var proceduralAsteroids = Parent.GetScript<ProceduralAsteroids>();
 
 		var variants = new List<ProceduralAsteroids.Variant>();
-		for (var i = 0; i < count; ++i)
+		for (var i = 0; i < desiredAsteroidCount; ++i)
 		{
 			variants.Add(proceduralAsteroids.GetRandomVariant());
 		}
@@ -142,8 +144,9 @@ public class NpcSpawner : Script
 		}
 	}
 
-	private void SpawnNewResources(int count, bool allowSpawnInView)
+	private void SpawnNewResources(WorldLocalParameters parameters, bool allowSpawnInView)
 	{
+		var count = 0; // TODO
 		if (count == 0)
 		{
 			return;
