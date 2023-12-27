@@ -17,6 +17,8 @@ public class ThrusterController : Script
 	public float AngularSensitivity { get; set; } = 1;
 	public float MaxThrustRequest { get; set; } = 1000;
 	public float MaxTorqueRequest { get; set; } = 1000;
+	public float LinearVelocityThreshold { get; set; } = 0.1f;
+	public float AngularVelocityThreshold { get; set; } = 0.01f;
 
 	[Header("State")]
 	public bool KillTranslation { get; set; }
@@ -58,6 +60,14 @@ public class ThrusterController : Script
 		thrusters.DesiredThrust = desiredThrust;
 		thrusters.DesiredTorque = desiredTorque;
 		thrusters.Solve();
+
+		// clear solution if below thresholds
+		if (currentLinearVelocity.Length < LinearVelocityThreshold && desiredLinearVelocity.Length < LinearVelocityThreshold
+			&& currentAngularVelocity < AngularVelocityThreshold && desiredAngularVelocity < AngularVelocityThreshold)
+		{
+			for (int i = 0; i < thrusters.Solution.Length; ++i)
+				thrusters.Solution[i] = 0;
+		}
 
 		thrusters.ApplySolutionToThrusters();
 		thrusters.ApplyThrustAndTorque();

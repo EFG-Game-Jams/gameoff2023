@@ -140,8 +140,9 @@
 	"thrusters": "9fd7f4994bf4b8cfcb1fe594ab1c599d",
 	"MaxAngularSpeed": 5.0,
 	"LinearSensitivity": 2.0,
-	"AngularSensitivity": 5000.0,
-	"MaxTorqueRequest": 5000.0,
+	"AngularSensitivity": 20000.0,
+	"MaxTorqueRequest": 20000.0,
+	"LinearVelocityThreshold": 1.0,
 	"KillTranslation": true,
 	"KillRotation": true
 }
@@ -160,8 +161,8 @@
 		"6fcf9e3042fdd66573bd5a957a76fdd4",
 		"ec7542204d4bb7af6d658d91b881127f"
 	],
-	"torqueExponent": 2.0,
 	"magnitudeExponent": 2.0,
+	"efficiencyWeight": 10000.0,
 	"maxSolverTimeMs": 5.0
 }
 		},
@@ -174,7 +175,7 @@
 			"Transform": {
 				"Translation": {
 					"X": 0.0,
-					"Y": 50.0,
+					"Y": 170.0,
 					"Z": 0.0
 				},
 				"Orientation": {
@@ -210,7 +211,7 @@
 			"Transform": {
 				"Translation": {
 					"X": 0.0,
-					"Y": -50.0,
+					"Y": -140.0,
 					"Z": 0.0
 				}
 			}
@@ -239,8 +240,8 @@
 			"Name": "Thruster LF",
 			"Transform": {
 				"Translation": {
-					"X": -25.0,
-					"Y": 25.0,
+					"X": -24.99998664855957,
+					"Y": 135.00001525878907,
 					"Z": 0.0
 				},
 				"Orientation": {
@@ -275,8 +276,8 @@
 			"Name": "Thruster LB",
 			"Transform": {
 				"Translation": {
-					"X": -25.0,
-					"Y": -25.0,
+					"X": -45.00000762939453,
+					"Y": -65.0,
 					"Z": 0.0
 				},
 				"Orientation": {
@@ -311,8 +312,8 @@
 			"Name": "Thruster RF",
 			"Transform": {
 				"Translation": {
-					"X": 24.9999942779541,
-					"Y": 25.0,
+					"X": 25.00000762939453,
+					"Y": 135.00001525878907,
 					"Z": 0.0
 				},
 				"Orientation": {
@@ -347,8 +348,8 @@
 			"Name": "Thruster RB",
 			"Transform": {
 				"Translation": {
-					"X": 24.9999942779541,
-					"Y": -25.0,
+					"X": 44.99999237060547,
+					"Y": -65.0,
 					"Z": 0.0
 				},
 				"Orientation": {
@@ -390,7 +391,6 @@
 	"Player": "e8adb9724c4e218dea4bfaa859db3976",
 	"Camera": "7d2b1917407196794daee6b09b78192b",
 	"WorldParameterSampler": "33b581be4ac189dfb27bef84238a46c4",
-	"DespawnRadius": 1000.0,
 	"AsteroidLayer": 1,
 	"asteroidMaterial": "93e8772e4ea2d2578e56c1b80152d9bc",
 	"ResourcePrefab": "08dbe86cb7d0af2d13c874c194c9c84a"

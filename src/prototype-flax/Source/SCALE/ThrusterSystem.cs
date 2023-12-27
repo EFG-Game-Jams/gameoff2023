@@ -20,6 +20,7 @@ public class ThrusterSystem : Script
 	[Serialize, ShowInEditor] private double torqueExponent = 1;
 	[Serialize, ShowInEditor] private double magnitudeExponent = 1;
 	[Serialize, ShowInEditor] private double alignmentExponent = 1;
+	[Serialize, ShowInEditor] private double efficiencyWeight = 1;
 	[Serialize, ShowInEditor] private double maxSolverTimeMs = 1;
 
 	[Header("Status")]
@@ -75,7 +76,7 @@ public class ThrusterSystem : Script
 					efficiencyScore += misaligned * x[i];
 				}
 			}
-			efficiencyScore *= 10;
+			efficiencyScore *= efficiencyWeight;
 
 			return torqueScore + magnitudeScore + alignmentScore + efficiencyScore;
 		});

@@ -89,8 +89,8 @@ public class NpcSpawner : Script
 
 	private void SpawnNewAsteroids(WorldLocalParameters parameters, bool allowSpawnInView)
 	{
-		var desiredAsteroidCount = Math.Round(Math.Max(20, parameters.AsteroidDensity) * 10);
-		if (desiredAsteroidCount == 0)
+		var desiredAsteroidCount = Math.Round(Math.Max(20, parameters.AsteroidDensity) * 10) - asteroids.Count;
+		if (desiredAsteroidCount <= 0)
 		{
 			return;
 		}
@@ -242,6 +242,7 @@ public class NpcSpawner : Script
 					collsionSphereRadius,
 					hitTriggers: true))
 				{
+					//Debug.Log($"NPC spawn position blocked by collider at {candidatePosition} {collsionSphereRadius} {minimumSpawnRadius} {maximumSpawnRadius}");
 					continue;
 				}
 
