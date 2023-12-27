@@ -44,10 +44,7 @@
 	"zRange": {
 		"X": -1000.0,
 		"Y": -5000.0
-	},
-	"Actor": "7d2b1917407196794daee6b09b78192b",
-	"Parent": "7d2b1917407196794daee6b09b78192b",
-	"OrderInParent": 0
+	}
 }
 		},
 		{
@@ -77,11 +74,14 @@
 	"ThrusterController": "95118e87497dc9f8e93f9bae9206f2df",
 	"ResourceLayerMask": {
 		"Mask": 4
-	},
-	"Actor": "e8adb9724c4e218dea4bfaa859db3976",
-	"Parent": "e8adb9724c4e218dea4bfaa859db3976",
-	"OrderInParent": 0
+	}
 }
+		},
+		{
+			"ID": "dd710a274870b37700120f84317489d7",
+			"TypeName": "SCALE.UI.DevHUD",
+			"ParentID": "e8adb9724c4e218dea4bfaa859db3976",
+			"V": {}
 		},
 		{
 			"ID": "e5a5bd2042e854c510a009bb8eb6da99",
@@ -108,7 +108,7 @@
 			"Transform": {
 				"Translation": {
 					"X": 0.0,
-					"Y": 26.22384787844139,
+					"Y": 26.223848342895509,
 					"Z": 0.0
 				}
 			},
@@ -143,10 +143,7 @@
 	"AngularSensitivity": 5000.0,
 	"MaxTorqueRequest": 5000.0,
 	"KillTranslation": true,
-	"KillRotation": true,
-	"Actor": "418e4a8f43b68927ce45e590665f45a9",
-	"Parent": "418e4a8f43b68927ce45e590665f45a9",
-	"OrderInParent": 0
+	"KillRotation": true
 }
 		},
 		{
@@ -165,10 +162,7 @@
 	],
 	"torqueExponent": 2.0,
 	"magnitudeExponent": 2.0,
-	"maxSolverTimeMs": 5.0,
-	"Actor": "418e4a8f43b68927ce45e590665f45a9",
-	"Parent": "418e4a8f43b68927ce45e590665f45a9",
-	"OrderInParent": 1
+	"maxSolverTimeMs": 5.0
 }
 		},
 		{
@@ -197,9 +191,7 @@
 			"PrefabObjectID": "47dfc7964b93383b8c219d9fd7e7f12a",
 			"ParentID": "bdbb83854820ced5adfc4b9e7cffbe22",
 			"V": {
-	"thrustEffect": "4b1006254b030b042931438bc45e283e",
-	"Actor": "bdbb83854820ced5adfc4b9e7cffbe22",
-	"Parent": "bdbb83854820ced5adfc4b9e7cffbe22"
+	"thrustEffect": "4b1006254b030b042931438bc45e283e"
 }
 		},
 		{
@@ -229,9 +221,7 @@
 			"PrefabObjectID": "47dfc7964b93383b8c219d9fd7e7f12a",
 			"ParentID": "03619004465365d887b265bc836fa70c",
 			"V": {
-	"thrustEffect": "d489d1a148faf2b004e2e6a6273cb875",
-	"Actor": "03619004465365d887b265bc836fa70c",
-	"Parent": "03619004465365d887b265bc836fa70c"
+	"thrustEffect": "d489d1a148faf2b004e2e6a6273cb875"
 }
 		},
 		{
@@ -267,9 +257,7 @@
 			"PrefabObjectID": "47dfc7964b93383b8c219d9fd7e7f12a",
 			"ParentID": "8469be254c5aa6c2670398aea88301e2",
 			"V": {
-	"thrustEffect": "a6db4cba49ad761fc749deb5d15cb930",
-	"Actor": "8469be254c5aa6c2670398aea88301e2",
-	"Parent": "8469be254c5aa6c2670398aea88301e2"
+	"thrustEffect": "a6db4cba49ad761fc749deb5d15cb930"
 }
 		},
 		{
@@ -305,9 +293,7 @@
 			"PrefabObjectID": "47dfc7964b93383b8c219d9fd7e7f12a",
 			"ParentID": "3ac75ea5434a62584914aba0d09aa727",
 			"V": {
-	"thrustEffect": "933b85d947e6d1397f8d908bae73cf72",
-	"Actor": "3ac75ea5434a62584914aba0d09aa727",
-	"Parent": "3ac75ea5434a62584914aba0d09aa727"
+	"thrustEffect": "933b85d947e6d1397f8d908bae73cf72"
 }
 		},
 		{
@@ -343,9 +329,7 @@
 			"PrefabObjectID": "47dfc7964b93383b8c219d9fd7e7f12a",
 			"ParentID": "9dcbfc9a436da8b90d618d9bb6668d0b",
 			"V": {
-	"thrustEffect": "9dd3ac034e771c68a408efa9538fbb52",
-	"Actor": "9dcbfc9a436da8b90d618d9bb6668d0b",
-	"Parent": "9dcbfc9a436da8b90d618d9bb6668d0b"
+	"thrustEffect": "9dd3ac034e771c68a408efa9538fbb52"
 }
 		},
 		{
@@ -381,9 +365,7 @@
 			"PrefabObjectID": "47dfc7964b93383b8c219d9fd7e7f12a",
 			"ParentID": "d57096c64061cf98b18f3db881751ae6",
 			"V": {
-	"thrustEffect": "67affa3749de39bf941c22ae45b28977",
-	"Actor": "d57096c64061cf98b18f3db881751ae6",
-	"Parent": "d57096c64061cf98b18f3db881751ae6"
+	"thrustEffect": "67affa3749de39bf941c22ae45b28977"
 }
 		},
 		{
@@ -411,10 +393,7 @@
 	"DespawnRadius": 1000.0,
 	"AsteroidLayer": 1,
 	"asteroidMaterial": "93e8772e4ea2d2578e56c1b80152d9bc",
-	"ResourcePrefab": "08dbe86cb7d0af2d13c874c194c9c84a",
-	"Actor": "0801cc744e9e3d8eba57c8b15dfbc903",
-	"Parent": "0801cc744e9e3d8eba57c8b15dfbc903",
-	"OrderInParent": 0
+	"ResourcePrefab": "08dbe86cb7d0af2d13c874c194c9c84a"
 }
 		},
 		{
@@ -430,10 +409,7 @@
 	"perAxisScaleRange": {
 		"X": 200.0,
 		"Y": 500.0
-	},
-	"Actor": "0801cc744e9e3d8eba57c8b15dfbc903",
-	"Parent": "0801cc744e9e3d8eba57c8b15dfbc903",
-	"OrderInParent": 1
+	}
 }
 		},
 		{
@@ -492,10 +468,7 @@
 	},
 	"Player": "e8adb9724c4e218dea4bfaa859db3976",
 	"Velocity": 1500.0,
-	"MaxLength": 800.0,
-	"Actor": "08dbe83d795048165fb5787a8c06a083",
-	"Parent": "08dbe83d795048165fb5787a8c06a083",
-	"OrderInParent": 0
+	"MaxLength": 800.0
 }
 		},
 		{
@@ -521,39 +494,7 @@
 			"X": 0.0,
 			"Y": 0.0
 		}
-	},
-	"Model": "b43f0f8f4aaba3f3156896a5a22ba493",
-	"Entries": [
-		{
-			"Material": "bff6de3a45a0f6567a713f8cf1d97904",
-			"ShadowsMode": 3,
-			"Visible": true,
-			"ReceiveDecals": true
-		}
-	],
-	"Layer": 3,
-	"Name": "WorldParameterSampler",
-	"StaticFlags": 0,
-	"LocalTransform": {
-		"Translation": {
-			"X": -413.29571533203125,
-			"Y": -151.4691162109375,
-			"Z": 3.613145963754505E-05
-		},
-		"Orientation": {
-			"X": 0.0,
-			"Y": 1.0,
-			"Z": 0.0,
-			"W": -4.371139E-08
-		},
-		"Scale": {
-			"X": 1.0,
-			"Y": 1.0,
-			"Z": 1.0
-		}
-	},
-	"Parent": "e7ca86554002f14810cd68b3ef49a1e2",
-	"OrderInParent": 5
+	}
 },
 			"Name": "WorldParameterSampler",
 			"Transform": {
@@ -589,10 +530,7 @@
 			"ParentID": "e83de7df4de2f34cbfa65b8147854b37",
 			"V": {
 	"level": "1bbaf49e4a46c3fa109af5b57a45df6c",
-	"radius": 10000.0,
-	"Actor": "e83de7df4de2f34cbfa65b8147854b37",
-	"Parent": "e83de7df4de2f34cbfa65b8147854b37",
-	"OrderInParent": 0
+	"radius": 10000.0
 }
 		},
 		{
@@ -601,11 +539,7 @@
 			"ParentID": "e7ca86554002f14810cd68b3ef49a1e2",
 			"V": {
 	"worldScale": 10.0,
-	"QuadTree": "07f9cc734211a1a660a53283924889a9",
-	"Layer": 3,
-	"Name": "Level",
-	"Parent": "e7ca86554002f14810cd68b3ef49a1e2",
-	"OrderInParent": 6
+	"QuadTree": "07f9cc734211a1a660a53283924889a9"
 },
 			"Name": "Level",
 			"Layer": 3
@@ -616,10 +550,7 @@
 			"ParentID": "1bbaf49e4a46c3fa109af5b57a45df6c",
 			"V": {
 	"level": "1bbaf49e4a46c3fa109af5b57a45df6c",
-	"quadTree": "07f9cc734211a1a660a53283924889a9",
-	"Actor": "1bbaf49e4a46c3fa109af5b57a45df6c",
-	"Parent": "1bbaf49e4a46c3fa109af5b57a45df6c",
-	"OrderInParent": 0
+	"quadTree": "07f9cc734211a1a660a53283924889a9"
 }
 		},
 		{
@@ -637,10 +568,7 @@
 			"Y": 100000.0
 		}
 	},
-	"MaxItemsPerNode": 16,
-	"Actor": "1bbaf49e4a46c3fa109af5b57a45df6c",
-	"Parent": "1bbaf49e4a46c3fa109af5b57a45df6c",
-	"OrderInParent": 1
+	"MaxItemsPerNode": 16
 }
 		},
 		{
@@ -666,39 +594,7 @@
 			"X": 0.0,
 			"Y": 0.0
 		}
-	},
-	"Model": "b43f0f8f4aaba3f3156896a5a22ba493",
-	"Entries": [
-		{
-			"Material": "b9f6a9ea4ffad93caad51b86dba65da8",
-			"ShadowsMode": 3,
-			"Visible": true,
-			"ReceiveDecals": true
-		}
-	],
-	"Layer": 3,
-	"Name": "WorldParameterNode 0",
-	"StaticFlags": 0,
-	"LocalTransform": {
-		"Translation": {
-			"X": -249.39451599121094,
-			"Y": 182.54383850097656,
-			"Z": 2.1802748960908502E-05
-		},
-		"Orientation": {
-			"X": 0.0,
-			"Y": 1.0,
-			"Z": 0.0,
-			"W": -4.371139E-08
-		},
-		"Scale": {
-			"X": 1.0,
-			"Y": 1.0,
-			"Z": 1.0
-		}
-	},
-	"Parent": "1bbaf49e4a46c3fa109af5b57a45df6c",
-	"OrderInParent": 0
+	}
 },
 			"Name": "WorldParameterNode 0",
 			"Transform": {
@@ -751,39 +647,7 @@
 			"X": 0.0,
 			"Y": 0.0
 		}
-	},
-	"Model": "b43f0f8f4aaba3f3156896a5a22ba493",
-	"Entries": [
-		{
-			"Material": "b9f6a9ea4ffad93caad51b86dba65da8",
-			"ShadowsMode": 3,
-			"Visible": true,
-			"ReceiveDecals": true
-		}
-	],
-	"Layer": 3,
-	"Name": "WorldParameterNode 1",
-	"StaticFlags": 0,
-	"LocalTransform": {
-		"Translation": {
-			"X": -565.9038696289062,
-			"Y": -474.5227355957031,
-			"Z": 4.947288834955543E-05
-		},
-		"Orientation": {
-			"X": 0.0,
-			"Y": 1.0,
-			"Z": 0.0,
-			"W": -4.371139E-08
-		},
-		"Scale": {
-			"X": 1.0,
-			"Y": 1.0,
-			"Z": 1.0
-		}
-	},
-	"Parent": "1bbaf49e4a46c3fa109af5b57a45df6c",
-	"OrderInParent": 1
+	}
 },
 			"Name": "WorldParameterNode 1",
 			"Transform": {
@@ -836,39 +700,7 @@
 			"X": 0.0,
 			"Y": 0.0
 		}
-	},
-	"Model": "b43f0f8f4aaba3f3156896a5a22ba493",
-	"Entries": [
-		{
-			"Material": "b9f6a9ea4ffad93caad51b86dba65da8",
-			"ShadowsMode": 3,
-			"Visible": true,
-			"ReceiveDecals": true
-		}
-	],
-	"Layer": 3,
-	"Name": "WorldParameterNode 2",
-	"StaticFlags": 0,
-	"LocalTransform": {
-		"Translation": {
-			"X": 338.019287109375,
-			"Y": -522.8815307617188,
-			"Z": -2.9550583349191584E-05
-		},
-		"Orientation": {
-			"X": 0.0,
-			"Y": 1.0,
-			"Z": 0.0,
-			"W": -4.371139E-08
-		},
-		"Scale": {
-			"X": 1.0,
-			"Y": 1.0,
-			"Z": 1.0
-		}
-	},
-	"Parent": "1bbaf49e4a46c3fa109af5b57a45df6c",
-	"OrderInParent": 2
+	}
 },
 			"Name": "WorldParameterNode 2",
 			"Transform": {
@@ -921,39 +753,7 @@
 			"X": 0.0,
 			"Y": 0.0
 		}
-	},
-	"Model": "b43f0f8f4aaba3f3156896a5a22ba493",
-	"Entries": [
-		{
-			"Material": "b9f6a9ea4ffad93caad51b86dba65da8",
-			"ShadowsMode": 3,
-			"Visible": true,
-			"ReceiveDecals": true
-		}
-	],
-	"Layer": 3,
-	"Name": "WorldParameterNode 3",
-	"StaticFlags": 0,
-	"LocalTransform": {
-		"Translation": {
-			"X": 377.491943359375,
-			"Y": -141.5594940185547,
-			"Z": -3.300139360362664E-05
-		},
-		"Orientation": {
-			"X": 0.0,
-			"Y": 1.0,
-			"Z": 0.0,
-			"W": -4.371139E-08
-		},
-		"Scale": {
-			"X": 1.0,
-			"Y": 1.0,
-			"Z": 1.0
-		}
-	},
-	"Parent": "1bbaf49e4a46c3fa109af5b57a45df6c",
-	"OrderInParent": 3
+	}
 },
 			"Name": "WorldParameterNode 3",
 			"Transform": {

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using FlaxEngine;
+using SCALE.UI;
 
 namespace SCALE;
 
@@ -92,6 +93,9 @@ public class ShipController : Script
 
 		fireGrapplingHook = Input.GetAction("Fire");
 		releaseGrapplingHook = Input.GetAction("Release");
+
+		DevHUD.State.speed = body.LinearVelocity.Length;
+		DevHUD.State.maxSpeed = ThrusterController.MaxLinearSpeed;
 	}
 
 	public override void OnFixedUpdate()
