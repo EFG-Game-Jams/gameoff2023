@@ -216,7 +216,7 @@ public class NpcSpawner : Script
 				var ninetyDegrees = Mathd.Pi / 2.0;
 				var randomAngleOffset = RandomUtil.Rand() * ninetyDegrees - (ninetyDegrees / 2.0); // Some angle between -45 and 45 degrees
 
-				var playerDirectionAsAngle = Vector3.Angle(normalizedPlayerDirection, new Vector3(0, 1, 0)) * Mathd.DegreesToRadians;
+				var playerDirectionAsAngle = Mathd.Atan2(normalizedPlayerDirection.Y, normalizedPlayerDirection.X);
 				var randomAngle = randomAngleOffset + playerDirectionAsAngle;
 
 				randomDirection = new Vector3(Mathd.Cos(randomAngle), Mathd.Sin(randomAngle), 0);
